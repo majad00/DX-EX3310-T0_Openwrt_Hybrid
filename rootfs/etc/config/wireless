@@ -1,0 +1,70 @@
+config wifi-device 'radio0'
+        option path 'platform/1e140000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0'
+        option ifname 'ra0'
+        option channel 'auto'
+        option type 'mac80211'
+        option hwmode '11a'
+
+config wifi-iface
+        option device 'radio0'
+        option network 'lan'
+        option mode 'ap'
+        option key '12345678'
+        option encryption 'psk-mixed'
+        option disabled '0'
+        option ssid 'Zyxel_Matrix'
+
+config wifi-device 'radio1'
+        option hwmode '11a'
+        option path 'platform/1e140000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0'
+        option ifname 'rai5'
+        option channel 'auto'
+        option type 'mac80211'
+
+config wifi-iface
+        option device 'radio1'
+        option network 'lan'
+        option mode 'ap'
+        option encryption 'psk-mixed'
+        option key '12345678'
+        option disabled '0'
+        option ssid 'Zyxel_Matrix'
+
+config wifi-iface
+        option device 'radio0'
+        option ifname 'ra2'
+        option network 'lan'
+        option mode 'ap'
+        option ssid 'Zyxel_Guest_ra2'
+        option encryption 'none'
+        option disabled '1'
+        option hidden '0'
+
+config wifi-iface
+        option device 'radio1'
+        option ifname 'rai1'
+        option network 'lan'
+        option mode 'ap'
+        option ssid 'Zyxel_Guest_rai1'
+        option encryption 'none'
+        option disabled '1'
+        option hidden '0'
+
+config wifi-iface
+        option device 'radio1'
+        option ifname 'rai2'
+        option network 'lan'
+        option mode 'ap'
+        option ssid 'Zyxel_Guest_rai2'
+        option encryption 'none'
+        option disabled '1'
+        option hidden '0'
+
+config wifi-iface
+        option device 'radio0'
+        option ifname 'ra1'
+        option network 'lan'
+        option mode 'ap'
+        option ssid 'Zyxel_Guest_ra1'
+        option encryption 'none'
+        option disabled '1'

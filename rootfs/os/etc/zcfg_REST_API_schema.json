@@ -1,0 +1,1168 @@
+{
+  "Device": {
+    "_Node": "object",
+    "_Abbreviation": "Device",
+	"RootDataModelVersion": {
+      "_Node": "parameter",
+      "_Attribute": "read",
+      "_Type": "string",
+      "_Length": 32
+    },
+	"Hosts": {
+      "_Node": "object",
+      "_Abbreviation": "Hosts",
+      "HostNumberOfEntries": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "uint32"
+      },
+      "X_ZYXEL_DeleteAllLease": {
+        "_Node": "parameter",
+        "_Attribute": "write",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Host": {
+        "_Node": "index_object",
+        "_Abbreviation": "HostsHost",
+        "_MaxLength": 128,
+        "PhysAddress": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "IPAddress": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 48
+        },
+        "IPAddress6": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 48
+        },
+        "IPLinkLocalAddress6": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 48
+        },
+        "AddressSource": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 6
+        },
+        "DHCPClient": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "LeaseTimeRemaining": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "int32",
+          "_min": -1
+        },
+        "AssociatedDevice": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 256
+        },
+        "Layer1Interface": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 256
+        },
+        "Layer3Interface": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 256
+        },
+        "VendorClassID": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 255
+        },
+        "ClientID": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "hexBinary",
+          "_Length": 4
+        },
+        "UserClassID": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "hexBinary",
+          "_Length": 4
+        },
+        "HostName": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "Active": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "boolean"
+        },
+        "X_ZYXEL_DeleteLease": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "boolean",
+          "_default": false
+        },
+        "X_ZYXEL_ConnectionType": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 16
+        },
+        "X_ZYXEL_ConnectedAP": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "X_ZYXEL_HostType": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "X_ZYXEL_CapabilityType": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "X_ZYXEL_PhyRate": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "uint32",
+          "_default": 0
+        },
+        "X_ZYXEL_WiFiStatus": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "boolean",
+          "_default": false
+        },
+        "X_ZYXEL_SignalStrength": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "uint32",
+          "_min": 0,
+          "_max": 5,
+          "_default": 0
+        },
+        "X_ZYXEL_SNR": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "int32",
+          "_default": 0
+        },
+        "X_ZYXEL_RSSI": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "int32",
+          "_default": 0
+        },
+        "X_ZYXEL_SoftwareVersion": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "X_ZYXEL_Address6Source": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 6
+        },
+        "X_ZYXEL_DHCP6Client": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "X_ZYXEL_BytesSent": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "uint32"
+        },
+        "X_ZYXEL_BytesReceived": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "uint32"
+        },
+        "ClientDuid": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 47
+        },
+        "ExpireTime": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 19
+        },
+		"X_ZYXEL_Neighbor": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 1024
+        },
+		"X_ZYXEL_Conn_Guest": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "int32"
+        },
+		"X_ZYXEL_Band": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "int32"
+        },
+		"X_ZYXEL_Channel_24G": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "int32"
+        },
+		"X_ZYXEL_Channel_5G": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "int32"
+        },
+		"X_ZYXEL_DHCPLeaseTime": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "int32"
+        },
+		"X_ZYXEL_RSSI_STAT": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 32
+        },
+        "X_ZYXEL_EXT": {
+          "_Node": "object",
+          "_Abbreviation": "ZyHostsHostExt",
+          "L2DevCtrl_Reboot": {
+            "_Node": "parameter",
+            "_Attribute": "write",
+            "_Type": "boolean",
+            "_default": false
+          },
+          "L2DevCtrl_RebootResult": {
+            "_Node": "parameter",
+            "_Attribute": "write,active_notify",
+            "_Type": "string",
+            "_Length": 64
+          },
+          "L2DevCtrl_Reset": {
+            "_Node": "parameter",
+            "_Attribute": "write",
+            "_Type": "boolean",
+            "_default": false
+          },
+          "L2DevCtrl_ResetResult": {
+            "_Node": "parameter",
+            "_Attribute": "write,active_notify",
+            "_Type": "string",
+            "_Length": 64
+          },
+          "L2DevCtrl_FWCheck": {
+            "_Node": "parameter",
+            "_Attribute": "write",
+            "_Type": "boolean",
+            "_default": false
+          },
+          "L2DevCtrl_FWDownload": {
+            "_Node": "parameter",
+            "_Attribute": "write",
+            "_Type": "boolean",
+            "_default": false
+          },
+          "L2DevCtrl_FWUpgrade": {
+            "_Node": "parameter",
+            "_Attribute": "write",
+            "_Type": "boolean",
+            "_default": false
+          },
+          "L2DevCtrl_FWURL": {
+            "_Node": "parameter",
+            "_Attribute": "write",
+            "_Type": "string",
+            "_Length": 256
+          },
+          "L2DevCtrl_FWUpgradeResult": {
+            "_Node": "parameter",
+            "_Attribute": "write,active_notify",
+            "_Type": "string",
+            "_Length": 64
+          },
+          "L2DevCtrl_MediaType": {
+            "_Node": "parameter",
+            "_Attribute": "write",
+            "_Type": "string",
+            "_Length": 6
+          },
+          "L2DevCtrl_WiFiPwr": {
+            "_Node": "parameter",
+            "_Attribute": "write",
+            "_Type": "boolean",
+            "_default": true
+          }
+        }
+      }
+    },
+	"X_ZYXEL_Change_Icon_Name": {
+      "_Node": "index_object",
+      "_Abbreviation": "ChangeIconName",
+      "_Attribute": "create",
+      "_MaxLength": 64,
+      "HostName": {
+        "_Node": "parameter",
+        "_Attribute": "write",
+        "_Type": "string",
+        "_Length": 64
+      },
+      "MacAddress": {
+        "_Node": "parameter",
+        "_Attribute": "write",
+        "_Type": "string",
+        "_Length": 64
+      },
+      "DeviceIcon": {
+        "_Node": "parameter",
+        "_Attribute": "write",
+        "_Type": "string",
+        "_Length": 32
+      },
+      "Internet_Blocking_Enable": {
+        "_Node": "parameter",
+        "_Attribute": "write",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "BrowsingProtection": {
+        "_Node": "parameter",
+        "_Attribute": "write",
+        "_Type": "boolean",
+        "_default": true
+      },
+      "TrackingProtection": {
+        "_Node": "parameter",
+        "_Attribute": "write",
+        "_Type": "boolean",
+        "_default": true
+      },
+      "IOTProtection": {
+        "_Node": "parameter",
+        "_Attribute": "write",
+        "_Type": "boolean",
+        "_default": true
+      }
+    },
+	"DeviceInfo": {
+      "_Node": "object",
+      "_Abbreviation": "DevInfo",
+      "Manufacturer": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "string",
+        "_Length": 64
+      },
+      "ManufacturerOUI": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "string",
+        "_Length": 6
+      },
+      "ModelName": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "string",
+        "_Length": 64
+      },
+      "Description": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "string",
+        "_Length": 256
+      },
+      "ProductClass": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "string",
+        "_Length": 64
+      },
+      "SerialNumber": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "string",
+        "_Length": 64
+      },
+      "HardwareVersion": {
+        "_Node": "parameter",
+        "_Attribute": "read,passive_notify",
+        "_Type": "string",
+        "_Length": 64
+      },
+      "SoftwareVersion": {
+        "_Node": "parameter",
+        "_Attribute": "read,active_notify",
+        "_Type": "string",
+        "_Length": 64
+      },
+      "UpTime": {
+        "_Node": "parameter",
+        "_Attribute": "read,deny_active",
+        "_Type": "uint32"
+      },
+      "FirstUseDate": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "dateTime",
+        "_Length": 20
+      },
+      "MemoryStatus": {
+        "_Node": "object",
+        "_Abbreviation": "DevInfoMemStat",
+        "Total": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "uint32"
+        },
+        "Free": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "uint32"
+        }
+      },
+	  "WanInfo": {
+	    "_Node": "object",
+		"Status": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 16
+        },
+		"IPAddress": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        },
+		"PhyRate": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "int32"
+        },
+		"MAC": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 17
+        },
+		"Mode": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 12
+        },
+		"RxRate": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "uint32"
+        },
+		"TxRate": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "uint32"
+        },
+		"DNSServer": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 64
+        }
+	  }
+    },
+	"WiFi": {
+      "_Node": "object",
+      "_Abbreviation": "Wifi",
+      "RadioNumberOfEntries": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "uint32"
+      },
+      "SSIDNumberOfEntries": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "uint32"
+      },
+      "AccessPointNumberOfEntries": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "uint32"
+      },
+      "X_ZYXEL_OneSSID": {
+        "_Node": "object",
+        "_Abbreviation": "WifiOneSsid",
+        "Enable": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "boolean",
+          "_default": false
+        }
+      },
+      "Radio": {
+        "_Node": "index_object",
+        "_Abbreviation": "WifiRadio",
+        "_MaxLength": 2,
+        "Enable": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "boolean"
+        },
+        "Status": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 17,
+          "_default": "NotPresent"
+        },
+        "OperatingFrequencyBand": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "string",
+          "_Length": 8
+        },
+        "SupportedStandards": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 16
+        },
+        "OperatingStandards": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "string",
+          "_Length": 16
+        },
+        "Stats": {
+          "_Node": "object",
+          "_Abbreviation": "WifiRadioSt",
+          "BytesSent": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "ulong"
+          },
+          "BytesReceived": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "ulong"
+          },
+          "PacketsSent": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "ulong"
+          },
+          "PacketsReceived": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "ulong"
+          },
+          "ErrorsSent": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "uint32"
+          },
+          "ErrorsReceived": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "uint32"
+          },
+          "DiscardPacketsSent": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "uint32"
+          },
+          "DiscardPacketsReceived": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "uint32"
+          },
+          "X_ZYXEL_Rate": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "string",
+            "_Length": 16,
+            "_default": ""
+          }
+        }
+      },
+      "SSID": {
+        "_Node": "index_object",
+        "_Abbreviation": "WifiSsid",
+        "_MaxLength": 8,
+        "Enable": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "boolean",
+          "_default": false
+        },
+        "Status": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "string",
+          "_Length": 17,
+          "_default": "NotPresent"
+        },
+        "LowerLayers": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "string",
+          "_Length": 1024
+        },
+        "SSID": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "string",
+          "_Length": 32
+        },
+        "X_ZYXEL_MainSSID": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "boolean",
+          "_default": false
+        }
+      },
+      "AccessPoint": {
+        "_Node": "index_object",
+        "_Abbreviation": "WifiAccessPoint",
+        "_MaxLength": 8,
+        "SSIDReference": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "string",
+          "_Length": 256
+        },
+        "AssociatedDeviceNumberOfEntries": {
+          "_Node": "parameter",
+          "_Attribute": "read",
+          "_Type": "uint32"
+        },
+        "MaxAssociatedDevices": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "uint32",
+          "_default": 32
+        },
+        "IsolationEnable": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "boolean",
+          "_default": false
+        },
+        "Security": {
+          "_Node": "object",
+          "_Abbreviation": "WifiAccessPointSec",
+          "ModesSupported": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "string",
+            "_Length": 128
+          },
+          "ModeEnabled": {
+            "_Node": "parameter",
+            "_Attribute": "write",
+            "_Type": "string",
+            "_Length": 24
+          },
+		  "X_ZYXEL_AutoGenPSK": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "boolean"
+          },
+          "PreSharedKey": {
+            "_Node": "parameter",
+            "_Attribute": "write,password",
+            "_Type": "hexBinary",
+            "_Length": 65
+          },
+          "KeyPassphrase": {
+            "_Node": "parameter",
+            "_Attribute": "write,password",
+            "_Type": "string",
+            "_Length": 63
+          }
+        },
+		"WPS": {
+          "_Node": "object",
+          "_Abbreviation": "WifiAccessPointWps",
+          "Enable": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "boolean",
+            "_default": true
+          },
+          "X_ZYXEL_WPS_EnablePBC": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "boolean",
+            "_default": true
+          },
+          "X_ZyXEL_TriggerWPSPushButton": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "boolean",
+            "_default": false
+          },
+          "X_ZYXEL_WPSRunningStatus": {
+            "_Node": "parameter",
+            "_Attribute": "read,save",
+            "_Type": "string",
+            "_Length": 256
+          }
+        },
+        "AssociatedDevice": {
+          "_Node": "index_object",
+          "_Abbreviation": "WifiAccessPointAssocDev",
+          "_MaxLength": 32,
+          "MACAddress": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "string",
+            "_Length": 17
+          },
+          "OperatingStandard": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "string",
+            "_Length": 12
+          },
+          "AuthenticationState": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "boolean"
+          },
+          "LastDataDownlinkRate": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "uint32",
+            "_min": "1000",
+            "_max": "600000"
+          },
+          "LastDataUplinkRate": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "uint32",
+            "_min": "1000",
+            "_max": "600000"
+          },
+          "SignalStrength": {
+            "_Node": "parameter",
+            "_Attribute": "read",
+            "_Type": "int32",
+            "_min": "-200",
+            "_max": "0"
+          }
+        }
+      }
+    },
+	"X_ZYXEL_ParentalControl": {
+      "_Node": "object",
+      "_Abbreviation": "ParenCtl",
+      "Enable": {
+        "_Node": "parameter",
+        "_Attribute": "write",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Profile": {
+        "_Node": "index_object",
+        "_Attribute": "create",
+        "_Abbreviation": "ParenCtlProf",
+        "_MaxLength": 20,
+        "Enable": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "boolean",
+          "_default": false
+        },
+        "Name": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "MACAddressList": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "string",
+          "_Length": 128
+        },
+        "ScheduleRuleList": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "string",
+          "_Length": 64
+        },
+        "ContentFilterList": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "string",
+          "_Length": 64
+        },
+		"Schedule": {
+          "_Node": "index_object",
+          "_Attribute": "create",
+          "_Abbreviation": "Schedule",
+          "_MaxLength": 5,
+          "Days": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "string",
+			"_Length": 32
+          },
+          "TimeStartHour": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "uint32",
+            "_min": 0,
+            "_max": 23,
+            "_default": 0
+          },
+          "TimeStartMin": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "uint32",
+            "_min": 0,
+            "_max": 59,
+            "_default": 0
+          },
+          "TimeStopHour": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "uint32",
+            "_min": 0,
+            "_max": 23,
+            "_default": 0
+          },
+          "TimeStopMin": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "uint32",
+            "_min": 0,
+            "_max": 59,
+            "_default": 0
+          }
+        }
+      }
+    },
+	"X_ZYXEL_ContentFilter": {
+     "_Node": "index_object",
+      "_Attribute": "create",
+      "_Abbreviation": "ContentFilter",
+      "_MaxLength": 64,
+      "Enable": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Name": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "string",
+        "_Length": 32
+      },
+      "Description": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "string",
+        "_Length": 256
+      },
+      "AdultContent": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Drugs": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "AlcoholandTobacco": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Disturbing": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Gambling": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Illegal": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "IllegalDownloads": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Violence": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Hate": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Weapons": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Dating": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "TimeShoppingandAuctions": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "VideoStreamingServices": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "SocialNetworks": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Anonymizers": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+        "Unknown": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      }
+    },
+    "X_ZYXEL_URLFilter": {
+      "_Node": "index_object",
+      "_Attribute": "create",
+      "_Abbreviation": "URLFilter",
+      "_MaxLength": 64,
+      "Enable": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "boolean",
+        "_default": false
+      },
+      "Name": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "string",
+        "_Length": 32
+      },
+      "Description": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "string",
+        "_Length": 256
+      },
+      "FilterIndex": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "string",
+        "_Length": 256
+      },
+      "WhiteList": {
+        "_Node": "index_object",
+        "_Attribute": "create",
+        "_Abbreviation": "WhiteURLFilter",
+        "_MaxLength": 64,
+        "Name":{
+          "_Node": "parameter",
+          "_Attribute": "write,configurable",
+          "_Type": "string",
+          "_Length": 32
+        },
+        "FilterIndex": {
+          "_Node": "parameter",
+          "_Attribute": "write,configurable",
+          "_Type": "string",
+          "_Length": 256
+        },
+        "Whitelist":{
+          "_Node": "parameter",
+          "_Attribute": "write,configurable",
+          "_Type": "string",
+          "_Length": 64
+        }
+      },
+      "BlackList": {
+        "_Node": "index_object",
+        "_Attribute": "create",
+        "_Abbreviation": "BlackURLFilter",
+        "_MaxLength": 64,
+        "Name":{
+          "_Node": "parameter",
+          "_Attribute": "write,configurable",
+          "_Type": "string",
+          "_Length": 32
+        },
+        "FilterIndex": {
+          "_Node": "parameter",
+          "_Attribute": "write,configurable",
+          "_Type": "string",
+          "_Length": 256
+        },
+        "Blacklist":{
+          "_Node": "parameter",
+          "_Attribute": "write,configurable",
+          "_Type": "string",
+          "_Length": 64
+        }
+      }
+    },
+	"X_ZYXEL_License": {
+      "_Node": "object",
+      "_Abbreviation": "ZyLicnse",
+      "Cyber_Security_FSC": {
+        "_Node": "parameter",
+        "_Attribute": "read",
+        "_Type": "boolean",
+        "_default": false
+      }
+    },
+	"X_ZYXEL_System_Info": {
+      "_Node": "object",
+      "_Abbreviation": "SystemInfo",
+      "HostName": {
+        "_Node": "parameter",
+        "_Attribute": "write,configurable",
+        "_Type": "string",
+        "_Length": 64
+      }
+    },
+	"X_ZYXEL_EXT": {
+      "_Node": "object",
+      "_Abbreviation": "ZyExt",
+	  "EasyMesh": {
+      	"_Node": "object",
+      	"_Abbreviation": "EasyMesh",
+      	"Enable": {
+      	  "_Node": "parameter",
+      	  "_Attribute": "write,configurable",
+      	  "_Type": "boolean",
+      	  "_default": false
+      	}
+      },
+      "HostNameReplace": {
+        "_Node": "object",
+        "_Abbreviation": "ZyHostNameReplace",
+        "Enable": {
+          "_Node": "parameter",
+          "_Attribute": "write,configurable",
+          "_Type": "boolean",
+          "_default": false
+        }
+      },
+	  "SpeedTestInfo": {
+        "_Node": "object",
+        "_Abbreviation": "SpeedTest",
+        "Start": {
+          "_Node": "parameter",
+          "_Attribute": "write",
+          "_Type": "boolean",
+          "_default": false
+        },
+        "Status": {
+          "_Node": "parameter",
+          "_Attribute": "write,active_notify",
+          "_Type": "string",
+          "_Length": 16
+        },
+        "UploadSpeedResult": {
+          "_Node": "parameter",
+          "_Attribute": "write,active_notify",
+          "_Type": "string",
+          "_Length": 16
+        },
+        "DownloadSpeedResult": {
+          "_Node": "parameter",
+          "_Attribute": "write,active_notify",
+          "_Type": "string",
+          "_Length": 16
+      },
+        "ServerIP": {
+      	  "_Node": "parameter",
+      	  "_Attribute": "write,configurable",
+          "_Type": "string",
+          "_Length": 20
+        },
+        "CPE_WANname": {
+          "_Node": "parameter",
+          "_Attribute": "write,configurable",
+          "_Type": "string",
+          "_Length": 10
+      	}
+      },
+	  "InternetBlocking":{
+          "_Node": "object",
+          "_Abbreviation": "InternetBlocking",
+          "Enable": {
+            "_Node": "parameter",
+            "_Attribute": "write,configurable",
+            "_Type": "boolean",
+            "_default": true
+          }
+      }
+	}
+  }
+}

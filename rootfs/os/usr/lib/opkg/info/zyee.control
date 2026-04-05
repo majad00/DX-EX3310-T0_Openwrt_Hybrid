@@ -1,0 +1,8 @@
+Package: zyee
+Version: 1.0-1
+Depends: libc, glib2, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_string, libzcmd_tool, libzyutil, libzos
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zyee
+Section: base
+Architecture: en75xx
+Installed-Size: 19692
+Description:  ZyXEL Execution Environment Daemon 

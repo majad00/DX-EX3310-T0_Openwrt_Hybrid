@@ -1,0 +1,9 @@
+Package: wwanbackupd
+Version: 2.0-1
+Depends: libc, zcmd
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/wwanbackupd
+SourceFile: wwanbackupd-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 13277
+Description:  ZyXEL 3G backup and ping check daemon

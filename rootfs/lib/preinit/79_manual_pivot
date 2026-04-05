@@ -1,0 +1,93 @@
+#!/bin/sh
+#Written by Majad qureshi as part of XX-3310 Port
+
+do_yaffs_bind() {
+    local mtd_dev="/dev/mtdblock11"
+    local mount_point="/overlay"
+
+    echo " Mounting on $mtd_dev ..." > /dev/console
+
+    mkdir -p $mount_point
+    umount $mount_point 2>/dev/null
+    mount -t yaffs2 $mtd_dev $mount_point
+    
+    if [ $? -ne 0 ]; then
+        echo " Formatting ..." > /dev/console
+        mtd erase misc
+        mount -t yaffs2 $mtd_dev $mount_point
+        
+        if [ $? -ne 0 ]; then
+            echo "FATAL: Could not mount YAFFS2 after erase." > /dev/console
+            return 1
+        fi
+    fi
+
+    local current_hash=$(md5sum /bin/sh | cut -d' ' -f1)
+    local do_format=0
+
+    if [ -f "$mount_point/.sh_hash" ]; then
+        local saved_hash=$(cat "$mount_point/.sh_hash")
+        if [ "$current_hash" != "$saved_hash" ]; then
+            echo "New OS detected..." > /dev/console
+            do_format=1
+        fi
+    fi
+
+    if [ ! -f "$mount_point/.reset" ]; then
+        echo " reset triggered." > /dev/console
+        do_format=1
+    fi
+
+
+    if [ "$do_format" -eq 1 ]; then
+        echo "Formatting overlay..." > /dev/console
+        umount $mount_point
+        mtd erase misc
+        mount -t yaffs2 $mtd_dev $mount_point
+
+    fi
+    if [ ! -f "$mount_point/.initialized" ]; then
+        echo " First boot - Please wait $mtd_dev ... " > /dev/console
+        
+ 
+        for dir in etc usr bin sbin root www; do
+            mkdir -p $mount_point/$dir
+            if [ -d "/$dir" ]; then
+                cp -a /$dir/* $mount_point/$dir/ 2>/dev/null
+            fi
+        done
+        mkdir -p $mount_point/lib
+        for item in /lib/*; do
+            if [ "$item" != "/lib/modules" ]; then
+                cp -a "$item" $mount_point/lib/ 2>/dev/null
+            fi
+        done
+        touch $mount_point/.initialized
+        #touch $mount_point/.reset  
+        echo "$current_hash" > "$mount_point/.sh_hash"
+        echo " Copy complete." > /dev/console
+    fi
+    mount -t yaffs2 /dev/mtdblock9 /data
+	
+    for dir in usr bin sbin root www etc; do
+        if [ -d "$mount_point/$dir" ] && [ -d "/$dir" ]; then
+            mount --bind $mount_point/$dir /$dir
+            echo " Bound $mount_point/$dir to /$dir" > /dev/console
+        fi
+    done
+
+    mkdir -p /tmp/modules
+    mount --bind /lib/modules /tmp/modules    
+    mount --bind $mount_point/lib /lib    
+    mkdir -p /lib/modules
+    mount --bind /tmp/modules /lib/modules
+    
+    echo " Multiple bind mounts complete. Booting to Zyxel Matrix ... !" > /dev/console
+		echo 1 > /proc/tc3162/pwm_start 2>/dev/null
+		echo "80 8 1 0 0" > /proc/tc3162/led_def 2>/dev/null
+		echo "82 6 1 0 1" > /proc/tc3162/led_def 2>/dev/null
+		echo 0 > /proc/tc3162/led_pwr_red 2>/dev/null
+}
+
+
+boot_hook_add preinit_mount_root do_yaffs_bind

@@ -1,0 +1,3 @@
+/lib/modules/3.18.23/nf_nat_ipv4.ko
+/lib/modules/3.18.23/nf_nat.ko
+/etc/modules.d/nf-nat

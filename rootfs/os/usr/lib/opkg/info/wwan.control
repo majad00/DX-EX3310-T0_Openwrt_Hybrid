@@ -1,0 +1,10 @@
+Package: wwan
+Version: 1.2-1
+Depends: libc, zcmd
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/wwan
+SourceFile: wwan-1.2.tar.gz
+SourceURL: @ZyXEL_SITE/private/ZyXEL
+Section: net
+Architecture: en75xx
+Installed-Size: 25665
+Description:  ZyXEL WWAN feature

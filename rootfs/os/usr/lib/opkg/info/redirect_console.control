@@ -1,0 +1,8 @@
+Package: redirect_console
+Version: 1.0-1
+Depends: libc
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/redirect_console
+Section: net
+Architecture: en75xx
+Installed-Size: 1973
+Description:  Redirece Console

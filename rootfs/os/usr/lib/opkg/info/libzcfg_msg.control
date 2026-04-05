@@ -1,0 +1,8 @@
+Package: libzcfg_msg
+Version: 2.0-1
+Depends: libc, libzlog, libzos
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_public/public-zyxel/libzcfg_msg
+Section: net
+Architecture: en75xx
+Installed-Size: 5564
+Description:  IPC of processes

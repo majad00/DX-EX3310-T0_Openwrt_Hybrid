@@ -1,0 +1,10 @@
+Package: mtd
+Version: 21
+Depends: libc, libubox
+Source: package/system/mtd
+License: GPL-2.0+
+Section: utils
+Architecture: ar71xx
+Installed-Size: 12144
+Description:  This package contains an utility useful to upgrade from other firmware or 
+ older OpenWrt releases.

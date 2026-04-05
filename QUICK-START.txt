@@ -1,0 +1,11 @@
+⚡ QUICK START GUIDE - ZYXEL-MATRIX DX3301 and EX3310-T0 ⚡
+
+1. CONNECT: Ethernet cable from PC to router
+2. Login to router web page
+3. FLASH: flash through a Maintaince > Firmware update option
+4. WAIT: 2-3 minutes for first boot
+5. Router Power LED will become RED for two second when it is ready
+6. CONNECT: WiFi: Zyxel_Matrix / 12345678 ( Disable by default)
+7. LOGIN: http://192.168.1.1 (root/no password)
+
+⚠️ Change default passwords !

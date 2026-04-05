@@ -1,0 +1,8 @@
+Package: luci-base
+Version: git-16.018.33482-3201903-1
+Depends: libc, lua, libuci-lua, luci-lib-nixio, luci-lib-ip, rpcd, libubus-lua
+Source: feeds/luci/modules/luci-base
+Section: luci
+Architecture: ar71xx
+Installed-Size: 123961
+Description:  LuCI core libraries

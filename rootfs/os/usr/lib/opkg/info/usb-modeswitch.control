@@ -1,0 +1,10 @@
+Package: usb-modeswitch
+Version: 2.1.0-1
+Depends: libc, libusb-1.0
+Source: package/usb-modeswitch
+SourceFile: usb-modeswitch-2.1.0.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/utils
+Section: utils
+Architecture: en75xx
+Installed-Size: 17168
+Description:  A mode switching tool for controlling "flip flop" (multiple device) USB gear.

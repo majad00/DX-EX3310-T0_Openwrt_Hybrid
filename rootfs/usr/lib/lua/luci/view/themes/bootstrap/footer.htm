@@ -1,0 +1,28 @@
+<%#
+ Copyright 2008 Steven Barth <steven@midlink.org>
+ Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>
+ Copyright 2012 David Menting <david@nut-bolt.nl>
+ Copyright 2025 Qureshi Majad <majad.qureshi@lut.fi>
+ Licensed to the public under the Apache License 2.0.
+-%>
+
+<%
+	local ver = require "luci.version"
+	local disp = require "luci.dispatcher"
+	local request  = disp.context.path
+	local category = request[1]
+	local tree = disp.node()
+	local categories = disp.node_childs(tree)
+%>
+   <footer>
+    Powered by  <%= ver.luciname %> / For DX EX3310-T0 Routers
+    <% if #categories > 1 then %>
+     <ul class="breadcrumb pull-right" id="modemenu">
+	     </ul>
+    <% end %>
+   </footer>
+   </div>
+  </div>
+ </body>
+</html>
+

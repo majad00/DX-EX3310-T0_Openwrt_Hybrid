@@ -1,0 +1,11 @@
+Package: kmod-ipt-nat
+Version: 3.18.21-1
+Depends: kernel (=3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ipt-core, kmod-ipt-conntrack
+Source: package/kernel
+License: GPLv2
+Section: kernel
+Architecture: en75xx
+Installed-Size: 1174
+Description:  Netfilter (IPv4) kernel modules for basic NAT targets
+ Includes:
+ - MASQUERADE

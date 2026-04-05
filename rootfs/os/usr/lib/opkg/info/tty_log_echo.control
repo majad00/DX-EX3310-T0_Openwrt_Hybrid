@@ -1,0 +1,8 @@
+Package: tty_log_echo
+Version: 1.0-1
+Depends: libc, libzcfg_msg
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/tty_log_echo
+Section: net
+Architecture: en75xx
+Installed-Size: 5365
+Description:  ZCFG tty_echo Utilities

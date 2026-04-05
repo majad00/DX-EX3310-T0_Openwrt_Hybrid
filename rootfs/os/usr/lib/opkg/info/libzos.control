@@ -1,0 +1,8 @@
+Package: libzos
+Version: 1.0-1
+Depends: libc, libzlog
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_public/public-zyxel/libzos
+Section: net
+Architecture: en75xx
+Installed-Size: 4728
+Description:  OS porting layer

@@ -1,0 +1,13 @@
+/lib/preinit/00_extroot.conf
+/lib/functions/extmount.sh
+/lib/functions/block.sh
+/lib/functions/mount.sh
+/etc/hotplug.d/block/40-mount
+/lib/preinit/55_determine_extroot_sysupgrade
+/etc/hotplug.d/block/20-fsck
+/lib/preinit/60_pivot_usb_root
+/etc/config/fstab
+/etc/hotplug.d/block/10-swap
+/lib/preinit/50_determine_usb_root
+/etc/init.d/fstab
+/lib/functions/fsck.sh

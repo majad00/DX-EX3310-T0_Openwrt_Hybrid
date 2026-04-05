@@ -1,0 +1,13 @@
+Package: libjpeg
+Version: 9a-1
+Depends: libc
+Source: package/libs/libjpeg
+SourceFile: jpegsrc.v9a.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: IJG
+LicenseFiles: README
+Section: libs
+Maintainer: Jo-Philipp Wich <jow@openwrt.org>
+Architecture: en75xx
+Installed-Size: 98826
+Description:  The Independent JPEG Group's JPEG runtime library

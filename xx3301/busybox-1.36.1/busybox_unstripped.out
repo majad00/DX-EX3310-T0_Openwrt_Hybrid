@@ -1,0 +1,1449 @@
+Output of:
+mips-openwrt-linux-uclibc-gcc -Wall -Wshadow -Wwrite-strings -Wundef -Wstrict-prototypes -Wunused -Wunused-parameter -Wunused-function -Wunused-value -Wmissing-prototypes -Wmissing-declarations -Wno-format-security -Wdeclaration-after-statement -Wold-style-definition -finline-limit=0 -fno-builtin-strlen -fomit-frame-pointer -ffunction-sections -fdata-sections -fno-guess-branch-probability -funsigned-char -static-libgcc -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-builtin-printf -Os -march=mips32r2 -msoft-float -static -static -o busybox_unstripped -Wl,--sort-common -Wl,--sort-section,alignment -Wl,--gc-sections -Wl,--start-group applets/built-in.o archival/lib.a archival/libarchive/lib.a console-tools/lib.a coreutils/lib.a coreutils/libcoreutils/lib.a debianutils/lib.a klibc-utils/lib.a e2fsprogs/lib.a editors/lib.a findutils/lib.a init/lib.a libbb/lib.a libpwdgrp/lib.a loginutils/lib.a mailutils/lib.a miscutils/lib.a modutils/lib.a networking/lib.a networking/libiproute/lib.a networking/udhcp/lib.a printutils/lib.a procps/lib.a runit/lib.a selinux/lib.a shell/lib.a sysklogd/lib.a util-linux/lib.a util-linux/volume_id/lib.a archival/built-in.o archival/libarchive/built-in.o console-tools/built-in.o coreutils/built-in.o coreutils/libcoreutils/built-in.o debianutils/built-in.o klibc-utils/built-in.o e2fsprogs/built-in.o editors/built-in.o findutils/built-in.o init/built-in.o libbb/built-in.o libpwdgrp/built-in.o loginutils/built-in.o mailutils/built-in.o miscutils/built-in.o modutils/built-in.o networking/built-in.o networking/libiproute/built-in.o networking/udhcp/built-in.o printutils/built-in.o procps/built-in.o runit/built-in.o selinux/built-in.o shell/built-in.o sysklogd/built-in.o util-linux/built-in.o util-linux/volume_id/built-in.o -Wl,--end-group -Wl,--start-group -lm -Wl,--end-group -Wl,--warn-common -Wl,-Map,busybox_unstripped.map -Wl,--verbose
+==========
+GNU ld (GNU Binutils) 2.24.0
+  Supported emulations:
+   elf32btsmip
+   elf32ltsmip
+   elf32btsmipn32
+   elf64btsmip
+   elf32ltsmipn32
+   elf64ltsmip
+using internal linker script:
+==================================================
+/* Script for -z combreloc: combine and sort reloc sections */
+OUTPUT_FORMAT("elf32-tradbigmips", "elf32-tradbigmips",
+	      "elf32-tradlittlemips")
+OUTPUT_ARCH(mips)
+ENTRY(__start)
+SEARCH_DIR("=/usr/local/lib"); SEARCH_DIR("=/lib"); SEARCH_DIR("=/usr/lib");
+SECTIONS
+{
+  /* Read-only sections, merged into text segment: */
+  PROVIDE (__executable_start = SEGMENT_START("text-segment", 0x0400000)); . = SEGMENT_START("text-segment", 0x0400000) + SIZEOF_HEADERS;
+  .interp         : { *(.interp) }
+  .reginfo        : { *(.reginfo) }
+  .note.gnu.build-id : { *(.note.gnu.build-id) }
+  .dynamic        : { *(.dynamic) }
+  .hash           : { *(.hash) }
+  .gnu.hash       : { *(.gnu.hash) }
+  .dynsym         : { *(.dynsym) }
+  .dynstr         : { *(.dynstr) }
+  .gnu.version    : { *(.gnu.version) }
+  .gnu.version_d  : { *(.gnu.version_d) }
+  .gnu.version_r  : { *(.gnu.version_r) }
+  .rel.dyn        :
+    {
+      *(.rel.init)
+      *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+      *(.rel.fini)
+      *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+      *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+      *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+      *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+      *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+      *(.rel.ctors)
+      *(.rel.dtors)
+      *(.rel.got)
+      *(.rel.dyn)
+      *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+      *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+      *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+      *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+      *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+      PROVIDE_HIDDEN (__rel_iplt_start = .);
+      *(.rel.iplt)
+      PROVIDE_HIDDEN (__rel_iplt_end = .);
+    }
+  .rela.dyn       :
+    {
+      *(.rela.init)
+      *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+      *(.rela.fini)
+      *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+      *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+      *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+      *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+      *(.rela.ctors)
+      *(.rela.dtors)
+      *(.rela.got)
+      *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+      *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+      *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+      *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+      *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+      PROVIDE_HIDDEN (__rela_iplt_start = .);
+      *(.rela.iplt)
+      PROVIDE_HIDDEN (__rela_iplt_end = .);
+    }
+  .rel.plt        :
+    {
+      *(.rel.plt)
+    }
+  .rela.plt       :
+    {
+      *(.rela.plt)
+    }
+  .init           :
+  {
+    KEEP (*(SORT_NONE(.init)))
+  }
+  .text           :
+  {
+    _ftext = . ;
+    *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+    *(.text.exit .text.exit.*)
+    *(.text.startup .text.startup.*)
+    *(.text.hot .text.hot.*)
+    *(.text .stub .text.* .gnu.linkonce.t.*)
+    /* .gnu.warning sections are handled specially by elf32.em.  */
+    *(.gnu.warning)
+    *(.mips16.fn.*) *(.mips16.call.*)
+  }
+  .fini           :
+  {
+    KEEP (*(SORT_NONE(.fini)))
+  }
+  PROVIDE (__etext = .);
+  PROVIDE (_etext = .);
+  PROVIDE (etext = .);
+  .rodata         : { *(.rodata .rodata.* .gnu.linkonce.r.*) }
+  .rodata1        : { *(.rodata1) }
+  .sdata2         :
+  {
+    *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+  }
+  .sbss2          : { *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*) }
+  .eh_frame_hdr : { *(.eh_frame_hdr) }
+  .eh_frame       : ONLY_IF_RO { KEEP (*(.eh_frame)) }
+  .gcc_except_table   : ONLY_IF_RO { *(.gcc_except_table
+  .gcc_except_table.*) }
+  /* These sections are generated by the Sun/Oracle C++ compiler.  */
+  .exception_ranges   : ONLY_IF_RO { *(.exception_ranges
+  .exception_ranges*) }
+  .plt            : { *(.plt) }
+  .iplt           : { *(.iplt) }
+  /* Adjust the address for the data segment.  We want to adjust up to
+     the same address within the page on the next page up.  */
+  . = ALIGN (CONSTANT (MAXPAGESIZE)) - ((CONSTANT (MAXPAGESIZE) - .) & (CONSTANT (MAXPAGESIZE) - 1)); . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE));
+  /* Exception handling  */
+  .eh_frame       : ONLY_IF_RW { KEEP (*(.eh_frame)) }
+  .gcc_except_table   : ONLY_IF_RW { *(.gcc_except_table .gcc_except_table.*) }
+  .exception_ranges   : ONLY_IF_RW { *(.exception_ranges .exception_ranges*) }
+  /* Thread Local Storage sections  */
+  .tdata	  : { *(.tdata .tdata.* .gnu.linkonce.td.*) }
+  .tbss		  : { *(.tbss .tbss.* .gnu.linkonce.tb.*) *(.tcommon) }
+  .preinit_array     :
+  {
+    PROVIDE_HIDDEN (__preinit_array_start = .);
+    KEEP (*(.preinit_array))
+    PROVIDE_HIDDEN (__preinit_array_end = .);
+  }
+  .init_array     :
+  {
+    PROVIDE_HIDDEN (__init_array_start = .);
+    KEEP (*(SORT(.init_array.*)))
+    KEEP (*(.init_array ))
+    PROVIDE_HIDDEN (__init_array_end = .);
+  }
+  .fini_array     :
+  {
+    PROVIDE_HIDDEN (__fini_array_start = .);
+    KEEP (*(SORT(.fini_array.*)))
+    KEEP (*(.fini_array ))
+    PROVIDE_HIDDEN (__fini_array_end = .);
+  }
+  .ctors          :
+  {
+    /* gcc uses crtbegin.o to find the start of
+       the constructors, so we make sure it is
+       first.  Because this is a wildcard, it
+       doesn't matter if the user does not
+       actually link against crtbegin.o; the
+       linker won't look for a file to match a
+       wildcard.  The wildcard also means that it
+       doesn't matter which directory crtbegin.o
+       is in.  */
+    KEEP (*crtbegin.o(.ctors))
+    KEEP (*crtbegin?.o(.ctors))
+    /* We don't want to include the .ctor section from
+       the crtend.o file until after the sorted ctors.
+       The .ctor section from the crtend file contains the
+       end of ctors marker and it must be last */
+    KEEP (*(EXCLUDE_FILE (*crtend.o *crtend?.o ) .ctors))
+    KEEP (*(SORT(.ctors.*)))
+    KEEP (*(.ctors))
+  }
+  .dtors          :
+  {
+    KEEP (*crtbegin.o(.dtors))
+    KEEP (*crtbegin?.o(.dtors))
+    KEEP (*(EXCLUDE_FILE (*crtend.o *crtend?.o ) .dtors))
+    KEEP (*(SORT(.dtors.*)))
+    KEEP (*(.dtors))
+  }
+  .jcr            : { KEEP (*(.jcr)) }
+  .data.rel.ro : { *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*) *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*) }
+  . = DATA_SEGMENT_RELRO_END (0, .);
+  .got.plt        : { *(.got.plt) }
+  .data           :
+  {
+    _fdata = . ;
+    *(.data .data.* .gnu.linkonce.d.*)
+    SORT(CONSTRUCTORS)
+  }
+  .data1          : { *(.data1) }
+  . = .;
+  . = .;
+  HIDDEN (_gp = ALIGN (16) + 0x7ff0);
+  .got            : { *(.got) }
+  /* We want the small data sections together, so single-instruction offsets
+     can access them all, and initialized data all before uninitialized, so
+     we can shorten the on-disk segment size.  */
+  .sdata          :
+  {
+    *(.sdata .sdata.* .gnu.linkonce.s.*)
+  }
+  .lit8           : { *(.lit8) }
+  .lit4           : { *(.lit4) }
+  _edata = .; PROVIDE (edata = .);
+  . = .;
+  __bss_start = .;
+  _fbss = .;
+  .sbss           :
+  {
+    *(.dynsbss)
+    *(.sbss .sbss.* .gnu.linkonce.sb.*)
+    *(.scommon)
+  }
+  .bss            :
+  {
+   *(.dynbss)
+   *(.bss .bss.* .gnu.linkonce.b.*)
+   *(COMMON)
+   /* Align here to ensure that the .bss section occupies space up to
+      _end.  Align after .bss to ensure correct alignment even if the
+      .bss section disappears because there are no input sections.
+      FIXME: Why do we need it? When there is no .bss section, we don't
+      pad the .data section.  */
+   . = ALIGN(. != 0 ? 32 / 8 : 1);
+  }
+  . = ALIGN(32 / 8);
+  . = SEGMENT_START("ldata-segment", .);
+  . = ALIGN(32 / 8);
+  _end = .; PROVIDE (end = .);
+  . = DATA_SEGMENT_END (.);
+  /* Stabs debugging sections.  */
+  .stab          0 : { *(.stab) }
+  .stabstr       0 : { *(.stabstr) }
+  .stab.excl     0 : { *(.stab.excl) }
+  .stab.exclstr  0 : { *(.stab.exclstr) }
+  .stab.index    0 : { *(.stab.index) }
+  .stab.indexstr 0 : { *(.stab.indexstr) }
+  .comment       0 : { *(.comment) }
+  /* DWARF debug sections.
+     Symbols in the DWARF debugging sections are relative to the beginning
+     of the section so we begin them at 0.  */
+  /* DWARF 1 */
+  .debug          0 : { *(.debug) }
+  .line           0 : { *(.line) }
+  /* GNU DWARF 1 extensions */
+  .debug_srcinfo  0 : { *(.debug_srcinfo) }
+  .debug_sfnames  0 : { *(.debug_sfnames) }
+  /* DWARF 1.1 and DWARF 2 */
+  .debug_aranges  0 : { *(.debug_aranges) }
+  .debug_pubnames 0 : { *(.debug_pubnames) }
+  /* DWARF 2 */
+  .debug_info     0 : { *(.debug_info .gnu.linkonce.wi.*) }
+  .debug_abbrev   0 : { *(.debug_abbrev) }
+  .debug_line     0 : { *(.debug_line .debug_line.* .debug_line_end ) }
+  .debug_frame    0 : { *(.debug_frame) }
+  .debug_str      0 : { *(.debug_str) }
+  .debug_loc      0 : { *(.debug_loc) }
+  .debug_macinfo  0 : { *(.debug_macinfo) }
+  /* SGI/MIPS DWARF 2 extensions */
+  .debug_weaknames 0 : { *(.debug_weaknames) }
+  .debug_funcnames 0 : { *(.debug_funcnames) }
+  .debug_typenames 0 : { *(.debug_typenames) }
+  .debug_varnames  0 : { *(.debug_varnames) }
+  /* DWARF 3 */
+  .debug_pubtypes 0 : { *(.debug_pubtypes) }
+  .debug_ranges   0 : { *(.debug_ranges) }
+  /* DWARF Extension.  */
+  .debug_macro    0 : { *(.debug_macro) }
+  .gnu.attributes 0 : { KEEP (*(.gnu.attributes)) }
+  .gptab.sdata : { *(.gptab.data) *(.gptab.sdata) }
+  .gptab.sbss : { *(.gptab.bss) *(.gptab.sbss) }
+  .mdebug.abi32 0 : { KEEP(*(.mdebug.abi32)) }
+  .mdebug.abiN32 0 : { KEEP(*(.mdebug.abiN32)) }
+  .mdebug.abi64 0 : { KEEP(*(.mdebug.abi64)) }
+  .mdebug.abiO64 0 : { KEEP(*(.mdebug.abiO64)) }
+  .mdebug.eabi32 0 : { KEEP(*(.mdebug.eabi32)) }
+  .mdebug.eabi64 0 : { KEEP(*(.mdebug.eabi64)) }
+  .gcc_compiled_long32 0 : { KEEP(*(.gcc_compiled_long32)) }
+  .gcc_compiled_long64 0 : { KEEP(*(.gcc_compiled_long64)) }
+  /DISCARD/ : { *(.note.GNU-stack) *(.gnu_debuglink) *(.gnu.lto_*) }
+}
+
+
+==================================================
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/crt1.o succeeded
+/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/crt1.o
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/crti.o succeeded
+/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/crti.o
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/crtbeginT.o succeeded
+/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/crtbeginT.o
+attempt to open applets/built-in.o succeeded
+applets/built-in.o
+attempt to open archival/lib.a succeeded
+attempt to open archival/libarchive/lib.a succeeded
+attempt to open console-tools/lib.a succeeded
+attempt to open coreutils/lib.a succeeded
+attempt to open coreutils/libcoreutils/lib.a succeeded
+attempt to open debianutils/lib.a succeeded
+attempt to open klibc-utils/lib.a succeeded
+attempt to open e2fsprogs/lib.a succeeded
+attempt to open editors/lib.a succeeded
+attempt to open findutils/lib.a succeeded
+attempt to open init/lib.a succeeded
+attempt to open libbb/lib.a succeeded
+(libbb/lib.a)appletlib.o
+(libbb/lib.a)compare_string_array.o
+(libbb/lib.a)concat_path_file.o
+(libbb/lib.a)default_error_retval.o
+(libbb/lib.a)get_last_path_component.o
+(libbb/lib.a)last_char_is.o
+(libbb/lib.a)llist.o
+(libbb/lib.a)messages.o
+(libbb/lib.a)perror_msg.o
+(libbb/lib.a)ptr_to_globals.o
+(libbb/lib.a)skip_whitespace.o
+(libbb/lib.a)verror_msg.o
+(libbb/lib.a)wfopen.o
+(libbb/lib.a)xfunc_die.o
+(libbb/lib.a)xfuncs.o
+(libbb/lib.a)xfuncs_printf.o
+(libbb/lib.a)xreadlink.o
+(libbb/lib.a)copyfd.o
+(libbb/lib.a)full_write.o
+(libbb/lib.a)read.o
+(libbb/lib.a)safe_write.o
+(libbb/lib.a)signals.o
+(libbb/lib.a)time.o
+(libbb/lib.a)xgetcwd.o
+(libbb/lib.a)bb_strtonum.o
+attempt to open libpwdgrp/lib.a succeeded
+(libpwdgrp/lib.a)pwd_grp.o
+(libpwdgrp/lib.a)uidgid_get.o
+attempt to open loginutils/lib.a succeeded
+(loginutils/lib.a)add-remove-shell.o
+(loginutils/lib.a)addgroup.o
+(loginutils/lib.a)adduser.o
+(loginutils/lib.a)chpasswd.o
+(loginutils/lib.a)cryptpw.o
+(loginutils/lib.a)deluser.o
+(loginutils/lib.a)getty.o
+(loginutils/lib.a)login.o
+(loginutils/lib.a)passwd.o
+(loginutils/lib.a)su.o
+(loginutils/lib.a)sulogin.o
+(loginutils/lib.a)vlock.o
+attempt to open mailutils/lib.a succeeded
+(mailutils/lib.a)makemime.o
+(mailutils/lib.a)popmaildir.o
+(mailutils/lib.a)reformime.o
+(mailutils/lib.a)sendmail.o
+(mailutils/lib.a)mail.o
+attempt to open miscutils/lib.a succeeded
+(miscutils/lib.a)adjtimex.o
+(miscutils/lib.a)ascii.o
+(miscutils/lib.a)bc.o
+(miscutils/lib.a)beep.o
+(miscutils/lib.a)chat.o
+(miscutils/lib.a)conspy.o
+(miscutils/lib.a)crond.o
+(miscutils/lib.a)crontab.o
+(miscutils/lib.a)devmem.o
+(miscutils/lib.a)fbsplash.o
+(miscutils/lib.a)hdparm.o
+(miscutils/lib.a)hexedit.o
+(miscutils/lib.a)i2c_tools.o
+(miscutils/lib.a)less.o
+(miscutils/lib.a)lsscsi.o
+(miscutils/lib.a)makedevs.o
+(miscutils/lib.a)man.o
+(miscutils/lib.a)microcom.o
+(miscutils/lib.a)mt.o
+(miscutils/lib.a)nandwrite.o
+(miscutils/lib.a)partprobe.o
+(miscutils/lib.a)raidautorun.o
+(miscutils/lib.a)readahead.o
+(miscutils/lib.a)runlevel.o
+(miscutils/lib.a)rx.o
+(miscutils/lib.a)setserial.o
+(miscutils/lib.a)strings.o
+(miscutils/lib.a)time.o
+(miscutils/lib.a)tree.o
+(miscutils/lib.a)ts.o
+(miscutils/lib.a)ttysize.o
+(miscutils/lib.a)ubi_tools.o
+(miscutils/lib.a)ubirename.o
+(miscutils/lib.a)volname.o
+(miscutils/lib.a)watchdog.o
+attempt to open modutils/lib.a succeeded
+(modutils/lib.a)modinfo.o
+(modutils/lib.a)modprobe-small.o
+(modutils/lib.a)modutils.o
+attempt to open networking/lib.a succeeded
+(networking/lib.a)arp.o
+(networking/lib.a)arping.o
+(networking/lib.a)brctl.o
+(networking/lib.a)dnsd.o
+(networking/lib.a)ether-wake.o
+(networking/lib.a)ftpd.o
+(networking/lib.a)ftpgetput.o
+(networking/lib.a)hostname.o
+(networking/lib.a)httpd.o
+(networking/lib.a)ifconfig.o
+(networking/lib.a)ifenslave.o
+(networking/lib.a)ifplugd.o
+(networking/lib.a)ifupdown.o
+(networking/lib.a)inetd.o
+(networking/lib.a)interface.o
+(networking/lib.a)ip.o
+(networking/lib.a)ipcalc.o
+(networking/lib.a)isrv_identd.o
+(networking/lib.a)nameif.o
+(networking/lib.a)nbd-client.o
+(networking/lib.a)nc.o
+(networking/lib.a)netstat.o
+(networking/lib.a)nslookup.o
+(networking/lib.a)ntpd.o
+(networking/lib.a)parse_pasv_epsv.o
+(networking/lib.a)ping.o
+(networking/lib.a)pscan.o
+(networking/lib.a)route.o
+(networking/lib.a)slattach.o
+(networking/lib.a)ssl_client.o
+(networking/lib.a)tcpudp.o
+(networking/lib.a)tcpudp_perhost.o
+(networking/lib.a)telnet.o
+(networking/lib.a)telnetd.o
+(networking/lib.a)tftp.o
+(networking/lib.a)tls.o
+(networking/lib.a)tls_aes.o
+(networking/lib.a)tls_aesgcm.o
+(networking/lib.a)tls_fe.o
+(networking/lib.a)tls_pstm.o
+(networking/lib.a)tls_pstm_montgomery_reduce.o
+(networking/lib.a)tls_pstm_mul_comba.o
+(networking/lib.a)tls_pstm_sqr_comba.o
+(networking/lib.a)tls_rsa.o
+(networking/lib.a)tls_sp_c32.o
+(networking/lib.a)traceroute.o
+(networking/lib.a)tunctl.o
+(networking/lib.a)vconfig.o
+(networking/lib.a)wget.o
+(networking/lib.a)whois.o
+(networking/lib.a)zcip.o
+(networking/lib.a)isrv.o
+attempt to open networking/libiproute/lib.a succeeded
+(networking/libiproute/lib.a)ip_parse_common_args.o
+(networking/libiproute/lib.a)ipaddress.o
+(networking/libiproute/lib.a)iplink.o
+(networking/libiproute/lib.a)ipneigh.o
+(networking/libiproute/lib.a)iproute.o
+(networking/libiproute/lib.a)iprule.o
+(networking/libiproute/lib.a)iptunnel.o
+(networking/libiproute/lib.a)libnetlink.o
+(networking/libiproute/lib.a)ll_addr.o
+(networking/libiproute/lib.a)ll_map.o
+(networking/libiproute/lib.a)ll_types.o
+(networking/libiproute/lib.a)rt_names.o
+(networking/libiproute/lib.a)rtm_map.o
+(networking/libiproute/lib.a)utils.o
+attempt to open networking/udhcp/lib.a succeeded
+(networking/udhcp/lib.a)d6_dhcpc.o
+(networking/udhcp/lib.a)d6_packet.o
+(networking/udhcp/lib.a)d6_socket.o
+(networking/udhcp/lib.a)dhcpc.o
+(networking/udhcp/lib.a)dhcpd.o
+(networking/udhcp/lib.a)dhcprelay.o
+(networking/udhcp/lib.a)domain_codec.o
+(networking/udhcp/lib.a)dumpleases.o
+(networking/udhcp/lib.a)packet.o
+(networking/udhcp/lib.a)signalpipe.o
+(networking/udhcp/lib.a)socket.o
+(networking/udhcp/lib.a)arpping.o
+(networking/udhcp/lib.a)common.o
+attempt to open printutils/lib.a succeeded
+(printutils/lib.a)lpd.o
+(printutils/lib.a)lpr.o
+attempt to open procps/lib.a succeeded
+(procps/lib.a)free.o
+(procps/lib.a)fuser.o
+(procps/lib.a)iostat.o
+(procps/lib.a)kill.o
+(procps/lib.a)lsof.o
+(procps/lib.a)mpstat.o
+(procps/lib.a)nmeter.o
+(procps/lib.a)pgrep.o
+(procps/lib.a)pidof.o
+(procps/lib.a)pmap.o
+(procps/lib.a)powertop.o
+(procps/lib.a)ps.o
+(procps/lib.a)pstree.o
+(procps/lib.a)pwdx.o
+(procps/lib.a)smemcap.o
+(procps/lib.a)sysctl.o
+(procps/lib.a)top.o
+(procps/lib.a)uptime.o
+(procps/lib.a)watch.o
+attempt to open runit/lib.a succeeded
+(runit/lib.a)chpst.o
+(runit/lib.a)runsv.o
+(runit/lib.a)runsvdir.o
+(runit/lib.a)sv.o
+(runit/lib.a)svlogd.o
+attempt to open selinux/lib.a succeeded
+attempt to open shell/lib.a succeeded
+(shell/lib.a)ash.o
+(shell/lib.a)ash_ptr_hack.o
+(shell/lib.a)cttyhack.o
+(shell/lib.a)hush.o
+(shell/lib.a)match.o
+(shell/lib.a)math.o
+(shell/lib.a)random.o
+(shell/lib.a)shell_common.o
+attempt to open sysklogd/lib.a succeeded
+(sysklogd/lib.a)klogd.o
+(sysklogd/lib.a)logread.o
+(sysklogd/lib.a)syslogd_and_logger.o
+attempt to open util-linux/lib.a succeeded
+(util-linux/lib.a)acpid.o
+(util-linux/lib.a)blkdiscard.o
+(util-linux/lib.a)blkid.o
+(util-linux/lib.a)blockdev.o
+(util-linux/lib.a)cal.o
+(util-linux/lib.a)chrt.o
+(util-linux/lib.a)dmesg.o
+(util-linux/lib.a)eject.o
+(util-linux/lib.a)fallocate.o
+(util-linux/lib.a)fatattr.o
+(util-linux/lib.a)fbset.o
+(util-linux/lib.a)fdformat.o
+(util-linux/lib.a)fdisk.o
+(util-linux/lib.a)findfs.o
+(util-linux/lib.a)flock.o
+(util-linux/lib.a)freeramdisk.o
+(util-linux/lib.a)fsck_minix.o
+(util-linux/lib.a)fsfreeze.o
+(util-linux/lib.a)fstrim.o
+(util-linux/lib.a)getopt.o
+(util-linux/lib.a)hexdump.o
+(util-linux/lib.a)hexdump_xxd.o
+(util-linux/lib.a)hwclock.o
+(util-linux/lib.a)ionice.o
+(util-linux/lib.a)ipcrm.o
+(util-linux/lib.a)ipcs.o
+(util-linux/lib.a)last_fancy.o
+(util-linux/lib.a)losetup.o
+(util-linux/lib.a)lspci.o
+(util-linux/lib.a)lsusb.o
+(util-linux/lib.a)mdev.o
+(util-linux/lib.a)mesg.o
+(util-linux/lib.a)mkfs_ext2.o
+(util-linux/lib.a)mkfs_minix.o
+(util-linux/lib.a)mkfs_vfat.o
+(util-linux/lib.a)mkswap.o
+(util-linux/lib.a)more.o
+(util-linux/lib.a)mount.o
+(util-linux/lib.a)mountpoint.o
+(util-linux/lib.a)pivot_root.o
+(util-linux/lib.a)rdate.o
+(util-linux/lib.a)rdev.o
+(util-linux/lib.a)readprofile.o
+(util-linux/lib.a)renice.o
+(util-linux/lib.a)rev.o
+(util-linux/lib.a)rtcwake.o
+(util-linux/lib.a)script.o
+(util-linux/lib.a)scriptreplay.o
+(util-linux/lib.a)setarch.o
+(util-linux/lib.a)setpriv.o
+(util-linux/lib.a)setsid.o
+(util-linux/lib.a)swaponoff.o
+(util-linux/lib.a)switch_root.o
+(util-linux/lib.a)taskset.o
+(util-linux/lib.a)uevent.o
+(util-linux/lib.a)umount.o
+(util-linux/lib.a)unshare.o
+(util-linux/lib.a)wall.o
+attempt to open util-linux/volume_id/lib.a succeeded
+(util-linux/volume_id/lib.a)get_devname.o
+(util-linux/volume_id/lib.a)volume_id.o
+(util-linux/volume_id/lib.a)xfs.o
+(util-linux/volume_id/lib.a)bcache.o
+(util-linux/volume_id/lib.a)btrfs.o
+(util-linux/volume_id/lib.a)cramfs.o
+(util-linux/volume_id/lib.a)erofs.o
+(util-linux/volume_id/lib.a)exfat.o
+(util-linux/volume_id/lib.a)ext.o
+(util-linux/volume_id/lib.a)f2fs.o
+(util-linux/volume_id/lib.a)fat.o
+(util-linux/volume_id/lib.a)hfs.o
+(util-linux/volume_id/lib.a)iso9660.o
+(util-linux/volume_id/lib.a)jfs.o
+(util-linux/volume_id/lib.a)lfs.o
+(util-linux/volume_id/lib.a)linux_raid.o
+(util-linux/volume_id/lib.a)linux_swap.o
+(util-linux/volume_id/lib.a)luks.o
+(util-linux/volume_id/lib.a)minix.o
+(util-linux/volume_id/lib.a)nilfs.o
+(util-linux/volume_id/lib.a)ntfs.o
+(util-linux/volume_id/lib.a)ocfs2.o
+(util-linux/volume_id/lib.a)reiserfs.o
+(util-linux/volume_id/lib.a)romfs.o
+(util-linux/volume_id/lib.a)squashfs.o
+(util-linux/volume_id/lib.a)sysv.o
+(util-linux/volume_id/lib.a)ubifs.o
+(util-linux/volume_id/lib.a)udf.o
+(util-linux/volume_id/lib.a)util.o
+attempt to open archival/built-in.o succeeded
+attempt to open archival/libarchive/built-in.o succeeded
+attempt to open console-tools/built-in.o succeeded
+attempt to open coreutils/built-in.o succeeded
+attempt to open coreutils/libcoreutils/built-in.o succeeded
+attempt to open debianutils/built-in.o succeeded
+attempt to open klibc-utils/built-in.o succeeded
+attempt to open e2fsprogs/built-in.o succeeded
+attempt to open editors/built-in.o succeeded
+attempt to open findutils/built-in.o succeeded
+attempt to open init/built-in.o succeeded
+attempt to open libbb/built-in.o succeeded
+attempt to open libpwdgrp/built-in.o succeeded
+attempt to open loginutils/built-in.o succeeded
+attempt to open mailutils/built-in.o succeeded
+attempt to open miscutils/built-in.o succeeded
+attempt to open modutils/built-in.o succeeded
+attempt to open networking/built-in.o succeeded
+attempt to open networking/libiproute/built-in.o succeeded
+attempt to open networking/udhcp/built-in.o succeeded
+attempt to open printutils/built-in.o succeeded
+attempt to open procps/built-in.o succeeded
+attempt to open runit/built-in.o succeeded
+attempt to open selinux/built-in.o succeeded
+attempt to open shell/built-in.o succeeded
+attempt to open sysklogd/built-in.o succeeded
+attempt to open util-linux/built-in.o succeeded
+attempt to open util-linux/volume_id/built-in.o succeeded
+(archival/lib.a)bbunzip.o
+(archival/lib.a)bzip2.o
+(archival/lib.a)chksum_and_xwrite_tar_header.o
+(archival/lib.a)cpio.o
+(archival/lib.a)dpkg.o
+(archival/lib.a)dpkg_deb.o
+(archival/lib.a)gzip.o
+(archival/lib.a)lzop.o
+(archival/lib.a)rpm.o
+(archival/lib.a)tar.o
+(archival/lib.a)unzip.o
+(archival/libarchive/lib.a)common.o
+(archival/libarchive/lib.a)data_extract_all.o
+(archival/libarchive/lib.a)data_extract_to_command.o
+(archival/libarchive/lib.a)data_extract_to_stdout.o
+(archival/libarchive/lib.a)data_skip.o
+(archival/libarchive/lib.a)decompress_bunzip2.o
+(archival/libarchive/lib.a)decompress_gunzip.o
+(archival/libarchive/lib.a)decompress_unlzma.o
+(archival/libarchive/lib.a)decompress_unxz.o
+(archival/libarchive/lib.a)filter_accept_list.o
+(archival/libarchive/lib.a)filter_accept_list_reassign.o
+(archival/libarchive/lib.a)filter_accept_reject_list.o
+(archival/libarchive/lib.a)find_list_entry.o
+(archival/libarchive/lib.a)get_header_cpio.o
+(archival/libarchive/lib.a)get_header_tar.o
+(archival/libarchive/lib.a)get_header_tar_bz2.o
+(archival/libarchive/lib.a)get_header_tar_gz.o
+(archival/libarchive/lib.a)get_header_tar_lzma.o
+(archival/libarchive/lib.a)get_header_tar_xz.o
+(archival/libarchive/lib.a)header_list.o
+(archival/libarchive/lib.a)header_verbose_list.o
+(archival/libarchive/lib.a)init_handle.o
+(archival/libarchive/lib.a)lzo1x_1.o
+(archival/libarchive/lib.a)lzo1x_1o.o
+(archival/libarchive/lib.a)lzo1x_d.o
+(archival/libarchive/lib.a)open_transformer.o
+(archival/libarchive/lib.a)seek_by_jump.o
+(archival/libarchive/lib.a)seek_by_read.o
+(archival/libarchive/lib.a)unpack_ar_archive.o
+(archival/libarchive/lib.a)unsafe_prefix.o
+(archival/libarchive/lib.a)unsafe_symlink_target.o
+(archival/libarchive/lib.a)data_align.o
+(archival/libarchive/lib.a)filter_accept_all.o
+(archival/libarchive/lib.a)get_header_ar.o
+(archival/libarchive/lib.a)header_skip.o
+(console-tools/lib.a)chvt.o
+(console-tools/lib.a)clear.o
+(console-tools/lib.a)deallocvt.o
+(console-tools/lib.a)dumpkmap.o
+(console-tools/lib.a)fgconsole.o
+(console-tools/lib.a)kbd_mode.o
+(console-tools/lib.a)loadfont.o
+(console-tools/lib.a)loadkmap.o
+(console-tools/lib.a)openvt.o
+(console-tools/lib.a)reset.o
+(console-tools/lib.a)resize.o
+(console-tools/lib.a)setconsole.o
+(console-tools/lib.a)setkeycodes.o
+(console-tools/lib.a)setlogcons.o
+(console-tools/lib.a)showkey.o
+(coreutils/lib.a)basename.o
+(coreutils/lib.a)cat.o
+(coreutils/lib.a)chgrp.o
+(coreutils/lib.a)chmod.o
+(coreutils/lib.a)chown.o
+(coreutils/lib.a)chroot.o
+(coreutils/lib.a)cksum.o
+(coreutils/lib.a)comm.o
+(coreutils/lib.a)cp.o
+(coreutils/lib.a)cut.o
+(coreutils/lib.a)date.o
+(coreutils/lib.a)dd.o
+(coreutils/lib.a)df.o
+(coreutils/lib.a)dirname.o
+(coreutils/lib.a)dos2unix.o
+(coreutils/lib.a)du.o
+(coreutils/lib.a)echo.o
+(coreutils/lib.a)env.o
+(coreutils/lib.a)expand.o
+(coreutils/lib.a)expr.o
+(coreutils/lib.a)false.o
+(coreutils/lib.a)fold.o
+(coreutils/lib.a)head.o
+(coreutils/lib.a)hostid.o
+(coreutils/lib.a)id.o
+(coreutils/lib.a)install.o
+(coreutils/lib.a)link.o
+(coreutils/lib.a)ln.o
+(coreutils/lib.a)logname.o
+(coreutils/lib.a)ls.o
+(coreutils/lib.a)md5_sha1_sum.o
+(coreutils/lib.a)mkdir.o
+(coreutils/lib.a)mkfifo.o
+(coreutils/lib.a)mknod.o
+(coreutils/lib.a)mktemp.o
+(coreutils/lib.a)mv.o
+(coreutils/lib.a)nice.o
+(coreutils/lib.a)nl.o
+(coreutils/lib.a)nohup.o
+(coreutils/lib.a)nproc.o
+(coreutils/lib.a)od.o
+(coreutils/lib.a)paste.o
+(coreutils/lib.a)printenv.o
+(coreutils/lib.a)printf.o
+(coreutils/lib.a)pwd.o
+(coreutils/lib.a)readlink.o
+(coreutils/lib.a)realpath.o
+(coreutils/lib.a)rm.o
+(coreutils/lib.a)rmdir.o
+(coreutils/lib.a)seq.o
+(coreutils/lib.a)shred.o
+(coreutils/lib.a)shuf.o
+(coreutils/lib.a)sleep.o
+(coreutils/lib.a)sort.o
+(coreutils/lib.a)split.o
+(coreutils/lib.a)stat.o
+(coreutils/lib.a)stty.o
+(coreutils/lib.a)sum.o
+(coreutils/lib.a)sync.o
+(coreutils/lib.a)tac.o
+(coreutils/lib.a)tail.o
+(coreutils/lib.a)tee.o
+(coreutils/lib.a)test.o
+(coreutils/lib.a)test_ptr_hack.o
+(coreutils/lib.a)timeout.o
+(coreutils/lib.a)touch.o
+(coreutils/lib.a)tr.o
+(coreutils/lib.a)true.o
+(coreutils/lib.a)truncate.o
+(coreutils/lib.a)tsort.o
+(coreutils/lib.a)tty.o
+(coreutils/lib.a)uname.o
+(coreutils/lib.a)uniq.o
+(coreutils/lib.a)unlink.o
+(coreutils/lib.a)usleep.o
+(coreutils/lib.a)uudecode.o
+(coreutils/lib.a)uuencode.o
+(coreutils/lib.a)wc.o
+(coreutils/lib.a)who.o
+(coreutils/lib.a)whoami.o
+(coreutils/lib.a)yes.o
+(coreutils/libcoreutils/lib.a)cp_mv_stat.o
+(coreutils/libcoreutils/lib.a)getopt_mk_fifo_nod.o
+(debianutils/lib.a)pipe_progress.o
+(debianutils/lib.a)run_parts.o
+(debianutils/lib.a)start_stop_daemon.o
+(debianutils/lib.a)which.o
+(klibc-utils/lib.a)resume.o
+(e2fsprogs/lib.a)chattr.o
+(e2fsprogs/lib.a)e2fs_lib.o
+(e2fsprogs/lib.a)fsck.o
+(e2fsprogs/lib.a)lsattr.o
+(editors/lib.a)awk.o
+(editors/lib.a)cmp.o
+(editors/lib.a)diff.o
+(editors/lib.a)ed.o
+(editors/lib.a)patch.o
+(editors/lib.a)sed.o
+(editors/lib.a)vi.o
+(findutils/lib.a)find.o
+(findutils/lib.a)grep.o
+(findutils/lib.a)xargs.o
+(init/lib.a)bootchartd.o
+(init/lib.a)halt.o
+(init/lib.a)init.o
+(libbb/lib.a)ask_confirmation.o
+(libbb/lib.a)auto_string.o
+(libbb/lib.a)bb_askpass.o
+(libbb/lib.a)bb_bswap_64.o
+(libbb/lib.a)bb_cat.o
+(libbb/lib.a)bb_do_delay.o
+(libbb/lib.a)bb_getgroups.o
+(libbb/lib.a)bb_getsockname.o
+(libbb/lib.a)bb_pwd.o
+(libbb/lib.a)bb_qsort.o
+(libbb/lib.a)capability.o
+(libbb/lib.a)change_identity.o
+(libbb/lib.a)chomp.o
+(libbb/lib.a)common_bufsiz.o
+(libbb/lib.a)concat_subpath_file.o
+(libbb/lib.a)copy_file.o
+(libbb/lib.a)correct_password.o
+(libbb/lib.a)crc32.o
+(libbb/lib.a)device_open.o
+(libbb/lib.a)dump.o
+(libbb/lib.a)duration.o
+(libbb/lib.a)endofname.o
+(libbb/lib.a)executable.o
+(libbb/lib.a)fclose_nonstdin.o
+(libbb/lib.a)fflush_stdout_and_exit.o
+(libbb/lib.a)fgets_str.o
+(libbb/lib.a)find_mount_point.o
+(libbb/lib.a)find_pid_by_name.o
+(libbb/lib.a)find_root_device.o
+(libbb/lib.a)get_console.o
+(libbb/lib.a)get_cpu_count.o
+(libbb/lib.a)get_line_from_file.o
+(libbb/lib.a)get_shell_name.o
+(libbb/lib.a)get_volsize.o
+(libbb/lib.a)getopt32.o
+(libbb/lib.a)getopt_allopts.o
+(libbb/lib.a)getpty.o
+(libbb/lib.a)hash_md5_sha.o
+(libbb/lib.a)herror_msg.o
+(libbb/lib.a)human_readable.o
+(libbb/lib.a)in_ether.o
+(libbb/lib.a)inet_cksum.o
+(libbb/lib.a)inet_common.o
+(libbb/lib.a)inode_hash.o
+(libbb/lib.a)isdirectory.o
+(libbb/lib.a)isqrt.o
+(libbb/lib.a)iterate_on_dir.o
+(libbb/lib.a)kernel_version.o
+(libbb/lib.a)lineedit.o
+(libbb/lib.a)lineedit_ptr_hack.o
+(libbb/lib.a)logenv.o
+(libbb/lib.a)login.o
+(libbb/lib.a)loop.o
+(libbb/lib.a)make_directory.o
+(libbb/lib.a)makedev.o
+(libbb/lib.a)match_fstype.o
+(libbb/lib.a)mode_string.o
+(libbb/lib.a)nuke_str.o
+(libbb/lib.a)obscure.o
+(libbb/lib.a)parse_config.o
+(libbb/lib.a)parse_mode.o
+(libbb/lib.a)percent_decode.o
+(libbb/lib.a)perror_nomsg_and_die.o
+(libbb/lib.a)pidfile.o
+(libbb/lib.a)print_flags.o
+(libbb/lib.a)print_numbered_lines.o
+(libbb/lib.a)printable.o
+(libbb/lib.a)printable_string.o
+(libbb/lib.a)process_escape_sequence.o
+(libbb/lib.a)procps.o
+(libbb/lib.a)progress.o
+(libbb/lib.a)pw_encrypt.o
+(libbb/lib.a)read_key.o
+(libbb/lib.a)read_printf.o
+(libbb/lib.a)recursive_action.o
+(libbb/lib.a)remove_file.o
+(libbb/lib.a)replace.o
+(libbb/lib.a)rtc.o
+(libbb/lib.a)run_shell.o
+(libbb/lib.a)safe_gethostname.o
+(libbb/lib.a)safe_poll.o
+(libbb/lib.a)safe_strncpy.o
+(libbb/lib.a)securetty.o
+(libbb/lib.a)setup_environment.o
+(libbb/lib.a)simplify_path.o
+(libbb/lib.a)single_argv.o
+(libbb/lib.a)speed_table.o
+(libbb/lib.a)str_tolower.o
+(libbb/lib.a)strrstr.o
+(libbb/lib.a)sysconf.o
+(libbb/lib.a)trim.o
+(libbb/lib.a)u_signal_names.o
+(libbb/lib.a)ubi.o
+(libbb/lib.a)udp_io.o
+(libbb/lib.a)unicode.o
+(libbb/lib.a)update_passwd.o
+(libbb/lib.a)utmp.o
+(libbb/lib.a)uuencode.o
+(libbb/lib.a)vfork_daemon_rexec.o
+(libbb/lib.a)warn_ignoring_args.o
+(libbb/lib.a)wfopen_input.o
+(libbb/lib.a)write.o
+(libbb/lib.a)xatonum.o
+(libbb/lib.a)xconnect.o
+(libbb/lib.a)xgethostbyname.o
+(libbb/lib.a)xrealloc_vector.o
+(libbb/lib.a)xregcomp.o
+(libbb/lib.a)perror_nomsg.o
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/usr/lib/libm.a failed
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libm.a failed
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/libm.a failed
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a succeeded
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)e_atan2.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)e_exp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)e_log.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)e_pow.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)e_sqrt.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)s_atan.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)s_cos.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)s_fabs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)s_scalbn.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)s_sin.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)e_rem_pio2.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)k_cos.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)k_rem_pio2.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)k_sin.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)s_copysign.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libm.a)s_floor.os
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/usr/lib/libgcc.a failed
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a succeeded
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_lshrdi3.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_ashldi3.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_ashrdi3.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_ucmpdi2.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_fixunsdfsi.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_fixdfdi.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_fixunsdfdi.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_floatdidf.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_floatundidf.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_divdi3.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_moddi3.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_udivdi3.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_umoddi3.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_mul_sf.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_sf_to_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_thenan_sf.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_usi_to_sf.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_addsub_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_mul_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_div_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_eq_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_ne_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_gt_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_ge_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_lt_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_le_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_si_to_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_df_to_si.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_make_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_df_to_sf.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_thenan_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_usi_to_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_pack_sf.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_unpack_sf.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_make_sf.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_pack_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_unpack_df.o
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libgcc.a)_fpcmp_parts_df.o
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/usr/lib/libc.a failed
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/libc.a failed
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/libc.a failed
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a succeeded
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)pread_write.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sigaction.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)readahead.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)bsd-_setjmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setjmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)syscall.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)pipe.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)syscall_error.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__rt_sigtimedwait.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__syscall_rt_sigaction.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_exit.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)access.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)acct.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)adjtimex.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)alarm.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)capget.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)capset.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)chdir.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)chmod.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)chown.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)chroot.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)clock_gettime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)clock_settime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)cmsg_nxthdr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)dup.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)dup2.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)execve.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fchdir.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fchmod.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fchown.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fdatasync.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)flock.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fsync.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)futimens.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getcwd.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getegid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)geteuid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getgid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getgroups.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getpagesize.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getpgrp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getppid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getpriority.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getresgid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getresuid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getsid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gettimeofday.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getuid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ioctl.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)kill.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)klogctl.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)lchown.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)link.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)longjmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mkdir.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mkfifo.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mknod.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mlock.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mount.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)munlock.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)munmap.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)nanosleep.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)nice.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)pause.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)personality.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)pivot_root.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)poll.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)prctl.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)readlink.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)reboot.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)rename.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)rmdir.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sched_get_priority_max.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sched_get_priority_min.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sched_getaffinity.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sched_getparam.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sched_getscheduler.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sched_setaffinity.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sched_setscheduler.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sched_yield.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)select.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setegid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)seteuid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setgid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setgroups.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sethostname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setitimer.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setpgid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setpgrp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setpriority.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setregid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setresgid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setresuid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setreuid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setsid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)settimeofday.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setuid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sigprocmask.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sigsuspend.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)swapoff.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)swapon.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)symlink.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sync.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sysinfo.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)time.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)times.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)umask.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)umount2.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)uname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)unlink.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)unshare.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)utimensat.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)utimes.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)wait.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)wait3.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)wait4.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)llseek.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__syscall_fcntl64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)creat64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fstat64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ftruncate64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getrlimit64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)lstat64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mmap64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)open64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)posix_fallocate64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sendfile64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setrlimit64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)stat64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)closedir.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)opendir.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)readdir64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)alphasort64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)scandir64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fnmatch_old.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)glob64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)errno.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__errno_location.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__h_errno_location.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mntent.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)regex_old.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)statfs64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)statvfs64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)syslog.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)semget.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)semctl.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)semop.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)shmat.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)shmctl.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)shmdt.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)shmget.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)msgctl.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)msgget.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ctime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gmtime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gmtime_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)localtime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)localtime_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mktime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strftime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strptime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tzset.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_time_t2tm.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__time_tm.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_time_mktime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)timegm.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_time_mktime_tzi.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_time_localtime_tzi.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)utent.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)wtent.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)btowc.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)wctype.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)iswctype.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fclose.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fdopen.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fopen.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fseeko.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getline.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)puts.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)rewind.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setbuf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setvbuf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ungetc.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)printf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)vprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)snprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)dprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)asprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)vasprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)vdprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)vsnprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)popen.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fopen64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)freopen64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fseeko64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ftello64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_adjust_pos.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_fopen.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_stdio.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_trans2r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_wcommit.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_cs_funcs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_uintmaxtostr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)open_memstream.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)vfprintf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_vfprintf_internal.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_ppfs_init.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_ppfs_prepargs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_ppfs_setargs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_ppfs_parsespec.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)scanf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sscanf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fscanf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)vsscanf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)clearerr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fflush.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fgets.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fputc.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fputs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fread.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fwrite.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fflush_unlocked.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fgetc_unlocked.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fgets_unlocked.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fileno_unlocked.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fputc_unlocked.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fputs_unlocked.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fread_unlocked.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fwrite_unlocked.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)memcpy.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)memset.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)memchr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)memcmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)memmove.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mempcpy.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)memrchr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strcat.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strchr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strchrnul.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strcmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strcpy.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strcspn.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strlen.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strncmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strncpy.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strnlen.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strrchr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strsep.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strspn.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strstr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strtok_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__glibc_strerror_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__xpg_strerror_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_string_syserrmsgs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)dirname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)stpcpy.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)stpncpy.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strcasecmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strcasestr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strdup.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strerror.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strncasecmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strndup.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strpbrk.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strsignal.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strverscmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)cfmakeraw.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)cfsetspeed.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)isatty.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)speed.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tcdrain.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tcflush.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tcgetattr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tcgetpgrp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tcgetsid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tcsendbrk.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tcsetattr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tcsetpgrp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ttyname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getservice.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)hostid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)herror.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)if_index.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getaddrinfo.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ifaddrs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ntop.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)in6_addr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)inet_aton.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)inet_ntoa.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getnameinfo.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gethostbyaddr_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gethostbyname2_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gethostbyaddr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gethostbyname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gethostbyname2.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ns_netint.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ns_parse.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)res_data.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)res_init.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)res_comp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ns_name.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)accept.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)bind.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)connect.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getpeername.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getsockname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getsockopt.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)listen.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)recv.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)recvfrom.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)recvmsg.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)send.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sendmsg.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sendto.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setsockopt.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)shutdown.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)socket.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)socketpair.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)opensock.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ethers.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ether_addr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)allocrtsig.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)killpg.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sigaddset.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sigdelset.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sigismem.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)signal.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sigsetops.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)malloc.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)calloc.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)realloc.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)free.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mallopt.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)abort.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getenv.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mkdtemp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)realpath.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)rand.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)random.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)random_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setenv.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)div.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)grantpt.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)unlockpt.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)ptsname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mkstemp64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mktemp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)atol.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strtol.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strtoul.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_stdlib_strto_l.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)qsort.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)qsort_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)bsearch.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)atoll.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strtoll.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strtoull.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_stdlib_strto_ll.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)atof.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)strtod.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__strtofpmax.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__fp_range_check.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)exit.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)daemon.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)execl.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)execle.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)execlp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)execv.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)execvp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getlogin.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getopt.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)swab.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sysconf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)usershell.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)usleep.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)vfork.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fork.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)register-atfork.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getpid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)raise.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sleep.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)jmp-unwind.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)libc-lowlevellock.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)close.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)open.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)write.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)read.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)waitpid.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)libc-cancellation.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)libc-tls.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)dl-support.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__uClibc_main.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)system.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__longjmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setjmp_aux.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mmap.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__syscall_fcntl.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fstat.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getdomainname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getdtablesize.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gethostname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getrlimit.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)lseek.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)lstat.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mremap.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sbrk.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)setrlimit.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)stat.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)statfs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)xstatconv.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fallocate64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getdents64.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__C_ctype_b.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__C_ctype_tolower.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)readdir.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)lockf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)glob.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)tempname.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)parse_config.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)nl_langinfo.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__syscall_ipc.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)asctime.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)asctime_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)wcrtomb.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)wcsrtombs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)wcsnrtombs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getdelim.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_READ.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_WRITE.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_fwrite.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_rfill.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_trans2w.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_load_inttype.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_store_inttype.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_fpmaxtostr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fopencookie.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)vfscanf.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__scan_cookie.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__psfs_parse_spec.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)__psfs_do_numeric.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)fgetc.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)rawmemchr.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)_string_syssigmsgs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)decoded.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)dnslookup.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)opennameservers.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)closenameservers.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)get_hosts_byaddr_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)get_hosts_byname_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)gethostbyname_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)sigjmp.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getpt.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)brk.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)getdents.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mbrtowc.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)mbsnrtowcs.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)encodeh.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)decodeh.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)encodeq.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)read_etc_hosts_r.os
+(/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/libc.a)encoded.os
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/crtend.o succeeded
+/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/crtend.o
+attempt to open /home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/crtn.o succeeded
+/home/majad/OpenWrt/wsr30/openwrt_rtk/rtk_openwrt_sdk/ex3301/xx3301/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/crtn.onetworking/lib.a(ipcalc.o): In function `ipcalc_main':
+ipcalc.c:(.text.ipcalc_main+0x240): warning: gethostbyaddr is obsolescent, use getaddrinfo() instead.
+libbb/lib.a(inet_common.o): In function `INET_resolve':
+inet_common.c:(.text.INET_resolve+0x60): warning: gethostbyname is obsolescent, use getnameinfo() instead.
+coreutils/lib.a(mktemp.o): In function `mktemp_main':
+mktemp.c:(.text.mktemp_main+0xb8): warning: the use of `mktemp' is dangerous, better use `mkstemp'
+

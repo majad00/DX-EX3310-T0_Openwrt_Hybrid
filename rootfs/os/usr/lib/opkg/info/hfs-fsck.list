@@ -1,0 +1,4 @@
+/usr/sbin/fsck.hfs
+/usr/sbin/fsck.hfsplus
+/lib/functions/fsck/hfs-fsck.sh
+/usr/sbin/fsck_hfs

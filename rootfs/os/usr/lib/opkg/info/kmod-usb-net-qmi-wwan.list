@@ -1,0 +1,2 @@
+/lib/modules/3.18.21/qmi_wwan.ko
+/etc/modules.d/61-usb-net-qmi-wwan

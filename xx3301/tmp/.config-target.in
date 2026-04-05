@@ -1,0 +1,6052 @@
+choice
+	prompt "Target System"
+	default TARGET_ar71xx
+	reset if !DEVEL
+	
+config TARGET_ar71xx
+	bool "Atheros AR7xxx/AR9xxx"
+	select HAS_SUBTARGETS
+
+
+endchoice
+
+choice
+	prompt "Subtarget" if HAS_SUBTARGETS
+
+config TARGET_ar71xx_generic
+	bool "Generic"
+	select LINUX_3_18
+	depends on TARGET_ar71xx
+	select GPIO_SUPPORT
+	select HAS_MIPS16
+	select PCI_SUPPORT
+	select USES_SQUASHFS
+	select USB_SUPPORT
+	select mips
+	help
+	  Build firmware images for generic Atheros AR71xx/AR913x/AR934x based boards.
+
+
+config TARGET_ar71xx_nand
+	bool "Generic devices with NAND flash"
+	select LINUX_3_18
+	depends on TARGET_ar71xx
+	select GPIO_SUPPORT
+	select HAS_MIPS16
+	select NAND_SUPPORT
+	select PCI_SUPPORT
+	select RTC_SUPPORT
+	select USES_SQUASHFS
+	select USB_SUPPORT
+	select mips
+	help
+	  Build firmware images for Atheros AR71xx/AR913x based boards with
+	  NAND flash, e.g. Netgear WNDR4300.
+
+
+config TARGET_ar71xx_mikrotik
+	bool "Mikrotik devices with NAND flash"
+	select LINUX_3_18
+	depends on TARGET_ar71xx
+	select GPIO_SUPPORT
+	select HAS_MIPS16
+	select PCI_SUPPORT
+	select USES_TARGZ
+	select USB_SUPPORT
+	select mips
+	help
+	  Build firmware images for Atheros AR71xx/AR913x based Mikrotik boards.
+	  e.g. MikroTik RB-4xx or RB-750
+
+
+endchoice
+
+choice
+	prompt "Target Profile"
+
+config TARGET_ar71xx_generic_Default
+	bool "Default Profile (all drivers)"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ar71xx_generic_Minimal
+	bool "Minimal Profile (no drivers)"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	help
+	  Minimal package set compatible with most boards.
+
+config TARGET_ar71xx_generic_ath5k
+	bool "Atheros 802.11abg WiFi (ath5k)"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath5k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with hardware using Atheros 802.11abg cards.
+
+config TARGET_ar71xx_generic_CARAMBOLA2
+	bool "Carambola2 board from 8Devices"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the 8devices Carambola2 board.
+
+config TARGET_ar71xx_generic_ALFAAP96
+	bool "ALFA Network AP96 board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rtc-pcf2123
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the ALFA Network AP96 board.
+
+config TARGET_ar71xx_generic_HORNETUB
+	bool "ALFA Network Hornet-UB board (8MB flash, 32MB ram)"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the ALFA Network Hornet-UB board with 8MB
+	  flash and 32MB ram.
+
+config TARGET_ar71xx_generic_HORNETUBx2
+	bool "ALFA Network Hornet-UB-x2 board (16MB flash, 64MB ram)"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the ALFA Network Hornet-UB board with 16MB
+	  flash and 64MB ram.
+
+config TARGET_ar71xx_generic_ALFANX
+	bool "ALFA Network N2/N5 board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the ALFA Network N2/N5 boards.
+
+config TARGET_ar71xx_generic_TUBE2H
+	bool "ALFA Network Tube2H board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the ALFA Network Tube2H board.
+
+config TARGET_ar71xx_generic_ALL0305
+	bool "Allnet ALL0305"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_fconfig
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath5k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Allnet ALL0305.
+
+config TARGET_ar71xx_generic_ALL0258N
+	bool "Allnet ALL0258N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_rssileds
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Allnet ALL0258N.
+
+config TARGET_ar71xx_generic_ALL0315N
+	bool "Allnet ALL0315N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_rssileds
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Allnet ALL0315N.
+
+config TARGET_ar71xx_generic_ANTMINERS1
+	bool "Antminer-S1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-crypto-manager
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-i2c-gpio-custom
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-hid
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Bitmain Antminer S1.
+
+config TARGET_ar71xx_generic_ANTMINERS3
+	bool "Antminer-S3"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-crypto-manager
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-i2c-gpio-custom
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-hid
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Bitmain Antminer S3.
+
+config TARGET_ar71xx_generic_AP113
+	bool "Atheros AP113 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+
+config TARGET_ar71xx_generic_AP121
+	bool "Atheros AP121 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros AP121 reference board.
+
+config TARGET_ar71xx_generic_AP121MINI
+	bool "Atheros AP121-MINI reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros AP121-MINI reference board.
+
+config TARGET_ar71xx_generic_AP132
+	bool "Atheros AP132 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros AP132 reference board.
+
+config TARGET_ar71xx_generic_AP135
+	bool "Atheros AP135 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros AP135 reference board.
+
+config TARGET_ar71xx_generic_AP136
+	bool "Atheros AP136 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros AP136 reference board.
+
+config TARGET_ar71xx_generic_AP81
+	bool "Atheros AP81 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros AP81 reference board.
+
+config TARGET_ar71xx_generic_AP83
+	bool "Atheros AP83 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_vsc7385-ucode-ap83
+	select DEFAULT_vsc7395-ucode-ap83
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros AP83 reference board.
+
+config TARGET_ar71xx_generic_AP96
+	bool "Atheros AP96 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros AP96 reference board.
+
+config TARGET_ar71xx_generic_DB120
+	bool "Atheros DB120 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros DB120 reference board.
+
+config TARGET_ar71xx_generic_PB42
+	bool "Atheros PB42 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros PB42 reference board.
+
+config TARGET_ar71xx_generic_PB44
+	bool "Atheros PB44 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_vsc7385-ucode-pb44
+	select DEFAULT_vsc7395-ucode-pb44
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros PB44 reference board.
+
+config TARGET_ar71xx_generic_PB92
+	bool "Atheros PB92 reference board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atheros PB92 reference board.
+
+config TARGET_ar71xx_generic_A02RBW300N
+	bool "Atlantis-Land A02-RB-W300N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Atlantis-Land A02-RB-W300N.
+
+config TARGET_ar71xx_generic_F9K1115V2
+	bool "Belkin AC1750DB (F9K1115V2)"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath10k
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_kmod-usb3
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Belkin AC1750DB (F9K1115V2) board.
+
+config TARGET_ar71xx_generic_BXU2000N2
+	bool "BHU BXU2000n-2"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the BHU BXU2000n-2.
+
+config TARGET_ar71xx_generic_WZRHPG300NH
+	bool "Buffalo WZR-HP-G300NH"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Buffalo WZR-HP-G300NH2
+
+config TARGET_ar71xx_generic_WZRHPG300NH2
+	bool "Buffalo WZR-HP-G300NH2"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+
+config TARGET_ar71xx_generic_WZRHPAG300H
+	bool "Buffalo WZR-HP-AG300H"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Buffalo WZR-HP-AG300H
+
+config TARGET_ar71xx_generic_WZRHPG450H
+	bool "Buffalo WZR-HP-G450H"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Buffalo WZR-HP-G450H
+
+config TARGET_ar71xx_generic_WZR450HP2
+	bool "Buffalo WZR-450HP2"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Buffalo WZR-450HP2
+
+config TARGET_ar71xx_generic_WZR600DHP
+	bool "Buffalo WZR-600DHP"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Buffalo WZR-600DHP
+
+config TARGET_ar71xx_generic_WHRG301N
+	bool "Buffalo WHR-G301N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Buffalo WHR-G301N.
+
+config TARGET_ar71xx_generic_WHRHPG300N
+	bool "Buffalo WHR-HP-G300N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Buffalo WHR-HP-G300N
+
+config TARGET_ar71xx_generic_WHRHPGN
+	bool "Buffalo WHR-HP-GN"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Buffalo WHR-HP-GN.
+
+config TARGET_ar71xx_generic_WLAEAG300N
+	bool "Buffalo WLAE-AG300N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Buffalo WLAE-AG300N
+
+config TARGET_ar71xx_generic_WP543
+	bool "Compex WP543/WPJ543"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Compex WP543/WPJ543 boards.
+
+config TARGET_ar71xx_generic_WPE72
+	bool "Compex WPE72/WPE72NX"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Compex WPE72 boards including Compex WPE72NX Indoor Access Point.
+
+config TARGET_ar71xx_generic_WPJ344
+	bool "Compex WPJ344"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Compex WPJ344 board.
+
+config TARGET_ar71xx_generic_WPJ531
+	bool "Compex WPJ531"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Compex WPJ531 board.
+
+config TARGET_ar71xx_generic_WPJ558
+	bool "Compex WPJ558"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Compex WPJ558 board.
+
+config TARGET_ar71xx_generic_DHP1565A1
+	bool "D-Link DHP-1565 rev. A1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DHP-1565 rev. A1.
+
+config TARGET_ar71xx_generic_DIR505A1
+	bool "D-Link DIR-505 rev. A1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-505 rev. A1.
+
+config TARGET_ar71xx_generic_DIR600A1
+	bool "D-Link DIR-600 rev. A1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-600 rev. A1.
+
+config TARGET_ar71xx_generic_DIR601A1
+	bool "D-Link DIR-601 rev. A1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-601 rev. A1.
+
+config TARGET_ar71xx_generic_DIR601B1
+	bool "D-Link DIR-601 rev. B1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-601 rev. B1.
+
+config TARGET_ar71xx_generic_DIR615C1
+	bool "D-Link DIR-615 rev. C1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-615 rev. C1.
+
+config TARGET_ar71xx_generic_DIR615E1
+	bool "D-Link DIR-615 rev. E1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-615 rev. E1.
+
+config TARGET_ar71xx_generic_DIR615E4
+	bool "D-Link DIR-615 rev. E4"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-615 rev. E4.
+
+config TARGET_ar71xx_generic_DIR615IX
+	bool "D-Link DIR-615 rev. I1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-615 rev. I1.
+
+config TARGET_ar71xx_generic_DIR825B1
+	bool "D-Link DIR-825 rev. B1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-825 rev. B1.
+
+config TARGET_ar71xx_generic_DIR825C1
+	bool "D-Link DIR-825 rev. C1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-825 rev. C1.
+
+config TARGET_ar71xx_generic_DIR835A1
+	bool "D-Link DIR-835 rev. A1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the D-Link DIR-835 rev. A1.
+
+config TARGET_ar71xx_generic_DGL5500A1
+	bool "D-Link DGL-5500 rev. A1"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath10k
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+
+config TARGET_ar71xx_generic_dLAN_pro_500_wp
+	bool "devolo dLAN pro 500 Wireless+"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_ebtables
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_hostapd-utils
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_open-plc-utils
+	select DEFAULT_open-plc-utils-amphost
+	select DEFAULT_open-plc-utils-chkpib
+	select DEFAULT_open-plc-utils-getpib
+	select DEFAULT_open-plc-utils-hpavkey
+	select DEFAULT_open-plc-utils-modpib
+	select DEFAULT_open-plc-utils-pibdump
+	select DEFAULT_open-plc-utils-plcstat
+	select DEFAULT_open-plc-utils-plctool
+	select DEFAULT_open-plc-utils-setpib
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wifitoggle
+	select DEFAULT_wpad
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the devolo dLAN pro 500 Wireless+.
+
+config TARGET_ar71xx_generic_dLAN_pro_1200_ac
+	bool "devolo dLAN pro 1200+ WiFi ac"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_ebtables
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_hostapd-utils
+	select DEFAULT_ip-full
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath10k
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_open-plc-utils
+	select DEFAULT_open-plc-utils-chkpib
+	select DEFAULT_open-plc-utils-getpib
+	select DEFAULT_open-plc-utils-hpavkey
+	select DEFAULT_open-plc-utils-modpib
+	select DEFAULT_open-plc-utils-pibdump
+	select DEFAULT_open-plc-utils-plchost
+	select DEFAULT_open-plc-utils-plcstat
+	select DEFAULT_open-plc-utils-plctool
+	select DEFAULT_open-plc-utils-setpib
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wifitoggle
+	select DEFAULT_wpad
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the devolo dLAN pro 1200+ WiFi ac.
+
+config TARGET_ar71xx_generic_DRAGINO2
+	bool "DRAGINO2"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the DRAGINO v2.
+
+config TARGET_ar71xx_generic_ELM150
+	bool "EasyLink EL-M150"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the EasyLink EL-M150.
+
+config TARGET_ar71xx_generic_ELMINI
+	bool "EasyLink EL-MINI"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the EasyLink EL-MINI.
+
+config TARGET_ar71xx_generic_EAP300V2
+	bool "EnGenius EAP300V2"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the EnGenius EAP300V2.
+
+config TARGET_ar71xx_generic_ESR900
+	bool "EnGenius ESR900"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the EnGenius ESR900
+
+config TARGET_ar71xx_generic_ESR1750
+	bool "EnGenius ESR1750"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath10k
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the EnGenius ESR1750
+
+config TARGET_ar71xx_generic_EPG5000
+	bool "EnGenius EPG5000"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath10k
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the EnGenius EPG5000
+
+config TARGET_ar71xx_generic_EWDORIN
+	bool "Embedded Wireless Dorin Platform"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-fs-ext4
+	select DEFAULT_kmod-fs-msdos
+	select DEFAULT_kmod-fs-ntfs
+	select DEFAULT_kmod-fs-vfat
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-nls-cp437
+	select DEFAULT_kmod-nls-cp850
+	select DEFAULT_kmod-nls-cp852
+	select DEFAULT_kmod-nls-iso8859-1
+	select DEFAULT_kmod-nls-utf8
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Dorin Platform.
+
+config TARGET_ar71xx_generic_GLINET
+	bool "GL.iNet"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the GL-Connect GL.iNet v1.
+
+config TARGET_ar71xx_generic_MINIBOXV1
+	bool "Gainstrong MiniBox V1.0"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Gainstrong MiniBox V1.0
+
+config TARGET_ar71xx_generic_HIWIFI_HC6361
+	bool "HiWiFi HC6361"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_e2fsprogs
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-crypto-deflate
+	select DEFAULT_kmod-fs-ext4
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-nls-iso8859-1
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+
+config TARGET_ar71xx_generic_JA76PF
+	bool "jjPlus JA76PF"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-hwmon-core
+	select DEFAULT_kmod-hwmon-lm75
+	select DEFAULT_kmod-i2c-core
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the jjPlus JA76PF board.
+
+config TARGET_ar71xx_generic_JA76PF2
+	bool "jjPlus JA76PF2"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the jjPlus JA76PF2 board.
+
+config TARGET_ar71xx_generic_JWAP003
+	bool "jjPlus JWAP0003"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the jjPlus JWAP003 board.
+
+config TARGET_ar71xx_generic_WRT160NL
+	bool "Linksys WRT160NL"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Linksys WRT160NL.
+
+config TARGET_ar71xx_generic_WRT400N
+	bool "Linksys WRT400N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Linksys WRT400N.
+
+config TARGET_ar71xx_generic_MR12
+	bool "Meraki MR12"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-spi-gpio
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+
+config TARGET_ar71xx_generic_MR16
+	bool "Meraki MR16"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-spi-gpio
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+
+config TARGET_ar71xx_generic_MAC1200R
+	bool "MERCURY MAC1200R"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath10k
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the MERCURY MAC1200R.
+
+config TARGET_ar71xx_generic_SMART-300
+	bool "NC-LINK SMART-300"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NC-LINK SMART-300.
+
+config TARGET_ar71xx_generic_WNDAP360
+	bool "NETGEAR WNDAP360"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NETGEAR WNDAP360
+
+config TARGET_ar71xx_generic_WNDR3700
+	bool "NETGEAR WNDR3700/WNDR3800/WNDRMAC"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-wndr3700-usb
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NETGEAR WNDR3700/WNDR3800/WNDRMAC
+
+config TARGET_ar71xx_generic_WNR2000V3
+	bool "NETGEAR WNR2000V3"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NETGEAR WNR2000V3
+
+config TARGET_ar71xx_generic_WNR2000V4
+	bool "NETGEAR WNR2000V4"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NETGEAR WNR2000V4
+
+config TARGET_ar71xx_generic_WNR612V2
+	bool "NETGEAR WNR612V2 / On Networks N150"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NETGEAR WNR612V2 / On Networks N150
+
+config TARGET_ar71xx_generic_WNR1000V2
+	bool "NETGEAR WNR1000V2"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NETGEAR WNR1000V2
+
+config TARGET_ar71xx_generic_WNR2200
+	bool "NETGEAR WNR2200"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NETGEAR WNR2200
+
+config TARGET_ar71xx_generic_OMEGA
+	bool "Onion Omega"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-i2c-core
+	select DEFAULT_kmod-i2c-gpio-custom
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-spi-bitbang
+	select DEFAULT_kmod-spi-dev
+	select DEFAULT_kmod-spi-gpio
+	select DEFAULT_kmod-spi-gpio-custom
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-serial
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Onion Omega development platform.
+
+config TARGET_ar71xx_generic_OOLITE
+	bool "OOLITE"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the OOLITE.
+
+config TARGET_ar71xx_generic_OM2P
+	bool "OpenMesh OM2P/OM2Pv2/OM2P-HS/OM2P-HSv2/OM2P-LC"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_om-watchdog
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the OpenMesh OM2P/OM2Pv2/OM2P-HS/OM2P-HSv2/OM2P-LC.
+
+config TARGET_ar71xx_generic_OM5P
+	bool "OpenMesh OM5P/OM5P-AN"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_om-watchdog
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the OpenMesh OM5P/OM5P-AN.
+
+config TARGET_ar71xx_generic_MR600
+	bool "OpenMesh MR600"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_om-watchdog
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the OpenMesh MR600.
+
+config TARGET_ar71xx_generic_MR900
+	bool "OpenMesh MR900/MR900v2"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_om-watchdog
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the OpenMesh MR900/MR900v2.
+
+config TARGET_ar71xx_generic_OPENMESH
+	bool "OpenMesh products"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_om-watchdog
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Build images for all OpenMesh products.
+
+config TARGET_ar71xx_generic_UBDEV01
+	bool "PowerCloud Systems ubdev01 model"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the PowerCloud Systems ubdev01 board.
+
+config TARGET_ar71xx_generic_DLRTDEV01
+	bool "PowerCloud Systems dlrtdev01 model"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the PowerCloud Systems dlrtdev01 board.
+
+config TARGET_ar71xx_generic_MZKW04NU
+	bool "Planex MZK-W04NU"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Planex MZK-W04NU.
+
+config TARGET_ar71xx_generic_MZKW300NH
+	bool "Planex MZK-W300NH"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Planex MZK-W300NH.
+
+config TARGET_ar71xx_generic_QIHOO360
+	bool "Qihoo 360 C301"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath10k
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Qihoo 360 C301 device.
+
+config TARGET_ar71xx_generic_RW2458N
+	bool "Redwave RW2458N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Redwave RW2458N board.
+
+config TARGET_ar71xx_generic_RNXN360RT
+	bool "Rosewill RNX-N360RT"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Rosewill RNX-N360RT.
+
+config TARGET_ar71xx_generic_CAP4200AG
+	bool "Senao CAP4200AG"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Senao CAP4200AG.
+
+config TARGET_ar71xx_generic_WLR8100
+	bool "Sitecom WLR-8100"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_kmod-usb3
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Sitecom WLR-8100
+
+config TARGET_ar71xx_generic_BSB
+	bool "Smart Electronics Black Swift board"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Smart Electronics Black Swift board.
+
+config TARGET_ar71xx_generic_ARCHERC7
+	bool "TP-LINK Archer C5/C7"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath10k
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK Archer C5/C7.
+
+config TARGET_ar71xx_generic_CPE510
+	bool "TP-LINK CPE210/220/510/520"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_rssileds
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK CPE210/220/510/520.
+
+config TARGET_ar71xx_generic_TLMR10U
+	bool "TP-LINK TL-MR10U"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-MR10U.
+
+config TARGET_ar71xx_generic_TLMR11U
+	bool "TP-LINK TL-MR11U"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-MR11U.
+
+config TARGET_ar71xx_generic_TLMR12U
+	bool "TP-LINK TL-MR12U"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-MR12U.
+
+config TARGET_ar71xx_generic_TLMR13U
+	bool "TP-LINK TL-MR13U"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-MR13U.
+
+config TARGET_ar71xx_generic_TLMR3020
+	bool "TP-LINK TL-MR3020"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-MR3020.
+
+config TARGET_ar71xx_generic_TLMR3040
+	bool "TP-LINK TL-MR3040"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-MR3040.
+
+config TARGET_ar71xx_generic_TLMR3220
+	bool "TP-LINK TL-MR3220"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-MR3220.
+
+config TARGET_ar71xx_generic_TLMR3420
+	bool "TP-LINK TL-MR3420"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-MR3420.
+
+config TARGET_ar71xx_generic_TLWR703
+	bool "TP-LINK TL-WR703N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR703N.
+
+config TARGET_ar71xx_generic_TLWR710
+	bool "TP-LINK TL-WR710N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR710N.
+
+config TARGET_ar71xx_generic_TLWR720
+	bool "TP-LINK TL-WR720N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR720N.
+
+config TARGET_ar71xx_generic_TLWA701
+	bool "TP-LINK TL-WA701N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA701N/ND.
+
+config TARGET_ar71xx_generic_TLWA7210
+	bool "TP-LINK TL-WA7210N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_rssileds
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA7210N.
+
+config TARGET_ar71xx_generic_TLWA730RE
+	bool "TP-LINK TL-WA730RE"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA730RE.
+
+config TARGET_ar71xx_generic_TLWA750
+	bool "TP-LINK TL-WA750RE"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_rssileds
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA750RE.
+
+config TARGET_ar71xx_generic_TLWA7510
+	bool "TP-LINK TL-WA7510N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA7510N.
+
+config TARGET_ar71xx_generic_TLWA801
+	bool "TP-LINK TL-WA801N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA801N/ND.
+
+config TARGET_ar71xx_generic_TLWA830
+	bool "TP-LINK TL-WA830RE"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA830RE.
+
+config TARGET_ar71xx_generic_TLWA850
+	bool "TP-LINK TL-WA850RE"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_rssileds
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA850RE.
+
+config TARGET_ar71xx_generic_TLWA860
+	bool "TP-LINK TL-WA860RE"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA860RE.
+
+config TARGET_ar71xx_generic_TLWA901
+	bool "TP-LINK TL-WA901N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WA901N/ND.
+
+config TARGET_ar71xx_generic_TLWDR4300
+	bool "TP-LINK TL-WDR3500/3600/4300/4310/MW4350R"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WDR3500/3600/4300/4310/MW4350R.
+
+config TARGET_ar71xx_generic_TLWDR4900V2
+	bool "TP-LINK TL-WDR4900v2"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WDR4900v2.
+
+config TARGET_ar71xx_generic_TLWR740
+	bool "TP-LINK TL-WR740N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR740N/ND.
+
+config TARGET_ar71xx_generic_TLWR741
+	bool "TP-LINK TL-WR741N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR741N/ND.
+
+config TARGET_ar71xx_generic_TLWR743
+	bool "TP-LINK TL-WR743N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR743N/ND.
+
+config TARGET_ar71xx_generic_TLWR841
+	bool "TP-LINK TL-WR841N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR841N/ND.
+
+config TARGET_ar71xx_generic_TLWR842
+	bool "TP-LINK TL-WR842N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR842N/ND.
+
+config TARGET_ar71xx_generic_TLWR843
+	bool "TP-LINK TL-WR843N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR843N/ND.
+
+config TARGET_ar71xx_generic_TLWR941
+	bool "TP-LINK TL-WR941N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR941N/ND.
+
+config TARGET_ar71xx_generic_TLWR1041
+	bool "TP-LINK TL-WR1041N"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR1041N/ND.
+
+config TARGET_ar71xx_generic_TLWR1043
+	bool "TP-LINK TL-WR1043N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR1043N/ND.
+
+config TARGET_ar71xx_generic_TLWR2543
+	bool "TP-LINK TL-WR2543N/ND"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TP-LINK TL-WR2543N/ND.
+
+config TARGET_ar71xx_generic_TEW632BRP
+	bool "TRENDNet TEW-632BRP"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TRENDNet TEW-632BRP.
+
+config TARGET_ar71xx_generic_TEW652BRP
+	bool "TRENDNet TEW-652BRP"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TRENDNet TEW-652BRP.
+
+config TARGET_ar71xx_generic_TEW673GRU
+	bool "TRENDNet TEW-673GRU"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TRENDNet TEW-673GRU.
+
+config TARGET_ar71xx_generic_TEW712BR
+	bool "TRENDNet TEW-712BR"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TRENDNet TEW-712BR.
+
+config TARGET_ar71xx_generic_TEW732BR
+	bool "TRENDNet TEW-732BR"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the TRENDNet TEW-732BR.
+
+config TARGET_ar71xx_generic_UBNTRS
+	bool "Ubiquiti RouterStation"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Ubiquiti RouterStation.
+
+config TARGET_ar71xx_generic_UBNTRSPRO
+	bool "Ubiquiti RouterStation Pro"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Ubiquiti RouterStation Pro.
+
+config TARGET_ar71xx_generic_UBNTUNIFI
+	bool "Ubiquiti UniFi AP"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Ubiquiti UniFi AP.
+
+config TARGET_ar71xx_generic_UBNTUNIFIOUTDOOR
+	bool "Ubiquiti UniFiAP Outdoor"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Ubiquiti UniFiAP Outdoor.
+
+config TARGET_ar71xx_generic_UAPPRO
+	bool "Ubiquiti UniFi AP Pro"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Ubiquiti UniFi AP Pro.
+
+config TARGET_ar71xx_generic_UBNT
+	bool "Ubiquiti Products"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Build images for all Ubiquiti products (including LS-SR71, RouterStation and RouterStation Pro)
+
+config TARGET_ar71xx_generic_MYNETN600
+	bool "WD My Net N600"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the WD My Net N600 device.
+
+config TARGET_ar71xx_generic_MYNETN750
+	bool "WD My Net N750"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the WD My Net N750 device.
+
+config TARGET_ar71xx_generic_MYNETREXT
+	bool "WD My Net Wi-Fi Range Extender"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_rssileds
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the WD My Net Wi-Fi Range Extender device.
+
+config TARGET_ar71xx_generic_WEIO
+	bool "WeIO"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the WeIO board.
+
+config TARGET_ar71xx_generic_ZCN1523H28
+	bool "Zcomax ZCN-1523H-2-8"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Zcomax ZCN-1523H-2-8 board.
+
+config TARGET_ar71xx_generic_ZCN1523H516
+	bool "Zcomax ZCN-1523H-5-16"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Zcomax ZCN-1523H-5-16 board.
+
+config TARGET_ar71xx_generic_NBG_460N_550N_550NH
+	bool "Zyxel NBG 460N/550N/550NH"
+	depends on TARGET_ar71xx_generic
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rtc-pcf8563
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Zyxel NBG 460N/550N/550NH Routers.
+
+config TARGET_ar71xx_nand_R6100
+	bool "NETGEAR R6100"
+	depends on TARGET_ar71xx_nand
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NETGEAR R6100
+
+config TARGET_ar71xx_nand_WNDR4300
+	bool "NETGEAR WNDR3700v4/WNDR4300"
+	depends on TARGET_ar71xx_nand
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the NETGEAR WNDR3700v4/WNDR4300
+
+config TARGET_ar71xx_nand_NBG6716
+	bool "Zyxel NBG 6716"
+	depends on TARGET_ar71xx_nand
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath10k
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rtc-pcf8563
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the Zyxel NBG 6716 Routers.
+
+config TARGET_ar71xx_mikrotik_DefaultNoWifi
+	bool "Default Profile (no WiFi)"
+	depends on TARGET_ar71xx_mikrotik
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath9k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ar71xx_mikrotik_Ath5k
+	bool "Atheros WiFi (ath5k)"
+	depends on TARGET_ar71xx_mikrotik
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ath5k
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with hardware using Atheros WiFi cards.
+
+endchoice
+
+config HAS_SUBTARGETS
+	bool
+
+config TARGET_BOARD
+	string
+
+		default "ar71xx" if TARGET_ar71xx
+config TARGET_ARCH_PACKAGES
+	string
+	
+		default "ar71xx" if TARGET_ar71xx_generic
+		default "ar71xx" if TARGET_ar71xx_nand
+		default "ar71xx" if TARGET_ar71xx_mikrotik
+
+config DEFAULT_TARGET_OPTIMIZATION
+	string
+	default "-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc" if TARGET_ar71xx_generic
+	default "-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc" if TARGET_ar71xx_nand
+	default "-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc" if TARGET_ar71xx_mikrotik
+	default "-Os -pipe -funit-at-a-time"
+
+config CPU_TYPE
+	string
+	default "34kc" if TARGET_ar71xx_generic
+	default "34kc" if TARGET_ar71xx_nand
+	default "34kc" if TARGET_ar71xx_mikrotik
+	default ""
+
+config LINUX_3_18
+	bool
+
+	config DEFAULT_base-files
+		bool
+
+	config DEFAULT_busybox
+		bool
+
+	config DEFAULT_dnsmasq
+		bool
+
+	config DEFAULT_dropbear
+		bool
+
+	config DEFAULT_e2fsprogs
+		bool
+
+	config DEFAULT_ebtables
+		bool
+
+	config DEFAULT_fconfig
+		bool
+
+	config DEFAULT_firewall
+		bool
+
+	config DEFAULT_fstools
+		bool
+
+	config DEFAULT_hostapd-utils
+		bool
+
+	config DEFAULT_ip-full
+		bool
+
+	config DEFAULT_ip6tables
+		bool
+
+	config DEFAULT_iptables
+		bool
+
+	config DEFAULT_iwinfo
+		bool
+
+	config DEFAULT_kmod-ath10k
+		bool
+
+	config DEFAULT_kmod-ath5k
+		bool
+
+	config DEFAULT_kmod-ath9k
+		bool
+
+	config DEFAULT_kmod-crypto-deflate
+		bool
+
+	config DEFAULT_kmod-crypto-manager
+		bool
+
+	config DEFAULT_kmod-fs-ext4
+		bool
+
+	config DEFAULT_kmod-fs-msdos
+		bool
+
+	config DEFAULT_kmod-fs-ntfs
+		bool
+
+	config DEFAULT_kmod-fs-vfat
+		bool
+
+	config DEFAULT_kmod-gpio-button-hotplug
+		bool
+
+	config DEFAULT_kmod-hwmon-core
+		bool
+
+	config DEFAULT_kmod-hwmon-lm75
+		bool
+
+	config DEFAULT_kmod-i2c-core
+		bool
+
+	config DEFAULT_kmod-i2c-gpio-custom
+		bool
+
+	config DEFAULT_kmod-leds-gpio
+		bool
+
+	config DEFAULT_kmod-leds-wndr3700-usb
+		bool
+
+	config DEFAULT_kmod-ledtrig-gpio
+		bool
+
+	config DEFAULT_kmod-ledtrig-netdev
+		bool
+
+	config DEFAULT_kmod-ledtrig-usbdev
+		bool
+
+	config DEFAULT_kmod-nf-nathelper
+		bool
+
+	config DEFAULT_kmod-nls-cp437
+		bool
+
+	config DEFAULT_kmod-nls-cp850
+		bool
+
+	config DEFAULT_kmod-nls-cp852
+		bool
+
+	config DEFAULT_kmod-nls-iso8859-1
+		bool
+
+	config DEFAULT_kmod-nls-utf8
+		bool
+
+	config DEFAULT_kmod-rtc-pcf2123
+		bool
+
+	config DEFAULT_kmod-rtc-pcf8563
+		bool
+
+	config DEFAULT_kmod-spi-bitbang
+		bool
+
+	config DEFAULT_kmod-spi-dev
+		bool
+
+	config DEFAULT_kmod-spi-gpio
+		bool
+
+	config DEFAULT_kmod-spi-gpio-custom
+		bool
+
+	config DEFAULT_kmod-usb-core
+		bool
+
+	config DEFAULT_kmod-usb-hid
+		bool
+
+	config DEFAULT_kmod-usb-ohci
+		bool
+
+	config DEFAULT_kmod-usb-serial
+		bool
+
+	config DEFAULT_kmod-usb-storage
+		bool
+
+	config DEFAULT_kmod-usb2
+		bool
+
+	config DEFAULT_kmod-usb3
+		bool
+
+	config DEFAULT_libc
+		bool
+
+	config DEFAULT_libgcc
+		bool
+
+	config DEFAULT_mtd
+		bool
+
+	config DEFAULT_netifd
+		bool
+
+	config DEFAULT_odhcp6c
+		bool
+
+	config DEFAULT_odhcpd
+		bool
+
+	config DEFAULT_om-watchdog
+		bool
+
+	config DEFAULT_open-plc-utils
+		bool
+
+	config DEFAULT_open-plc-utils-amphost
+		bool
+
+	config DEFAULT_open-plc-utils-chkpib
+		bool
+
+	config DEFAULT_open-plc-utils-getpib
+		bool
+
+	config DEFAULT_open-plc-utils-hpavkey
+		bool
+
+	config DEFAULT_open-plc-utils-modpib
+		bool
+
+	config DEFAULT_open-plc-utils-pibdump
+		bool
+
+	config DEFAULT_open-plc-utils-plchost
+		bool
+
+	config DEFAULT_open-plc-utils-plcstat
+		bool
+
+	config DEFAULT_open-plc-utils-plctool
+		bool
+
+	config DEFAULT_open-plc-utils-setpib
+		bool
+
+	config DEFAULT_opkg
+		bool
+
+	config DEFAULT_ppp
+		bool
+
+	config DEFAULT_ppp-mod-pppoe
+		bool
+
+	config DEFAULT_rssileds
+		bool
+
+	config DEFAULT_swconfig
+		bool
+
+	config DEFAULT_uboot-envtools
+		bool
+
+	config DEFAULT_uci
+		bool
+
+	config DEFAULT_vsc7385-ucode-ap83
+		bool
+
+	config DEFAULT_vsc7385-ucode-pb44
+		bool
+
+	config DEFAULT_vsc7395-ucode-ap83
+		bool
+
+	config DEFAULT_vsc7395-ucode-pb44
+		bool
+
+	config DEFAULT_wifitoggle
+		bool
+
+	config DEFAULT_wpad
+		bool
+
+	config DEFAULT_wpad-mini
+		bool
+

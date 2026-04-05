@@ -1,0 +1,17 @@
+Package: openssl-util
+Version: 1.1.1n-5
+Depends: libc, libopenssl, libopenssl-conf
+Source: package/libs/openssl
+SourceFile: openssl-1.1.1n.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: OpenSSL
+LicenseFiles: LICENSE
+Section: utils
+Maintainer: Eneas U de Queiroz <cotequeiroz@gmail.com>
+Architecture: en75xx
+Installed-Size: 241925
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the
+ Transport Layer Security (TLS) protocol as well as a full-strength
+ general-purpose cryptography library.
+ This package contains the OpenSSL command-line utility.

@@ -1,0 +1,9 @@
+Package: hostpolling
+Version: 2.0-1
+Depends: libc, zcmd, libsqlite3, netprobe
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/hostpolling
+SourceFile: hostpolling-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 8040
+Description:  One Connect polling host by ping check

@@ -1,0 +1,6 @@
+/lib/upgrade/keep.d/dnsmasq
+/etc/dnsmasq.conf
+/etc/init.d/dnsmasq.sh
+/etc/rc3.d/S48dnsmasq
+/etc/trust-anchors.conf
+/usr/sbin/dnsmasq

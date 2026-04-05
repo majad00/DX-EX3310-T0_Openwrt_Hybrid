@@ -1,0 +1,3 @@
+#!/bin/sh
+# Dummy dnsmasq for Zyxel Watchdog
+exit 0

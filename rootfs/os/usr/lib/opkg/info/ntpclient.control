@@ -1,0 +1,11 @@
+Package: ntpclient
+Version: 2007_365-1
+Depends: libc, libzcfg_msg, librt
+Source: package/network/services/ntpclient
+SourceFile: ntpclient_2007_365.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+License: GPLv2
+Section: net
+Architecture: en75xx
+Installed-Size: 14328
+Description:  An NTP (RFC-1305) client for unix-alike computers

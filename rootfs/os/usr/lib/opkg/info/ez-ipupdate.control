@@ -1,0 +1,10 @@
+Package: ez-ipupdate
+Version: 3.0.11b8-8
+Depends: libc, libopenssl
+Source: package/network/services/ez-ipupdate
+SourceFile: ez-ipupdate_3.0.11b8.orig.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services/
+Section: net
+Architecture: en75xx
+Installed-Size: 38707
+Description:  Dynamic DNS services client

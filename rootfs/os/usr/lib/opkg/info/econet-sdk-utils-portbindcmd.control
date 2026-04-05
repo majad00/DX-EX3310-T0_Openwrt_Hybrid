@@ -1,0 +1,10 @@
+Package: econet-sdk-utils-portbindcmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi, econet-sdk-libs-libcompileoption, econet-sdk-libs-libopensource
+Source: /home/ralphchien2/V550ABVY3.1b1/econet_old/econet/sdk
+SourceFile: econet-sdk-7.3.245.300.tar.bz2
+SourceURL: @ZyXEL_SITE/private/Trendchip/sdk
+Section: kernel
+Architecture: en75xx
+Installed-Size: 5799
+Description:  Econet SDK util 'portbindcmd'

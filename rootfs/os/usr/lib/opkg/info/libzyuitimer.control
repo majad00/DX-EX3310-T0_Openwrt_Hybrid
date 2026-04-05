@@ -1,0 +1,9 @@
+Package: libzyuitimer
+Version: 2.0-1
+Depends: libc, libpthread, libzos, libzlog
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_public/public-zyxel/libzyuitimer
+SourceFile: libzyuitimer-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 5589
+Description:  ZyXEL User Interface Timer

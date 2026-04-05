@@ -1,0 +1,10 @@
+Package: glib2
+Version: 2.37.7-1
+Depends: libc, libiconv-full, libintl-full, zlib, libpthread, libffi
+Source: package/libs/glib2
+SourceFile: glib-2.37.7.tar.xz
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: libs
+Architecture: en75xx
+Installed-Size: 851738
+Description:  The GLib library of C routines

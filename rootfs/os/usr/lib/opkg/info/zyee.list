@@ -1,0 +1,6 @@
+/bin/zyeed
+/etc/rc3.d/S65zyee
+/lib/libzyee_msg.so
+/etc/init.d/zyee-init.sh
+/bin/zyeecmd
+/lib/libzyee_zcfg_service.so

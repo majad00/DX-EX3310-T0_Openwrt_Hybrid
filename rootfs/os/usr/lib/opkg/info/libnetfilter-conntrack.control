@@ -1,0 +1,16 @@
+Package: libnetfilter-conntrack
+Version: 1.0.4-1
+Depends: libc, libnfnetlink, kmod-nf-conntrack-netlink, libmnl
+Source: package/libs/libnetfilter-conntrack
+SourceFile: libnetfilter_conntrack-1.0.4.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: GPL-2.0+
+Section: libs
+Maintainer: Jo-Philipp Wich <jow@openwrt.org>
+Architecture: en75xx
+Installed-Size: 33323
+Description:  libnetfilter_conntrack is a userspace library providing a programming
+ interface (API) to the in-kernel connection tracking state table. The
+ library libnetfilter_conntrack has been previously known as
+ libnfnetlink_conntrack and libctnetlink. This library is currently
+ used by conntrack-tools among many other applications.

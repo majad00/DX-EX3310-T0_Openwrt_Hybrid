@@ -1,0 +1,3 @@
+/lib/modules/3.18.21/zyinetled.ko
+/etc/init.d/zyinetled_module_install.sh
+/etc/rc3.d/S68zyinetled

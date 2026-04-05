@@ -1,0 +1,442 @@
+{
+   "Country": "NZL",
+   "ToneProfile": [
+     {
+       "ToneId": 1,
+       "ToneName": "DailTone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": 1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 400,
+           "Level": -15,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 500,
+           "CadOff": 0,
+           "Repetitions": -1
+         }
+       ]
+     },
+     {
+       "ToneId": 2,
+       "ToneName": "BusyTone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": -1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 400,
+           "Level": -15,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 500,
+           "CadOff": 500,
+           "Repetitions": 0
+         }
+       ]
+     },
+     {
+       "ToneId": 3,
+       "ToneName": "CongestionTone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": -1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 400,
+           "Level": -15,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 250,
+           "CadOff": 250,
+           "Repetitions": 0
+         }
+       ]
+     },
+     {
+       "ToneId": 4,
+       "ToneName": "RingbackTone",
+       "NextToneId": 20,
+       "MultiTonePlayTimes": 65535,
+       "DelayTime": 0,
+       "PlayTimes": 1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 400,
+           "Level": -15,
+           "Phase": 0
+         },
+         {
+           "Hertz": 450,
+           "Level": -15,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 400,
+           "CadOff": 200,
+           "Repetitions": 0
+         }
+       ]
+     },
+     {
+       "ToneId": 5,
+       "ToneName": "CallwatitingTone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": 4,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 400,
+           "Level": -15,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 200,
+           "CadOff": 3000,
+           "Repetitions": 0
+         }
+       ]
+     },
+     {
+       "ToneId": 6,
+       "ToneName": "Re-orderTone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": -1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 400,
+           "Level": -15,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 250,
+           "CadOff": 250,
+           "Repetitions": 0
+         }
+       ]
+     },
+     {
+       "ToneId": 7,
+       "ToneName": "MWI Tone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": 1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 400,
+           "Level": -15,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 100,
+           "CadOff": 100,
+           "Repetitions": 13
+         },
+         {
+           "CadOn": 1000,
+           "CadOff": 0,
+           "Repetitions": -1
+         }
+       ]
+     },
+     {
+       "ToneId": 8,
+       "ToneName": "SpecialTone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": 1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 400,
+           "Level": -15,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 100,
+           "CadOff": 100,
+           "Repetitions": 13
+         },
+         {
+           "CadOn": 1000,
+           "CadOff": 0,
+           "Repetitions": -1
+         }
+       ]
+     },
+     {
+       "ToneId": 9,
+       "ToneName": "Confirm Tone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": 1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 1400,
+           "Level": -25,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 500,
+           "CadOff": 0,
+           "Repetitions": -1
+         }
+       ]
+     },
+     {
+       "ToneId": 10,
+       "ToneName": "Negative Confirm Tone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": 1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 425,
+           "Level": -18,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 300,
+           "CadOff": 300,
+           "Repetitions": 3
+         }
+       ]
+     },
+     {
+       "ToneId": 11,
+       "ToneName": "HowlerTone",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 0,
+       "DelayTime": 0,
+       "PlayTimes": -1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 1400,
+           "Level": -6,
+           "Phase": 0
+         },
+         {
+           "Hertz": 2060,
+           "Level": -6,
+           "Phase": 0
+         },
+         {
+           "Hertz": 2450,
+           "Level": -6,
+           "Phase": 0
+         },
+         {
+           "Hertz": 2600,
+           "Level": -6,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 100,
+           "CadOff": 100,
+           "Repetitions": 0
+         }
+       ]
+     },
+     {
+       "ToneId": 20,
+       "ToneName": "RingbackTone2",
+       "NextToneId": 0,
+       "MultiTonePlayTimes": 65535,
+       "DelayTime": 0,
+       "PlayTimes": 1,
+       "ModulateTone": false,
+       "ModulationIndex": 0,
+       "Frequency": [
+         {
+           "Hertz": 400,
+           "Level": -13,
+           "Phase": 0
+         },
+         {
+           "Hertz": 450,
+           "Level": -13,
+           "Phase": 0
+         }
+       ],
+       "Candence": [
+         {
+           "CadOn": 400,
+           "CadOff": 2000,
+           "Repetitions": 0
+         }
+       ]
+     }
+   ],
+   "RingProfile": [
+     {
+       "RingId": 1,
+       "RingName": "Normal Ring",
+       "NextRing": 0,
+       "PlayTimes": -1,
+       "Hertz": 25,
+       "Level": 50,
+       "Phase": 0,
+       "DCOffset": 25,
+       "Unbalance_Ring": 0,
+       "Candence": [
+         {
+           "CadOn": 400,
+           "CadOff": 200,
+           "Repetitions": 0
+         },
+         {
+           "CadOn": 400,
+           "CadOff": 2000,
+           "Repetitions": 0
+         }
+       ]
+     }
+   ],
+   "HookFlash": {
+     "MinHookFlash": 80,
+     "MaxHookFlash": 500,
+     "MinDisconnect": 1200
+   },
+   "DtmfParam": {
+     "dblevel": 4,
+     "pulseTime": 100
+   },
+   "Impedance": {
+     "Law": 0,
+     "SLICImpedance": 0
+   },
+   "CallerID": {
+     "CIDMode": "onhook_ring",
+     "__cmt_CIDMode": "onhook_ring, onhook_LRCARIR(MTK NTT?), onhook_DTAS, onhook_RPAS, ohnook_LRAS, offhook",
+     "CIDSigProtocol": "FSK",
+     "__cmt_CIDSigProtocol": "FSK, DTMF",
+     "CIDMsgFormat": "MDMF",
+     "__cmt_CIDMsgFormat": "SDMF, MDMF;Broadcom only use MDMF",
+     "CIDATRing": 1,
+     "__cmt_CIDATRing": "0:prior ring, 1:during ring, N:For MTK, send on # ring break"
+   },
+   "VMWI": {
+     "VMWIMode": "OSI",
+     "__cmt_VMWIMode": "OSI, DTAS, RPAS, LRAS",
+     "VMWISigProtocol": "FSK",
+     "__cmt_VMWISigProtocol": "FSK, DTMF",
+     "VMWIMsgFormat": "MDMF",
+     "__cmt_VMWIMsgFormat": "SDMF, MDMF",
+     "T0_VMWIDTASAfterLR": 250,
+     "__cmt_T0_VMWIDTASAfterLR": "T0",
+     "T3_VMWIFskAfterRPAS": 650,
+     "__cmt_T3_VMWIFskAfterRPAS": "T3",
+     "T4_VMWIFskAfterDTAS": 200,
+     "__cmt_T4_VMWIFskAfterDTAS": "T4"
+   },
+   "CIDDtmfParam": {
+     "dblevel": 5,
+     "DTMFpauseTimeout": 1000,
+     "DTMFsessionTimeout": 3000,
+     "ringAfterCIDTimeout": 1000,
+     "StartCode": "A",
+     "EndCode": "C",
+     "PrivateCode": "B01C",
+     "UnavailableCode": "B00C",
+     "ErrorCode": "",
+     "RedirectiongCode": "D",
+     "InformationCode": "B",
+     "T1_PulseTime": 70,
+     "__cmt_T1_PulseTime": "Standar More then 50 ms",
+     "T2_PauseTime": 70,
+     "__cmt_T2_PauseTime": "Standar More then 50 ms",
+     "T3_RingAfterDTMF": 200,
+     "__cmt_T3_RingAfterDTMF": "Standar 200 ms to 500 ms"
+   },
+   "CIDFskParam": {
+     "amp": 145,
+     "markFreq": 1300,
+     "spaceFreq": 2100,
+     "startNumSeizes": 300,
+     "startNumMarks": 180,
+     "PrivateCode": "P",
+     "UnavailableCode": "O",
+     "ErrorCode": "E",
+     "T0_CIDDTASAfterLR": 250,
+     "__cmt_T0_CIDDTASAfterLR": "For ohnook_LRAS; Standar T0 >= 100ms",
+     "T2_CIDRingAfterFSK": 200,
+     "__cmt_T2_CIDRingAfterFSK": "Standar 200 ms ~ 500 ms",
+     "T3_CIDFskAfterRPAS": 650,
+     "__cmt_T3_CIDFskAfterRPAS": "For onhook_RPAS; Standar 500 ms ~ 800 ms",
+     "T4_CIDFskAfterDTAS": 50,
+     "__cmt_T4_CIDFskAfterDTAS": "For onhook_DTAS; Maybe also T1 Standar 45 ms ~ 500 ms",
+     "T5_CIDFskAfterRing": 500,
+     "__cmt_T5_CIDFskAfterRing": "For onhook_ring;Standar 500 ms ~ 2000 ms, MTK ringProfile_t.cidWaitTime",
+     "T9_RestoreSpeechAfterT14": 80,
+     "__cmt_T9_RestoreSpeechAfterT14": "Standar 0 ms ~ 150 ms, Econet not accept more then 70 ms",
+     "T10_DTASAfterSpeechBlocked": 80,
+     "__cmt_T10_DTASAfterSpeechBlocked": "Standar 0 ms ~ 150 ms",
+     "T11_TimeForRecognitionTeAck": 50,
+     "__cmt_T11_TimeForRecognitionTeAck": "Standar 40 ms ~ 55 ms",
+     "T12_CIDFskAfterTeAckRecognition": 100,
+     "__cmt_T12_CIDFskAfterTeAckRecognition": "Standar 55 ms ~ 220 ms",
+     "T13_RestoreSpeechAfterFSK": 100,
+     "__cmt_T13_RestoreSpeechAfterFSK": "Standar 4 ms ~ 120 ms; Default in evcom 10",
+     "T14_TEACKDetectTimeout": 160,
+     "__cmt_T14_TEACKDetectTimeout": "Standar 160 +\/- 5 ms; Default in evcom 15",
+     "CallWaitDelay": 10000
+   }
+ }

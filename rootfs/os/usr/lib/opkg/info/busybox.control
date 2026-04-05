@@ -1,0 +1,15 @@
+Package: busybox
+Version: 1_20_1-5
+Depends: libc
+Source: package/busybox
+SourceFile: busybox-1_20_1.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/utils/busybox
+License: GPLv2 BSD-4c
+LicenseFiles: LICENSE archival/libarchive/bz/LICENSE
+Section: base
+Essential: yes
+Maintainer: Nicolas Thill <nico@openwrt.org>
+Architecture: en75xx
+Installed-Size: 297225
+Description:  The Swiss Army Knife of embedded Linux.
+ It slices, it dices, it makes Julian Fries.

@@ -1,0 +1,5 @@
+/etc/modules.d/55-ath10k
+/lib/modules/3.18.23/ath10k_pci.ko
+/lib/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
+/lib/firmware/ath10k/QCA988X/hw2.0/board.bin
+/lib/modules/3.18.23/ath10k_core.ko

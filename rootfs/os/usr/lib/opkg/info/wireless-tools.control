@@ -1,0 +1,12 @@
+Package: wireless-tools
+Version: 29-5
+Depends: libc
+Source: package/network/utils/wireless-tools
+SourceFile: wireless_tools.29.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/utils
+Section: net
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: en75xx
+Installed-Size: 26858
+Description:  This package contains a collection of tools for configuring wireless
+ adapters implementing the "Linux Wireless Extensions".

@@ -1,0 +1,11 @@
+Package: kmod-rtc-pcf8563
+Version: 3.18.23-1
+Depends: kernel (=3.18.23-1-8d2cc3fd67a886b76c887f10293fcbf5), kmod-i2c-core
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Status: unknown hold not-installed
+Architecture: ar71xx
+Installed-Size: 105
+Description:  Kernel module for Philips PCF8563 RTC chip.
+ The Epson RTC8564 should work as well.

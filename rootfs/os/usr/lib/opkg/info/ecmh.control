@@ -1,0 +1,12 @@
+Package: ecmh
+Version: 2005.02.09
+Depends: libc, ip, librt
+Source: package/network/services/ecmh
+SourceFile: ecmh-2005.02.09.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+License: GPL-2.0+
+Section: net
+Architecture: en75xx
+Installed-Size: 17991
+Description:  Easy Cast du Multi Hub (ecmh) is a networking daemon 
+ that acts as a full IPv6 MLDv1 and MLDv2 Multicast "Router".

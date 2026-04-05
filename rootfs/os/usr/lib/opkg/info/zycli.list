@@ -1,0 +1,11 @@
+/bin/restoredefault
+/bin/swversion
+/bin/dns
+/bin/Ethctl
+/bin/vcautohuntctl
+/bin/ethwanctl
+/bin/wlan
+/bin/sys
+/bin/pppoectl
+/bin/zycli
+/bin/wan

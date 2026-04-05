@@ -1,0 +1,98 @@
+[
+/*==================================Note==================================*/
+/*                                                                        */
+/*    Please add new country code in a sequential order.                  */
+/*    The name index starts from 0.                                       */
+/*    Ex: “name”:”DE/0”, “name”:”BR/1”, “name”:”TR/2”… .                  */
+/*    The maximum number of power tables is designed to 40 per chip now.  */
+/*                                                                        */
+/*========================================================================*/
+
+	/* For DX3301-T0, Generic 20200515 , temporarily for test, not CE final */
+	{
+		"name":"DE/0",
+		"region":"DE",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/001_DX3301-T0_Generic_CE_Summer.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/001_DX3301-T0_Generic_CE_BF_Summer.dat"
+	},
+
+	/* For DX3301-T0, Thailand, FCC */
+	{
+		"name":"TH/1",
+		"region":"TH",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/002_DX3301-T0_FCC.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/002_DX3301-T0_FCC_BF.dat"
+	},
+
+	/* For WX3100-T0, 20201117, CE */
+	{
+		"name":"DE/2",
+		"region":"DE",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/003_WX3100-T0_CE_Emma.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/003_WX3100-T0_CE_BF_Emma.dat"
+	},
+
+	/* For EX3301-T0, Malaysia */
+	{
+		"name":"MY/3",
+		"region":"MY",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/004_EX3301-T0_TelecomMalaysia_CE_Summer.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/004_EX3301-T0_TelecomMalaysia_CE_BF_Summer.dat"
+	},
+
+	/* For WX3100-T0, 20201117, Austria */
+	{
+		"name":"AT/4",
+		"region":"AT",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/005_WX3100-T0_CE_Emma.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/005_WX3100-T0_CE_BF_Emma.dat"
+	},
+
+	/* For EX3200-T0, Generic, 20210208, external antenna, CE */
+	{
+		"name":"DE/5",
+		"region":"DE",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/006_EX3200-T0_Generic_CE_Emma.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/006_EX3200-T0_Generic_CE_BF_Emma.dat"
+	},
+
+	/* For WX3100-T0, TelenorDigi Malaysia, 20210430 */
+	{
+		"name":"MY/6",
+		"region":"MY",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/007_WX3100-T0_TelenorDigi_MY_Emma.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/007_WX3100-T0_TelenorDigi_MY_BF_Emma.dat"
+	},
+
+	/* For EX3300-T0, TelenorDigi Malaysia, internal antenna, 20210430 */
+	{
+		"name":"MY/7",
+		"region":"MY",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/008_DX3301-T0_TelenorDigi_MY_Summer.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/008_DX3301-T0_TeleDigi_MY_BF_Summer.dat"
+	},
+	
+	{
+		"name":"DE/8",
+		"region":"DE",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/009_HGW500TX2X2E-T0_CE_Mandy.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/009_HGW500TX2X2E-T0_CE_BF_Mandy.dat"
+	},
+
+	/* For EX3300-T0, Taiwan, CHT, 20210824 */
+	{
+		"name":"TW/9",
+		"region":"TW",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/010_EX3300-T0_MT7915_Sku_Table_CHT20210824_Summer.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/010_EX3300-T0_MT7915_Backoff_Table_CHT_20210824_Summer.dat"
+	},
+
+	/* For EX2210-T0 */
+	{
+		"name":"US/10",
+		"region":"US",
+		"file":"ECN_PowerTable/MT7915D/SingleSKU_Table/011_EX2210-T0_MT7915_Sku_Table_FCC_20220406.dat",
+		"BFfile":"ECN_PowerTable/MT7915D/SingleSKU_BF_Table/011_EX2210-T0_Backoff_Table_FCC_20220426.dat"
+	}
+	
+]

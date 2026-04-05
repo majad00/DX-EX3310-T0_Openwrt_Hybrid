@@ -1,0 +1,62 @@
+#!/bin/sh
+echo "--- Phase 1: Tuning Kernel ---"
+sysctl -w net.unix.max_dgram_qlen=64
+echo 16384 > /proc/net/skbmgr_4k_limit
+echo 20000 > /proc/net/skbmgr_limit
+echo 40000 > /proc/net/skbmgr_driver_max_skb
+echo 4096 2048 > /proc/net/skbmgr_hot_list_len
+
+ZYXEL_ROOT="/tmp/zyxel_root"
+
+echo "--- Phase 2: Cleaning up old environment ---"
+# Unmount anything currently attached to avoid "Read-only" or "File exists" conflicts
+umount -l $ZYXEL_ROOT/proc $ZYXEL_ROOT/sys $ZYXEL_ROOT/dev $ZYXEL_ROOT/tmp $ZYXEL_ROOT/bin $ZYXEL_ROOT/sbin $ZYXEL_ROOT/usr $ZYXEL_ROOT/lib $ZYXEL_ROOT/userfs 2>/dev/null
+
+echo "--- Phase 3: Building Hybrid Structure ---"
+mkdir -p $ZYXEL_ROOT
+mkdir -p $ZYXEL_ROOT/bin $ZYXEL_ROOT/sbin $ZYXEL_ROOT/usr $ZYXEL_ROOT/lib $ZYXEL_ROOT/userfs $ZYXEL_ROOT/proc $ZYXEL_ROOT/sys $ZYXEL_ROOT/dev $ZYXEL_ROOT/tmp
+
+# 1. Copy ONLY the config folders that need to be WRITABLE into RAM
+rm -rf $ZYXEL_ROOT/etc $ZYXEL_ROOT/var $ZYXEL_ROOT/data 2>/dev/null
+cp -af /os/etc $ZYXEL_ROOT/ 2>/dev/null
+cp -af /os/var $ZYXEL_ROOT/ 2>/dev/null
+cp -af /os/data $ZYXEL_ROOT/ 2>/dev/null
+
+# 2. Bind mount the massive, read-only OEM folders from /os (Saves RAM!)
+mount -o bind /os/bin $ZYXEL_ROOT/bin
+mount -o bind /os/sbin $ZYXEL_ROOT/sbin
+mount -o bind /os/usr $ZYXEL_ROOT/usr
+mount -o bind /os/lib $ZYXEL_ROOT/lib
+mount -o bind /os/userfs $ZYXEL_ROOT/userfs
+
+# 3. Bind mount the host's live system paths
+mount -o bind /proc $ZYXEL_ROOT/proc
+mount -o bind /sys $ZYXEL_ROOT/sys
+mount -o bind /dev $ZYXEL_ROOT/dev
+mount -o bind /tmp $ZYXEL_ROOT/tmp
+
+echo "--- Phase 4: Identity & Config Injection ---"
+cp /os/data/zcfg_tr98_map.json $ZYXEL_ROOT/etc/ 2>/dev/null
+cp /os/data/zcfg_tr181_map.json $ZYXEL_ROOT/etc/ 2>/dev/null
+
+echo "WAN_MAC=7C:77:16:EC:E8:40" > $ZYXEL_ROOT/etc/mac.conf
+echo "LAN_MAC=7C:77:16:EC:E8:40" >> $ZYXEL_ROOT/etc/mac.conf
+
+# Extract EEPROM directly into the new writable RAM /etc folder
+mkdir -p $ZYXEL_ROOT/etc/Wireless/RT2860AP_AC/
+dd if=/dev/mtd13 of=$ZYXEL_ROOT/etc/Wireless/RT2860AP_AC/RT30xxEEPROM.bin bs=1 skip=172032 count=4096 2>/dev/null
+
+# Network Prep
+brctl addbr br0 2>/dev/null
+ifconfig br0 up
+
+echo "--- Phase 5: Staging Daemons ---"
+# Start the Brain (zcmd)
+chroot $ZYXEL_ROOT /bin/sh -c "export PATH=/home/bin:/home/scripts:/bin:/sbin:/usr/bin:/usr/sbin; export LD_LIBRARY_PATH=/lib/public:/lib/private:/usr/lib:/lib; /bin/zcmd &"
+
+sleep 20
+
+# Start the Wi-Fi Engine (zywifid)
+chroot $ZYXEL_ROOT /bin/sh -c "export PATH=/home/bin:/home/scripts:/opt/bin:/bin:/sbin:/usr/bin:/usr/sbin:/userfs/bin; export LD_LIBRARY_PATH=/lib/public:/lib/private:/lib/gpl:/usr/lib:/lib:/lib64/gpl:/lib64; /bin/zywifid &"
+
+echo "Setting Wifi ... Done!"

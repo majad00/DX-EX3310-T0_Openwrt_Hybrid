@@ -1,0 +1,8 @@
+Package: luci-lib-nixio
+Version: git-16.018.33482-3201903-1
+Depends: libc, liblua
+Source: feeds/luci/libs/luci-lib-nixio
+Section: luci
+Architecture: ar71xx
+Installed-Size: 28021
+Description:  NIXIO POSIX library

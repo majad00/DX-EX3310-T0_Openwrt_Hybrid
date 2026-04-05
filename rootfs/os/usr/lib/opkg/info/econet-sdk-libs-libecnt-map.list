@@ -1,0 +1,9 @@
+/lib/libzcfg_msg.so
+/lib/libmapd_interface_client.so
+/lib/libmap_hal.so
+/lib/libapi_lib_meshmgr.so.1
+/lib/librt.so.0
+/lib/libapi_lib_meshmgr.so.1.0.0
+/lib/libzos.so
+/lib/libzySL.so
+/lib/libzlog.so

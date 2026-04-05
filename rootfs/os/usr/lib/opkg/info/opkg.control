@@ -1,0 +1,19 @@
+Package: opkg
+Version: 618-3
+Depends: libc
+Source: package/opkg
+SourceFile: opkg-618.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/misc
+License: GPLv2
+LicenseFiles: COPYING
+Section: base
+Maintainer: Jo-Philipp Wich <xm@subsignal.org>
+Architecture: en75xx
+Installed-Size: 65535
+Description:  Lightweight package management system
+ opkg is the opkg Package Management System, for handling
+ installation and removal of packages on a system. It can
+ recursively follow dependencies and download all packages
+ necessary to install a particular package.
+ 
+ opkg knows how to install both .ipk and .deb packages.

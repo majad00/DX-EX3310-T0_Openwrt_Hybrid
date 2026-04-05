@@ -1,0 +1,9 @@
+Package: kmod-l2tp
+Version: 3.18.21-1
+Depends: kernel (=3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Source: package/kernel
+License: GPLv2
+Section: kernel
+Architecture: en75xx
+Installed-Size: 105
+Description:  Kernel modules for L2TP V3 Support

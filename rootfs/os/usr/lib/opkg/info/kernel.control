@@ -1,0 +1,9 @@
+Package: kernel
+Version: 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1
+Depends: libc
+Source: package/kernel
+License: GPLv2
+Section: sys
+Architecture: en75xx
+Installed-Size: 104
+Description:  Virtual kernel package

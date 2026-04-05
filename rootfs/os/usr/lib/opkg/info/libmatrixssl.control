@@ -1,0 +1,10 @@
+Package: libmatrixssl
+Version: 1-8-1
+Depends: libc, libpthread
+Source: package/libs/matrixssl
+SourceFile: matrixssl-1-8-open.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: libs
+Architecture: en75xx
+Installed-Size: 52117
+Description:  Embedded SSL implementation

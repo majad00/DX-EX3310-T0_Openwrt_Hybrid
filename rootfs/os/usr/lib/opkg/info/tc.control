@@ -1,0 +1,10 @@
+Package: tc
+Version: 2.6.33-100224
+Depends: libc, kmod-sched-core
+Source: package/network/utils/iproute2
+SourceFile: iproute2-2.6.33.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/network/utils
+Section: net
+Architecture: en75xx
+Installed-Size: 91045
+Description:  Traffic control utility

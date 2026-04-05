@@ -1,0 +1,94 @@
+#!/bin/sh
+. /lib/functions.sh
+CHROOT_PATH="/tmp/zyxel_root"
+IWPRIV="/usr/sbin/iwpriv"
+
+# written by majad qureshi as part of wrapper
+sync_iface() {
+    local config="$1"
+    local device ifname disabled ssid key encryption hidden macaddr maxassoc channel htmode txpower
+
+    config_get device "$config" device
+    config_get ifname "$config" ifname
+
+    
+    if [ -z "$ifname" ]; then
+        [ "$device" = "radio0" ] && ifname="ra0"
+        [ "$device" = "radio1" ] && ifname="rai5"
+    fi
+
+    config_get disabled "$config" disabled "0"
+    config_get ssid "$config" ssid
+    config_get key "$config" key
+    config_get encryption "$config" encryption "none"
+    config_get hidden "$config" hidden "0"
+    config_get macaddr "$config" macaddr
+    config_get maxassoc "$config" maxassoc "32"
+
+    [ -z "$ifname" ] && return
+    case "$ifname" in
+        ra0|ra1|ra2|rai5|rai1|rai2) ;;
+        *) return ;;
+    esac
+
+ 
+    local is_main=0
+    [ "$ifname" = "ra0" -o "$ifname" = "rai5" ] && is_main=1
+
+    ifconfig $ifname down 2>/dev/null
+
+    if [ "$disabled" = "1" ]; then
+        chroot $CHROOT_PATH $IWPRIV $ifname set RadioOn=0 > /dev/null 2>&1
+    else
+        [ -n "$macaddr" ] && ifconfig $ifname hw ether "$macaddr" 2>/dev/null
+        ifconfig $ifname up 2>/dev/null
+        chroot $CHROOT_PATH $IWPRIV $ifname set RadioOn=1 > /dev/null 2>&1
+
+
+        if [ "$is_main" = "1" ]; then
+            config_get channel "$device" channel "auto"
+            config_get htmode "$device" htmode "0"
+            config_get txpower "$device" txpower "100"
+
+            chroot $CHROOT_PATH $IWPRIV $ifname set BssidNum=4 > /dev/null 2>&1
+
+            if [ "$channel" != "auto" ]; then
+                chroot $CHROOT_PATH $IWPRIV $ifname set AutoChannelSel=0 > /dev/null 2>&1
+                chroot $CHROOT_PATH $IWPRIV $ifname set Channel="$channel" > /dev/null 2>&1
+            else
+                chroot $CHROOT_PATH $IWPRIV $ifname set AutoChannelSel=2 > /dev/null 2>&1
+            fi
+
+            if [ "$device" = "radio0" ]; then
+                chroot $CHROOT_PATH $IWPRIV $ifname set HT_BW="$htmode" > /dev/null 2>&1
+            elif [ "$device" = "radio1" ]; then
+                if [ "$htmode" = "2" ]; then
+                    chroot $CHROOT_PATH $IWPRIV $ifname set VHT_BW=1 > /dev/null 2>&1
+                else
+                    chroot $CHROOT_PATH $IWPRIV $ifname set VHT_BW=0 > /dev/null 2>&1
+                    chroot $CHROOT_PATH $IWPRIV $ifname set HT_BW="$htmode" > /dev/null 2>&1
+                fi
+            fi
+
+            chroot $CHROOT_PATH $IWPRIV $ifname set TxPower="$txpower" > /dev/null 2>&1
+        fi
+
+
+        chroot $CHROOT_PATH $IWPRIV $ifname set HideSSID="$hidden" > /dev/null 2>&1
+        chroot $CHROOT_PATH $IWPRIV $ifname set MaxStaNum="$maxassoc" > /dev/null 2>&1
+
+        if [ "$encryption" = "none" ]; then
+            chroot $CHROOT_PATH $IWPRIV $ifname set AuthMode=OPEN > /dev/null 2>&1
+            chroot $CHROOT_PATH $IWPRIV $ifname set EncrypType=NONE > /dev/null 2>&1
+        else
+            chroot $CHROOT_PATH $IWPRIV $ifname set AuthMode=WPA2PSK > /dev/null 2>&1
+            chroot $CHROOT_PATH $IWPRIV $ifname set EncrypType=AES > /dev/null 2>&1
+            [ -n "$key" ] && chroot $CHROOT_PATH $IWPRIV $ifname set WPAPSK="$key" > /dev/null 2>&1
+        fi
+
+        chroot $CHROOT_PATH $IWPRIV $ifname set SSID="$ssid" > /dev/null 2>&1
+    fi
+}
+
+config_load wireless
+config_foreach sync_iface wifi-iface

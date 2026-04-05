@@ -1,0 +1,6 @@
+/etc/init.d/crond.sh
+/etc/init.d/syslog-ng.sh
+/usr/sbin/syslog-ng
+/etc/rc3.d/S46crond
+/etc/rc3.d/S46syslog-ng
+/etc/syslog-ng/syslog-ng_init.conf

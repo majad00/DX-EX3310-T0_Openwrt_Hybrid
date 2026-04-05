@@ -1,0 +1,10 @@
+Package: br2684ctl
+Version: 2.5.2-5
+Depends: libc, linux-atm
+Source: package/linux-atm
+SourceFile: linux-atm-2.5.2.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network
+Section: net
+Architecture: en75xx
+Installed-Size: 4706
+Description:  Support for AAL5 encapsulation (RFC-1483/RFC-2684) over ATM.

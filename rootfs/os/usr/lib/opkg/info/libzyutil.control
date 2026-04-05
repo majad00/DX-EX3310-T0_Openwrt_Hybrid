@@ -1,0 +1,9 @@
+Package: libzyutil
+Version: 2.0-1
+Depends: libc
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_public/public-zyxel/libzyutil
+SourceFile: libzyutil-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 40107
+Description:  ZyXEL Configuration Management Utility Library

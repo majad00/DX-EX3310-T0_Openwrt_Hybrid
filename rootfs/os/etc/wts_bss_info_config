@@ -1,0 +1,12 @@
+1,ff:ff:ff:ff:ff:ff 8x Ralink_AP 0x0001 0x0001 12345678 1 0 hidden-N 0x02
+2,ff:ff:ff:ff:ff:ff 8x Ralink_AP 0x0001 0x0001 12345678 0 1 hidden-N 0x02
+3,ff:ff:ff:ff:ff:ff 8x Ralink_AP3 0x0001 0x0001 12345678 0 1 hidden-N 0x02
+4,ff:ff:ff:ff:ff:ff 8x Ralink_AP4 0x0001 0x0001 12345678 0 1 hidden-N 0x02
+5,ff:ff:ff:ff:ff:ff 11x Ralink_AP 0x0001 0x0001 12345678 1 0 hidden-N 0x02
+6,ff:ff:ff:ff:ff:ff 12x Ralink_AP 0x0001 0x0001 12345678 1 0 hidden-N 0x02
+7,ff:ff:ff:ff:ff:ff 11x Ralink_AP 0x0001 0x0001 12345678 0 1 hidden-N 0x02
+8,ff:ff:ff:ff:ff:ff 12x Ralink_AP 0x0001 0x0001 12345678 0 1 hidden-N 0x02
+9,ff:ff:ff:ff:ff:ff 11x Ralink_AP3_5G 0x0001 0x0001 12345678 0 1 hidden-N 0x02
+10,ff:ff:ff:ff:ff:ff 12x Ralink_AP3_5G 0x0001 0x0001 12345678 0 1 hidden-N 0x02
+11,ff:ff:ff:ff:ff:ff 11x Ralink_AP4_5G 0x0001 0x0001 12345678 0 1 hidden-N 0x02
+12,ff:ff:ff:ff:ff:ff 12x Ralink_AP4_5G 0x0001 0x0001 12345678 0 1 hidden-N 0x02

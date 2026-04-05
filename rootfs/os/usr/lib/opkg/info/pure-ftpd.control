@@ -1,0 +1,10 @@
+Package: pure-ftpd
+Version: 1.0.30-1
+Depends: libc, libzcfg_msg, libzcmd_tool, libjson, libzcfg_fe_rdm_access, libzcfg_fe_rdm_struct, libzyutil, libcrypto, libopenssl
+Source: package/network/services/pure-ftpd
+SourceFile: pure-ftpd-1.0.30.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: net
+Architecture: en75xx
+Installed-Size: 60443
+Description:  A secure and standard-conformant FTP server.

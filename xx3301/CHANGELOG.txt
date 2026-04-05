@@ -1,0 +1,37 @@
+================================================
+ZYXEL-MATRIX DX-EX3301-T0 FIRMWARE CHANGELOG
+================================================
+
+Version: 1.0.0 March 2026 (V-15)
+Author: Qureshi Majad
+Router: ZyXEL EX3301-T0 AX1800 Dual-band -WiFi6
+
+--------------------------------------------------------------------
+
+RELEASE NOTES
+-------------
+Initial stable release of Zyxel-Matrix firmware for EX3301-T0 router.
+This pre-release focuses on stability and essential features with a 
+fully functional Openwrt on EX-3301-T0 router.
+
+
+--------------------------------------------------------------------
+
+VERSION HISTORY
+---------------
+
+1.0.0 (March 2026) - Alpha
+   • Openwrt Fully functional OS
+   • Roll back option to revert to Official OS
+
+--------------------------------------------------------------------
+
+
+LICENSE
+-------
+This firmware is based on OpenWrt and is subject to its licenses.
+Modifications and additions are provided under GPL v2.
+
+--------------------------------------------------------------------
+For latest updates and information, visit:
+[Your website/GitHub repository URL]

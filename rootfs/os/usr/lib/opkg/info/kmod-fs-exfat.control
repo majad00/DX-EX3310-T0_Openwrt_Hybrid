@@ -1,0 +1,13 @@
+Package: kmod-fs-exfat
+Version: 3.18.21+master-1
+Depends: kernel (=3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nls-base
+Source: package/exfat-nofuse
+SourceFile: exfat-nofuse-master.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/utils
+License: GPL-2.0
+LicenseFiles: LICENSE
+Section: kernel
+Maintainer: Bruno Randolf <br1@einfach.org>
+Architecture: en75xx
+Installed-Size: 56222
+Description:  Kernel module for ExFAT Filesytems

@@ -1,0 +1,12 @@
+Package: libedit
+Version: 20080712-2.11
+Depends: libc, libncurses
+Source: package/libs/libedit
+SourceFile: libedit-20080712-2.11.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: FREE
+LicenseFiles: README
+Section: libs
+Architecture: en75xx
+Installed-Size: 56289
+Description:  Edit Line library

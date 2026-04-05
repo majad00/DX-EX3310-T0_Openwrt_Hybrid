@@ -1,0 +1,12 @@
+Package: libncurses
+Version: 5.7-5
+Depends: libc, terminfo
+Source: package/libs/ncurses
+SourceFile: ncurses-5.7.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: FREE
+LicenseFiles: README
+Section: libs
+Architecture: en75xx
+Installed-Size: 80804
+Description:  Terminal handling library

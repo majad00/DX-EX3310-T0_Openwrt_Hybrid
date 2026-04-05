@@ -1,0 +1,19 @@
+[Unit]
+Description=LXC Container Initialization and Autoboot Code
+After=network.target lxc-net.service
+Wants=lxc-net.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=/usr/lib/lxc/lxc-apparmor-load
+ExecStart=/usr/lib/lxc/lxc-containers start
+ExecStop=/usr/lib/lxc/lxc-containers stop
+# Environment=BOOTUP=serial
+# Environment=CONSOLETYPE=serial
+Delegate=yes
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

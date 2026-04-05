@@ -1,0 +1,8 @@
+Package: zatm_oam
+Version: 1
+Depends: libc, zcmd, libzcfg_fe_tr98
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zatm_oam
+Section: net
+Architecture: en75xx
+Installed-Size: 6102
+Description:  atm_oam bin file 

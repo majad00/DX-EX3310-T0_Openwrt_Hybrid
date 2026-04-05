@@ -1,0 +1,4 @@
+#!/bin/sh
+[ -z "$IPKG_INSTROOT" ] || exit 0
+. /lib/functions.sh
+insert_modules nf_defrag_ipv6 nf_conntrack_ipv6

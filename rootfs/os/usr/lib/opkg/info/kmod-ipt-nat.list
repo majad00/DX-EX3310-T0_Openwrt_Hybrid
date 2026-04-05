@@ -1,0 +1,2 @@
+/etc/modules.d/42-ipt-nat
+/lib/modules/3.18.21/ipt_MASQUERADE.ko

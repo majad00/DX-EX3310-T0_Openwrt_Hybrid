@@ -1,0 +1,9 @@
+Package: kmod-usb-net-rndis
+Version: 3.18.21-1
+Depends: kernel (=3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-net, kmod-usb-net-cdc-ether
+Source: package/kernel
+License: GPLv2
+Section: kernel
+Architecture: en75xx
+Installed-Size: 4866
+Description:  Kernel support for RNDIS connections

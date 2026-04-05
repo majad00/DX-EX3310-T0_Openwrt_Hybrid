@@ -1,0 +1,9 @@
+Package: zcfg_be
+Version: 3.0-1
+Depends: libc, libzyutil, libzlog, libzcfg_dbg, zcmd, libzcfg_dbg, libzcfg_fe_rdm_string
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zcfg_be
+SourceFile: zcfg_be-3.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 556357
+Description:  Support Super WAN Management

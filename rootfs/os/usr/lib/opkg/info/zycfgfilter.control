@@ -1,0 +1,9 @@
+Package: zycfgfilter
+Version: 2.0-1
+Depends: libc, zcfg
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zycfgfilter
+SourceFile: zycfgfilter-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 13846
+Description:  ZyXEL Configuration Filter

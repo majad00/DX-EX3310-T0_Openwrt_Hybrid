@@ -1,0 +1,10 @@
+Package: zupnp
+Version: 1.0-1
+Depends: libc, libpthread, clinkc, expat, openssl-util, libzos, libzlog, libuuid
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zupnp
+SourceFile: zupnp-1.0.tar.gz
+SourceURL: @ZyXEL_SITE/private/ZyXEL
+Section: net
+Architecture: en75xx
+Installed-Size: 26289
+Description:  Zyxel UPnP

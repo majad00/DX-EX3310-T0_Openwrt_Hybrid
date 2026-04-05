@@ -1,0 +1,11 @@
+Package: tcpdump
+Version: 4.2.1-2
+Depends: libc, libpcap
+Source: package/network/utils/tcpdump
+SourceFile: tcpdump-4.2.1.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/utils
+Section: net
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: en75xx
+Installed-Size: 284793
+Description:  Network monitoring and data acquisition tool

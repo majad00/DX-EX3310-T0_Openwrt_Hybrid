@@ -1,0 +1,83 @@
+<%#
+ Copyright 2008 Steven Barth <steven@midlink.org>
+ Copyright 2008-2009 Jo-Philipp Wich <jow@openwrt.org>
+ Licensed to the public under the Apache License 2.0.
+-%>
+
+<%+header%>
+
+<h2><a id="content" name="content"><%:Flash Matrix OS%> - <%:Verify%></a></h2>
+<p>
+	<%_ The flash image was uploaded.
+		Below is the checksum and file size listed <br />
+		Click "Proceed" below to start the flash procedure. %>
+
+	<% if storage > 0 and size > storage then %>
+		<br /><br />
+		<div class="error"><%:It appears that you are trying to
+			flash an image that does not fit into the flash memory, please verify
+			the image file! %></div>
+	<% end %>
+</p>
+
+<% if is_official then %>
+<div style="background-color: #000000; color: #ff3333; border: 3px solid #ff0000; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+	<h3 style="margin-top: 0; color: #ff0000; text-align: center;"><strong><%:⚠️ WARNING: YOU ARE REMOVING MATRIX OS ⚠️%></strong></h3>
+	<p style="font-size: 1.1em; margin-bottom: 10px;">
+		<%:You are attempting to flash official factory firmware using the Matrix OS web interface. If possible please use the TFTP to router and use ATUR RAS.bin command to flash.This will gurantee the Zyxel's proprietary NAND bad-block management.%>
+	</p>
+	<p style="font-size: 1.1em; color: #ffffff; font-weight: bold; margin-bottom: 10px;">
+		<%:you will lose all your personalized data and installed Apps.%>
+	</p>
+	<p style="font-size: 1em; margin-bottom: 0;">
+		<%:Proceed by clicking Procede to Flash button below .%>
+	</p>
+</div>
+<% end %>
+
+<div style="background-color: #fef2f2; color: #dc2626; border: 2px solid #fca5a5; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+	<h3 style="margin-top: 0; color: #b91c1c;"><strong><%:CRITICAL WARNING%></strong></h3>
+	<p style="margin-bottom: 0; font-size: 1.1em;">
+		<%:The Matrix OS update may take up to 3 minutes. %>
+		<br/>
+		<strong><%:Please DO NOT turn off or unplug the router while the Power LED is RED!%></strong>
+	</p>
+</div>
+
+<fieldset class="cbi-section">
+...
+
+<fieldset class="cbi-section">
+	<ul>
+		<li><%:Checksum%>: <code><%=checksum%></code></li>
+		<li><%:Size%>: <%
+			local w = require "luci.tools.webadmin"
+			write(w.byte_format(size))
+
+			if storage > 0 then
+				write(luci.i18n.translatef(
+					" (%s available)",
+					w.byte_format(storage)
+				))
+			end
+		%></li>
+		<li><% if keep then %>
+			<%:Configuration files will be kept.%>
+		<% else %>
+			<%:Note: Configuration files will be erased.%>
+		<% end %></li>
+	</ul>
+</fieldset>
+
+<div class="cbi-page-actions right">
+	<form style="display:inline" action="<%=REQUEST_URI%>" method="post">
+		<input class="cbi-button cbi-button-reset" type="submit" value="<%:Cancel%>" />
+	</form>
+	<form style="display:inline" action="<%=REQUEST_URI%>" method="post">
+		<input type="hidden" name="step" value="2" />
+		<input type="hidden" name="keep" value="<%=keep and "1" or ""%>" />
+		<input class="cbi-button cbi-button-apply" style="font-weight: bold;" type="submit" value="<%:Proceed to Flash%>" />
+	</form>
+</div>
+
+<%+footer%>

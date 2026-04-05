@@ -1,0 +1,11 @@
+/etc/init.d/netprobe
+/usr/bin/netprobe
+/usr/bin/netprobe_init
+/usr/lib/liboui.so
+/usr/lib/libarp.so
+/usr/lib/libcoprocess.so
+/usr/lib/libnetprb.so
+/usr/lib/libethlink.so
+/usr/lib/liblayer2.so
+/sbin/netmap_update
+/usr/bin/database_dump

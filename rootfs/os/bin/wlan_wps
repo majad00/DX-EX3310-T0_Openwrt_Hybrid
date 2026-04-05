@@ -1,0 +1,13 @@
+#!/bin/sh
+
+command=
+intf=
+
+if [ "$1" == "wps_hw_pbc" -o "$1" == "wps_cancel" ]; then
+	command=$1
+	/bin/zywlctl $command
+else
+	command="wps_updatecfg"
+	intf=$1
+	/bin/zywlctl -i $intf $command $2
+fi

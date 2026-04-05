@@ -1,0 +1,10 @@
+Package: tmsctl
+Version: 1.0.1-1
+Depends: libc, kmod-TMS_Module, libpthread, libzyutil, libzcfg_msg, libopenssl, libjson
+Source: package/private/tms_module/tmsctl
+SourceFile: tmsctl-1.0.1.tar.gz
+SourceURL: @ZyXEL_SITE/private/Broadcom/tmsctl/
+Section: BRCM
+Architecture: en75xx
+Installed-Size: 22240
+Description:  Control TMS Module (1ag/3ah/Y.1731).

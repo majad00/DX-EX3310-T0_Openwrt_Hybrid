@@ -1,0 +1,9 @@
+Package: mtd-econet
+Version: 6
+Depends: libc
+Source: package/mtd-econet
+Section: utils
+Architecture: en75xx
+Installed-Size: 7423
+Description:  This package contains an utility useful to upgrade from other firmware or 
+ older OpenWrt releases.

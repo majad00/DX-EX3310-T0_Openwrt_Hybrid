@@ -1,0 +1,19 @@
+#!/bin/sh
+# written by majad as part of wrapper
+
+CONFIG="/etc/config/wireless"
+SYNC_SCRIPT="/usr/bin/zyxel_wifi_sync"
+
+# Get the exact timestamp of when the file was last modified
+LAST_MOD=$(stat -c %Y "$CONFIG" 2>/dev/null)
+
+while true; do
+    CURRENT_MOD=$(stat -c %Y "$CONFIG" 2>/dev/null)
+
+    if [ "$LAST_MOD" != "$CURRENT_MOD" ]; then
+        $SYNC_SCRIPT > /dev/null 2>&1
+        LAST_MOD=$CURRENT_MOD
+    fi
+    
+    sleep 5
+done

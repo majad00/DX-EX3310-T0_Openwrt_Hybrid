@@ -1,0 +1,10 @@
+Package: zyschedule
+Version: 1.0-1
+Depends: libc, zcfg
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zyschedule
+SourceFile: zyschedule-1.0.tar.gz
+SourceURL: @ZyXEL_SITE/private/ZyXEL
+Section: net
+Architecture: en75xx
+Installed-Size: 6608
+Description:  zyschedule is a process to check schedule rule time .

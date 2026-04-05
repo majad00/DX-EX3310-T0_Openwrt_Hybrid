@@ -1,0 +1,13 @@
+Package: libsrtp
+Version: 1.6.0-1
+Depends: libc
+Source: package/libs/libsrtp
+SourceFile: libsrtp-1.6.0.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: BSD
+LicenseFiles: LICENSE
+Section: libs
+Maintainer: David A. McGrew <mcgrew@cisco.com>
+Architecture: en75xx
+Installed-Size: 105
+Description:  This package contains a library for SRTP.

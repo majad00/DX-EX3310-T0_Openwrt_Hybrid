@@ -1,0 +1,9 @@
+Package: zycli
+Version: 2.0-1
+Depends: libc, zcmd, libzyutil
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zycli
+SourceFile: zycli-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 46912
+Description:  ZyXEL CLI

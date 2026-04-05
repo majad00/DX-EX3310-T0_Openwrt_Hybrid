@@ -1,0 +1,3 @@
+/etc/hotplug.d/iface/30-ez-ipupdate
+/usr/sbin/ez-ipupdate
+/etc/config/ddns

@@ -1,0 +1,13 @@
+Package: mailsend
+Version: 1.17b15-1
+Depends: libc, libopenssl
+Source: package/mailsend
+SourceFile: mailsend-1.17b15.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+License: BSD-3-Clause
+Section: mail
+Maintainer: Ted Hess <thess@kitschensync.net>
+Architecture: en75xx
+Installed-Size: 40891
+Description:  Mailsend is a simple command line program to send mail via SMTP protocol.
+ SSL is supported via OpenSSL (optional).

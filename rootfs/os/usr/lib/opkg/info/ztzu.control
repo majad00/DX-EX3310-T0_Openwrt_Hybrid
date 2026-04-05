@@ -1,0 +1,10 @@
+Package: ztzu
+Version: 1.0-1
+Depends: libc
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/ztzu
+SourceFile: ztzu-1.0.tar.gz
+SourceURL: @ZyXEL_SITE/private/ZyXEL
+Section: net
+Architecture: en75xx
+Installed-Size: 2210
+Description:  ZyXEL Time Zone Updater

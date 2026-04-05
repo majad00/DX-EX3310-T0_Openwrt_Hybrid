@@ -1,0 +1,3 @@
+/etc/init.d/smbd.sh
+/etc/init.d/radvd.sh
+/lib/private/libzcfg_be.so

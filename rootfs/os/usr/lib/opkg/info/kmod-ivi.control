@@ -1,0 +1,8 @@
+Package: kmod-ivi
+Version: 3.18.21-1.0
+Depends: kernel (=3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), libc
+Source: package/ivi
+Section: ipv6
+Architecture: en75xx
+Installed-Size: 27930
+Description:  IVI Module is built for ivictl(IPv6 MAP).

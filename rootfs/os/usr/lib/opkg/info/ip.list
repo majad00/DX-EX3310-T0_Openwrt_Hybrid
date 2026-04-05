@@ -1,0 +1,3 @@
+/usr/sbin/ip
+/etc/iproute2/rt_tables
+/lib/upgrade/keep.d/ip

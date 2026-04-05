@@ -1,0 +1,4 @@
+/etc/modules.d/30-scsi-cdrom
+/etc/modules.d/45-scsi-cdrom
+/lib/modules/3.18.21/sr_mod.ko
+/lib/modules/3.18.21/cdrom.ko

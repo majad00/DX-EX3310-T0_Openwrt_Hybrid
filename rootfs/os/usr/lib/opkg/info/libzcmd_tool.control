@@ -1,0 +1,9 @@
+Package: libzcmd_tool
+Version: 2.0-1
+Depends: libc, libjson
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_public/public-zyxel/libzcmd_tool
+SourceFile: libzcmd_tool-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 3079
+Description:  ZyXEL Configuration Management Daemon Tool

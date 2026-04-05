@@ -1,0 +1,9 @@
+/usr/bin/dbclient
+/etc/mycert/ssh.rsa
+/usr/bin/scp
+/etc/dropbear/dropbear_rsa_host_key
+/usr/bin/dropbearkey
+/etc/config/openssl.cnf
+/etc/dropbear/dropbear_dss_host_key
+/usr/sbin/dropbear
+/lib/upgrade/keep.d/dropbear

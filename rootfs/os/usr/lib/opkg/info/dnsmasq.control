@@ -1,0 +1,12 @@
+Package: dnsmasq
+Version: 2.78-3
+Depends: libc
+Source: package/network/services/dnsmasq
+SourceFile: dnsmasq-2.78.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+License: GPLv2
+LicenseFiles: COPYING
+Section: net
+Architecture: en75xx
+Installed-Size: 125230
+Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
