@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/github/downloads/yourusername/zyxel-matrix-wsr30/total)](https://github.com/majad00/wsr30-openwrt/releases/download/v4.0.0/Zyxel-Matrix-WSR30-v4.1.zip)
 
 The Zyxel-Matrix, Functional Openwrt Port for DX EX-3301 is developed using Imagebuilder, integrates proprietary utilities that are already available on your router. The open-source components are distributed under the GPL V2 license. 
-👉 Most of the proprietary utilities will remain accessible even after transitioning to the Zyxel-Matrix. Users have the flexibility to revert to their original router status at any time. Additionally, updating the latest Zyxel firmware is possible through LUCI interface.
+👉 Most of the proprietary utilities will remain accessible even after transitioning to the Zyxel-Matrix. Users have the flexibility to revert to their original router status at any time. Also, updating to the latest Zyxel firmware is possible through LUCI interface of Zyxel-Matrix.
 
 
 ## ✨ Features
