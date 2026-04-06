@@ -50,13 +50,18 @@ do_yaffs_bind() {
         echo " First boot - Please wait $mtd_dev ... " > /dev/console
         
  
-        for dir in etc usr lib bin sbin root www; do
+        for dir in etc usr bin sbin root www; do
             mkdir -p $mount_point/$dir
             if [ -d "/$dir" ]; then
                 cp -a /$dir/* $mount_point/$dir/ 2>/dev/null
             fi
         done
-        
+        mkdir -p $mount_point/lib
+        for item in /lib/*; do
+            if [ "$item" != "/lib/modules" ]; then
+                cp -a "$item" $mount_point/lib/ 2>/dev/null
+            fi
+        done
         touch $mount_point/.initialized
         #touch $mount_point/.reset  
         echo "$current_hash" > "$mount_point/.sh_hash"
@@ -64,14 +69,24 @@ do_yaffs_bind() {
     fi
     mount -t yaffs2 /dev/mtdblock9 /data
 	
-    for dir in usr lib bin sbin root www etc; do
+    for dir in usr bin sbin root www etc; do
         if [ -d "$mount_point/$dir" ] && [ -d "/$dir" ]; then
             mount --bind $mount_point/$dir /$dir
             echo " Bound $mount_point/$dir to /$dir" > /dev/console
         fi
     done
+
+    mkdir -p /tmp/modules
+    mount --bind /lib/modules /tmp/modules    
+    mount --bind $mount_point/lib /lib    
+    mkdir -p /lib/modules
+    mount --bind /tmp/modules /lib/modules
     
     echo " Multiple bind mounts complete. Booting to Zyxel Matrix ... !" > /dev/console
+		echo 1 > /proc/tc3162/pwm_start 2>/dev/null
+		echo "80 8 1 0 0" > /proc/tc3162/led_def 2>/dev/null
+		echo "82 6 1 0 1" > /proc/tc3162/led_def 2>/dev/null
+		echo 0 > /proc/tc3162/led_pwr_red 2>/dev/null
 }
 
 
