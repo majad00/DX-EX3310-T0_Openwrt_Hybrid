@@ -1,0 +1,8 @@
+Package: base-files-econet
+Version: 1-unknown
+Depends: libc
+Source: package/base-files-econet
+Section: base
+Architecture: en75xx
+Installed-Size: 37602
+Description:  This package contains a base filesystem and system scripts.

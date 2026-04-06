@@ -1,0 +1,10 @@
+Package: libexif
+Version: 0.6.13-1
+Depends: libc
+Source: package/libs/libexif
+SourceFile: libexif-0.6.13.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: libs
+Architecture: en75xx
+Installed-Size: 46967
+Description:  library for jpeg files with exif tags

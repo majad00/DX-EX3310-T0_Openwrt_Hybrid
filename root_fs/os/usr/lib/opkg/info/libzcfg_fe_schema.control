@@ -1,0 +1,9 @@
+Package: libzcfg_fe_schema
+Version: 2.0-1
+Depends: libc, libzcfg_fe_rdm_access
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_public/public-zyxel/libzcfg_fe_schema
+SourceFile: libzcfg_fe_schema-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 4186
+Description:  ZyXEL Configuration Management Frontend Data Model Access Library

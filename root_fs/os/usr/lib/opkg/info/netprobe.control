@@ -1,0 +1,10 @@
+Package: netprobe
+Version: 3.0-1
+Depends: libc, libzcfg_msg, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_string, libzcfg_fe_rdm_access, libsqlite3, libjson, libzcmd_tool, libzyutil
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/netprobe
+SourceFile: netprobe-3.0.tar.gz
+SourceURL: @ZyXEL_SITE/private/ZyXEL
+Section: net
+Architecture: en75xx
+Installed-Size: 31324
+Description:  NetProbe

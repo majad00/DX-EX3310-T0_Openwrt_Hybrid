@@ -1,0 +1,12 @@
+Package: updatedd
+Version: 2.6-1
+Depends: libc, libresolv
+Source: package/network/services/updatedd
+SourceFile: updatedd-2.6.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+License: GPLv2
+LicenseFiles: COPYING
+Section: net
+Architecture: en75xx
+Installed-Size: 28778
+Description:  A client to update a dynamic DNS

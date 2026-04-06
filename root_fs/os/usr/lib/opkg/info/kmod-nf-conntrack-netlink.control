@@ -1,0 +1,10 @@
+Package: kmod-nf-conntrack-netlink
+Version: 3.18.21-1
+Depends: kernel (=3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nfnetlink, kmod-ipt-conntrack
+Source: package/kernel
+License: GPLv2
+Section: kernel
+Architecture: en75xx
+Installed-Size: 103
+Description:  Kernel modules support for a netlink-based connection tracking 
+ userspace interface

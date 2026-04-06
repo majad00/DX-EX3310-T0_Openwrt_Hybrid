@@ -1,0 +1,11 @@
+Package: ppp
+Version: 2.4.3-7
+Depends: libc, libjson, libzcfg_msg, kmod-ppp, libzlog, libzos, libcrypto, libopenssl
+Source: package/network/services/ppp
+SourceFile: ppp-2.4.3.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: net
+Maintainer: Jo-Philipp Wich <xm@subsignal.org>
+Architecture: en75xx
+Installed-Size: 125532
+Description:  This package contains the PPP (Point-to-Point Protocol) daemon.

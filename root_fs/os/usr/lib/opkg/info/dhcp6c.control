@@ -1,0 +1,11 @@
+Package: dhcp6c
+Version: 20080615
+Depends: libc, libzcfg_msg, libjson, libzcmd_tool, libzcfg_fe_rdm_access, libzcfg_fe_rdm_struct
+Source: package/dhcpv6
+SourceFile: wide-dhcpv6-20080615.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: ipv6
+Maintainer: Andrew Byrne <openwrt@andy.id.au>
+Architecture: en75xx
+Installed-Size: 76766
+Description:  WIDE-DHCPv6 client

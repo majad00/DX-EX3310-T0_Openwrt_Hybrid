@@ -1,0 +1,10 @@
+Package: libeventlog
+Version: 0.2.10-2
+Depends: libc
+Source: package/libs/eventlog
+SourceFile: eventlog_0.2.10.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: libs
+Architecture: en75xx
+Installed-Size: 5305
+Description:  A new API to format and send structured log messages.

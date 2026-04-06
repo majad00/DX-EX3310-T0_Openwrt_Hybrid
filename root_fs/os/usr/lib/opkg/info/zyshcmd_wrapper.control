@@ -1,0 +1,8 @@
+Package: zyshcmd_wrapper
+Version: 1.0-1
+Depends: libc, libzcfg_fe_rdm_struct, libzcfg_msg, zcfg, libzyutil, libjson, libpthread, zysh, liboutput_redirect
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zyshcmd_wrapper
+Section: Monitor
+Architecture: en75xx
+Installed-Size: 7128
+Description:  ZyXEL ZySH command wrapper

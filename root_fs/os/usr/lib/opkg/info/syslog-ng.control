@@ -1,0 +1,12 @@
+Package: syslog-ng
+Version: 2.0.10-1
+Depends: libc
+Source: package/syslog-ng
+SourceFile: syslog-ng_2.0.10.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/utils
+Section: admin
+Architecture: en75xx
+Installed-Size: 58349
+Description:  syslog-ng reads and logs messages to the system console, log
+ files, other machines and/or users as specified by its
+ configuration file.

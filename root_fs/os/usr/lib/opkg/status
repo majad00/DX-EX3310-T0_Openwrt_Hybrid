@@ -1,0 +1,2376 @@
+Package: zhttpd_rest
+Version: 2.0-1
+Depends: libc, libpthread, clinkc, expat, openssl-util, libzos, libzlog, libzyutil, libuuid, libzcfg_fe_dal, libzywwan, libdmalloc, libsqlite3, netprobe
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: syslog-ng
+Version: 2.0.10-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: kmod-usb-storage
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-scsi-core, kmod-usb-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: terminfo
+Version: 5.7-5
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: econet-sdk-libs-libapi-lib-qdmamgr-lan
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kmod-lib-textsearch
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libc
+Version: 0.9.33.2-1
+Depends: libgcc
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: kmod-ebtables
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: kmod-l2tp
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-libs-libapi-lib-atmmgr
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: ZyIMS
+Version: 0.7.1-1
+Depends: libc, iptk_8_2_2, libsrtp, libjson, expat, zcfg, libzyuitimer
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-utils-sipclient
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi, libpthread, econet-sdk-libs-libcompileoption, librt, econet-sdk-libs-libadam
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libnetfilter-cthelper
+Version: 1.0.0-1
+Depends: libc, libmnl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libnetfilter_queue
+Version: 1.0.2-1
+Depends: libc, libmnl, libnfnetlink
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: econet-sdk-utils-smuxctl
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libcompileoption
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-utils-tcapi
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi, econet-sdk-libs-libcompileoption
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kmod-ip6-tunnel
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ipv6, kmod-iptunnel6
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: ntpclient
+Version: 2007_365-1
+Depends: libc, libzcfg_msg, librt
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: opkg
+Version: 618-3
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Conffiles:
+ /etc/opkg.conf b7ca5e5ec2212d592b61eb1651fdcfd5
+Installed-Time: 1656485794
+
+Package: econet-sdk-utils-evcom
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi, libpthread, librt, econet-sdk-libs-libadam
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: iperf
+Version: 2.0.11-1
+Depends: libc, uclibcxx, libpthread, librt
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-usb-core
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nls-base
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: econet-sdk-libs-libapi-lib-ppe
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libcompileoption
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: ip
+Version: 2.6.33-100224
+Depends: libc, libnl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libjpeg
+Version: 9a-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libpthread
+Version: 0.9.33.2-1
+Depends: libgcc
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: busybox
+Version: 1_20_1-5
+Depends: libc
+Provides:
+Status: install user installed
+Essential: yes
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: econet-sdk-utils-ecnt-map
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, libpthread, econet-sdk-libs-libcompileoption, econet-sdk-libs-libapi-lib-switchmgr, econet-sdk-libs-libecnt-map, libzyutil
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: atm-esi
+Version: 2.5.2-5
+Depends: libc, linux-atm
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: kmod-usb-net-qmi-wwan
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-net, kmod-usb-wdm
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-utils-qdmamgr-wan
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libapi-lib-utility, econet-sdk-libs-libapi-lib-qdmamgr-wan
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libmatrixssl
+Version: 1-8-1
+Depends: libc, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: chat
+Version: 2.4.3-7
+Depends: libc, libjson, libzcfg_msg
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: econet-sdk-utils-tcwdog
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: zyschedule
+Version: 1.0-1
+Depends: libc, zcfg
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: kmod-nfnetlink
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ipt-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: zcfg
+Version: 1.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+Auto-Installed: yes
+
+Package: econet-sdk-utils-zebra
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: glib2
+Version: 2.37.7-1
+Depends: libc, libiconv-full, libintl-full, zlib, libpthread, libffi
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: net-snmp
+Version: 5.8-1
+Depends: libc, libjson, libzyutil, libzcfg_msg, libzcfg_fe_rdm_access, libzcfg_fe_rdm_string, libzcfg_fe_schema, libzcfg_fe_rdm_struct, libcrypto, librt, libzcmd_tool, libopenssl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libzos
+Version: 1.0-1
+Depends: libc, libzlog
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libmxml
+Version: 2.4-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-usb-wdm
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: conntrack-tools
+Version: 1.4.3-1
+Depends: libc, libnetfilter-conntrack, libnetfilter-cttimeout, libnetfilter-cthelper, libnetfilter_queue
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: ebtables
+Version: 2.0.8-2-1
+Depends: libc, kmod-ebtables
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: kmod-fs-isofs
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nls-base
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-utils-wscd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-libs-libopensource
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libcurl
+Version: 7.72.0-2
+Depends: libc, libopenssl, zlib, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libzcfg_dbg
+Version: 2.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: openssl-util
+Version: 1.1.1n-5
+Depends: libc, libopenssl, libopenssl-conf
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libdmalloc
+Version: 5.5.2-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-usb-printer
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libogg
+Version: 1.1.4-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: udhcp
+Version: 0.9.8-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: kmod-lib-crc-ccitt
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-utils-atmphxcmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: netprobe
+Version: 3.0-1
+Depends: libc, libzcfg_msg, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_string, libzcfg_fe_rdm_access, libsqlite3, libjson, libzcmd_tool, libzyutil
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+Auto-Installed: yes
+
+Package: redirect_console
+Version: 1.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: vlanautohunt
+Version: 2.0-1
+Depends: libc, zcmd
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: econet-sdk-utils-ated
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: tmsctl
+Version: 1.0.1-1
+Depends: libc, kmod-TMS_Module, libpthread, libzyutil, libzcfg_msg, libopenssl, libjson
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: kmod-pppoa
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ppp, kmod-atm
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-pppoe
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ppp, kmod-pppox
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-utils-ppe
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libapi-lib-utility, econet-sdk-libs-libapi-lib-ppe
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: ztr69cmd
+Version: 1.0-1
+Depends: libc, libpthread, ztr69, libzcfg_fe_dal, libzcmd_tool, libsqlite3
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: kmod-pppox
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ppp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: econet-sdk-utils-ethphxcmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libmtkswitch
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kmod-fs-hfsplus
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nls-base, kmod-nls-utf8
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libexif
+Version: 0.6.13-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-fs-msdos
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nls-base
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: pure-ftpd
+Version: 1.0.30-1
+Depends: libc, libzcfg_msg, libzcmd_tool, libjson, libzcfg_fe_rdm_access, libzcfg_fe_rdm_struct, libzyutil, libcrypto, libopenssl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-utils-dlna
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, libpthread, econet-sdk-libs-libcompileoption
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-utils-voip-loader
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: zupnp
+Version: 1.0-1
+Depends: libc, libpthread, clinkc, expat, openssl-util, libzos, libzlog, libuuid
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: libmnl
+Version: 1.0.3-2
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libzcmd_tool
+Version: 2.0-1
+Depends: libc, libjson
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: fw_upgrade
+Version: 2.0-1
+Depends: libc, zcmd
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: dalcmd
+Version: 2.0-1
+Depends: libc, libzcfg_fe_dal
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: zywifid
+Version: 3.0-1
+Depends: libc, zcfg, libzcfg_msg, libzcmd_tool, libzyutil, netprobe
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: libzcfg_msg
+Version: 2.0-1
+Depends: libc, libzlog, libzos
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: zycfgfilter
+Version: 2.0-1
+Depends: libc, zcfg
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: econet-sdk-utils-dbgmgr
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, libpthread, econet-sdk-libs-libapi-lib-utility, econet-sdk-libs-libapi-lib-vdslmgr, econet-sdk-libs-libapi-lib-atmmgr, econet-sdk-libs-libecnt-lib-dbg, econet-sdk-libs-libapi-lib-qdmamgr-wan, econet-sdk-libs-libapi-lib-qdmamgr-lan
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libnetfilter-cttimeout
+Version: 1.0.0-1
+Depends: libc, libmnl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: econet-sdk-libs-libapi-lib-vdslmgr
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: dnsmasq
+Version: 2.78-3
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Conffiles:
+ /etc/dnsmasq.conf d6bb438d15e0ffb6827542bc26f93451
+Installed-Time: 1656485793
+
+Package: resolveip
+Version: 2
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libblkid
+Version: 2.21.2-1
+Depends: libc, libuuid
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: econet-sdk-utils-skbmgr
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libflac
+Version: 1.2.1-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-utils-tr69
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi, econet-sdk-libs-libcompileoption, econet-sdk-libs-libopensource, libmatrixssl, libmxml, econet-sdk-libs-libapi-lib-cpu-interrupt
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: zybtnchk
+Version: 1.0.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: econet-sdk-utils-uart
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libiconv-full
+Version: 1.11.1-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: econet-sdk-utils-irqCpuBind
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libapi-lib-cpu-interrupt, econet-sdk-libs-libapi-lib-utility
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: br2684ctl
+Version: 2.5.2-5
+Depends: libc, linux-atm
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: zcmd
+Version: 3.0-1
+Depends: libc, zcfg, libpthread, libzyutil, libzcfg_dbg, libzcfg_msg, libzos, libzlog, libzcmd_tool, libssp, libopenssl, zyee, libzyuitimer
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+Auto-Installed: yes
+
+Package: dhcp6c
+Version: 20080615
+Depends: libc, libzcfg_msg, libjson, libzcmd_tool, libzcfg_fe_rdm_access, libzcfg_fe_rdm_struct
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: libzcfg_fe_dal
+Version: 2.0-1
+Depends: libc, libzcfg_fe_rdm_string, libzcfg_fe_rdm_struct, libzcfg_fe_schema, libzyutil, libzlog
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: pcp-master
+Version: 1
+Depends: libc, libjson, libzyutil, libzcfg_msg, libzcfg_fe_rdm_access, libzcfg_fe_rdm_string, libzcfg_fe_schema, libzcfg_fe_rdm_struct
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: ecmh
+Version: 2005.02.09
+Depends: libc, ip, librt
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: linux-atm
+Version: 2.5.2-5
+Depends: libc, libresolv
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libzcfg_fe_tr98
+Version: 2.0-1
+Depends: libc, libsqlite3
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-usb-net-rndis
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-net, kmod-usb-net-cdc-ether
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: zcfg_util
+Version: 1.0-1
+Depends: libc, zcfg, libzcfg_fe_tr98
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: dhcp6s
+Version: 20080615
+Depends: libc, libzcfg_msg, libjson, libzcmd_tool, libzcfg_fe_rdm_access, libzcfg_fe_rdm_struct
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: esmd
+Version: 2.0-1
+Depends: libc, zcfg, libzcfg_msg, libzos, libzlog, libzyutil, libzywwan, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_string, libzcfg_dbg
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: block-mount
+Version: 0.2.0-10
+Depends: libc, blkid, swap-utils
+Provides:
+Status: install user installed
+Architecture: en75xx
+Conffiles:
+ /etc/config/fstab 3ecb7964010421fcdb950de110748345
+Installed-Time: 1656485793
+
+Package: libvorbis
+Version: 1.2.3-1
+Depends: libc, libogg
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-utils-portbindcmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi, econet-sdk-libs-libcompileoption, econet-sdk-libs-libopensource
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kmod-fs-vfat
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nls-base
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: mtd-econet
+Version: 6
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: iptables-mod-iprange
+Version: 1.4.10
+Depends: libc, iptables, kmod-ipt-iprange
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-libs-libapi-lib-pcie
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kmod-usb-serial-option
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-serial-wwan, kmod-usb-serial
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-fs-exfat
+Version: 3.18.21+master-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nls-base
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-fs-hfs
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nls-base
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-libs-libmtkswitch
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-utils-qdmamgr-lan
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libapi-lib-utility, econet-sdk-libs-libapi-lib-qdmamgr-lan
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libzcfg_fe_rdm_struct
+Version: 2.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: tc
+Version: 2.6.33-100224
+Depends: libc, kmod-sched-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: libip4tc
+Version: 1.4.10
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: tcpdump
+Version: 4.2.1-2
+Depends: libc, libpcap
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: kmod-ip6tables
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ipv6
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: econet-sdk-utils-wlanphxcmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: ztr69
+Version: 2.0-1
+Depends: libc, libpthread, clinkc, expat, openssl-util, libuuid
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: econet-sdk-libs-libadam
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: ramonitor
+Version: 1.0-1
+Depends: libc, libpthread, zcfg, libzyutil, libzcfg_msg, libzcmd_tool, libjson
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: kmod-ivi
+Version: 3.18.21-1.0
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: econet-sdk-utils-firewallcmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi, econet-sdk-libs-libcompileoption, econet-sdk-libs-libopensource
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-utils-ripd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-libs-libapi-lib-switchmgr
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libapi-lib-utility
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: ppp-mod-pppol2tp
+Version: 2.4.3-7
+Depends: libc, libjson, libzcfg_msg, kmod-pppol2tp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: dropbear
+Version: 2018.76-4
+Depends: libc, libzcfg_msg, libzcmd_tool, libjson, libzcfg_fe_rdm_access, libzcfg_fe_rdm_struct, libzyutil, libcrypto, libopenssl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: logrotate
+Version: 3.7.1-1
+Depends: libc, libpopt
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libnetfilter-conntrack
+Version: 1.0.4-1
+Depends: libc, libnfnetlink, kmod-nf-conntrack-netlink, libmnl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: curl
+Version: 7.72.0-2
+Depends: libc, libcurl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: kmod-nls-utf8
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nls-base
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: kmod-usb-serial-wwan
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-serial
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: econet-sdk-libs-libecnt-map
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: zyee
+Version: 1.0-1
+Depends: libc, glib2, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_string, libzcmd_tool, libzyutil, libzos
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+Auto-Installed: yes
+
+Package: xl2tpd
+Version: 1.3.14-1
+Depends: libc, ppp-mod-pppol2tp, resolveip, libzcfg_msg, libjson
+Provides:
+Status: install user installed
+Architecture: en75xx
+Conffiles:
+ /etc/xl2tpd/xl2tpd.conf 2b7437f34b14c70b6b29383d0a6197ed
+ /etc/xl2tpd/xl2tp-secrets 79fa6fe1a1e58a2e83907cf8ab48c3b0
+ /etc/ppp/options.xl2tpd 8517e2c841886ef78791f526145d2928
+Installed-Time: 1656485795
+
+Package: kmod-crypto-aes
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-crypto-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: zhotplugd
+Version: 1.0-1
+Depends: libc, zcmd
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: expat
+Version: 1.95.8-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: zy1905
+Version: 3.0-1
+Depends: libc, zyMAPLog, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_access, libzcfg_msg, libzyutil, libcrypto, libjson, libzlog, libzos, libzcmd_tool, libopenssl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: iptk_8_2_2
+Version: 1.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+Auto-Installed: yes
+
+Package: vcautohunt
+Version: 2.0-1
+Depends: libc, zcmd, libzyuitimer
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: libresolv
+Version: 0.9.33.2-1
+Depends: libgcc
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: zyMAPLog
+Version: 1.0
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+Auto-Installed: yes
+
+Package: libzcfg_fe_rdm_access
+Version: 2.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: kmod-sched
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-sched-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libgcc
+Version: 4.6.3-1
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: econet-sdk-utils-prolinecmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi, econet-sdk-libs-libcompileoption, econet-sdk-libs-libopensource
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-libs-libapi-lib-utility
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+Auto-Installed: yes
+
+Package: ez-ipupdate
+Version: 3.0.11b8-8
+Depends: libc, libopenssl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Conffiles:
+ /etc/config/ddns c4c980d76878ce07b92fa0544006f231
+Installed-Time: 1656485793
+
+Package: nbtscan
+Version: 1.5.1
+Depends: libc, libresolv
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-scsi-cdrom
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-scsi-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: usb-modeswitch
+Version: 2.1.0-1
+Depends: libc, libusb-1.0
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: econet-sdk-utils-switchmgr
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libcompileoption, econet-sdk-libs-libapi-lib-switchmgr
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kmod-zyinetled
+Version: 3.18.21+1.0.0-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: kmod-mt7915e
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), wireless-tools, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: econet-sdk-libs-libapi-lib-cpu-interrupt
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: liboutput_redirect
+Version: 1.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libreadline
+Version: 5.2-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libip6tc
+Version: 1.4.10
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: zhttpd
+Version: 2.0-1
+Depends: libc, libpthread, clinkc, expat, openssl-util, libuuid, libzcfg_fe_dal, libzywwan, libzyuitimer
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: libsrtp
+Version: 1.6.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: zstun
+Version: 1.0-1
+Depends: libc, libzcfg_fe_rdm_string, libzcfg_fe_rdm_struct, libzcmd_tool
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: lxc
+Version: 2.0.4-2
+Depends: libc, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libzyuitimer
+Version: 2.0-1
+Depends: libc, libpthread, libzos, libzlog
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libffi
+Version: 3.0.11-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libuuid
+Version: 2.21.2-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: ppp
+Version: 2.4.3-7
+Depends: libc, libjson, libzcfg_msg, kmod-ppp, libzlog, libzos, libcrypto, libopenssl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libubox
+Version: 2015-11-08-10429bccd0dc5d204635e110a7a8fae7b80d16cb
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libusb-1.0
+Version: 1.0.9-1
+Depends: libc, libpthread, librt
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: atftp
+Version: 0.7.1-5
+Depends: libc, libreadline, libncurses
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: libjson
+Version: 0.13.1-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: zyMAPSteer
+Version: 1.0-1
+Depends: libc, libzcfg_msg, libzyuitimer, zyMAPLog, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_string, libzcmd_tool
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: hfs-fsck
+Version: 332.25-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: kmod-usb-net
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: libzcfg_fe_schema
+Version: 2.0-1
+Depends: libc, libzcfg_fe_rdm_access
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: librt
+Version: 0.9.33.2-1
+Depends: libpthread
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: econet-sdk-utils-algcmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: tty_log_echo
+Version: 1.0-1
+Depends: libc, libzcfg_msg
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: ffserver
+Version: 0.8.12-1
+Depends: libc, libpthread, libffmpeg-full
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: econet-sdk-libs-libcompileoption
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+Auto-Installed: yes
+
+Package: kmod-usb-serial
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: kmod-usb-net-cdc-ncm
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-net
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: ztr143
+Version: 1.0-1
+Depends: libc, libpthread, libzcfg_fe_rdm_access, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_string, libzyutil, libcrypto, libopenssl, libzcmd_tool
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: swap-utils
+Version: 2.21.2-1
+Depends: libc, libblkid
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: kmod-econet-sdk-driver
+Version: 3.18.21+7.3.245.300-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: econet-sdk-utils-qoscmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libcompileoption, econet-sdk-libs-libapi-lib-fe
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: uclibcxx
+Version: 0.2.4-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: ivictl
+Version: 1.0
+Depends: libc, kmod-ivi
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libintl-full
+Version: 0.16.1-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libzlog
+Version: 1.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: iptables
+Version: 1.4.10
+Depends: libc, kmod-ipt-core, libip4tc, libxtables
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: econet-sdk-utils-pcie
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libapi-lib-utility, econet-sdk-libs-libapi-lib-pcie
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kmod-nf-conntrack-netlink
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-nfnetlink, kmod-ipt-conntrack
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: ntfs-3g
+Version: 2013.1.13-1
+Depends: libc, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libzyutil
+Version: 2.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: kmod-sit
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ipv6, kmod-iptunnel4
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-fuse
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: zwol
+Version: 1.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: bridge
+Version: 1.0.6-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: webgui_vue
+Version: 1.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: libncurses
+Version: 5.7-5
+Depends: libc, terminfo
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: kmod-ipt-core
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libpcap
+Version: 1.1.1-2
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-ipv6
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: kmod-usb-acm
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libcares
+Version: 1.14.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-ppp
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-lib-crc-ccitt
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-libs-libapi-lib-qdmamgr-wan
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libnfnetlink
+Version: 1.0.1-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: zycli
+Version: 2.0-1
+Depends: libc, zcmd, libzyutil
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: minidlna
+Version: 1.2.1-1
+Depends: libc, libpthread, libexif, libjpeg, libsqlite3, libffmpeg, libid3tag, libflac, libvorbis, libuuid, libiconv-full, libintl-full
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: igmpproxy
+Version: 0.2.1-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Conffiles:
+ /etc/config/igmpproxy 71f8df60273eaf666e9d5bc13fea5fa2
+Installed-Time: 1656485794
+
+Package: econet-sdk-libs-libecntevent
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libubus
+Version: 2015-05-25
+Depends: libc, libubox
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-iptunnel4
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libeventlog
+Version: 0.2.10-2
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-iptunnel6
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ipv6
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: libxtables
+Version: 1.4.10
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: ip6tables
+Version: 1.4.10
+Depends: libc, kmod-ip6tables, libip6tc, libxtables
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: zlib
+Version: 1.2.7-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: econet-sdk-utils-adslphxcmd
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libzywwan
+Version: 2.0-1
+Depends: libc, zcfg, zcmd
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+Auto-Installed: yes
+
+Package: libssp
+Version: 4.6.3-1
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: mailsend
+Version: 1.17b15-1
+Depends: libc, libopenssl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: zcfg_be
+Version: 3.0-1
+Depends: libc, libzyutil, libzlog, libzcfg_dbg, zcmd, libzcfg_dbg, libzcfg_fe_rdm_string
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: SpeedTest
+Version: 2.0-1
+Depends: libc, libpthread, libzcfg_fe_rdm_struct, libzyutil, libzcfg_msg, libcrypto, libjson, libzcfg_fe_rdm_access, libzcmd_tool, libopenssl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: ffprobe
+Version: 0.8.12-1
+Depends: libc, libffmpeg-full
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: zipq
+Version: 2.0-1
+Depends: libc, libzcmd_tool, libzcfg_fe_rdm_string, libzcfg_fe_rdm_struct, libmnl
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: kmod-crypto-rng
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-crypto-core
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: fdisk
+Version: 2.21.2-1
+Depends: libc, libblkid
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: radvd
+Version: 1.8
+Depends: libc, kmod-ipv6
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libid3tag
+Version: 0.15.1b-3
+Depends: libc, zlib
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: clinkc
+Version: 2.4-1
+Depends: libc, expat, libopenssl, libuuid, libzyutil
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: wwanbackupd
+Version: 2.0-1
+Depends: libc, zcmd
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: zatm_oam
+Version: 1
+Depends: libc, zcmd, libzcfg_fe_tr98
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: econet-sdk-utils-tcci
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: libsqlite3
+Version: 3.6.23.1-1
+Depends: libc, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: rp-pppoe-relay
+Version: 3.12-1
+Depends: libc, ppp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: ztzu
+Version: 1.0-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: econet-sdk-utils-fe
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libcompileoption, econet-sdk-libs-libapi-lib-utility, econet-sdk-libs-libapi-lib-fe
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: ffmpeg
+Version: 0.8.12-1
+Depends: libc, libpthread, libffmpeg-full
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: kmod-atm
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: econet-sdk-libs-libapi-lib-fe
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kernel
+Version: 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libnl-tiny
+Version: 0.1-3
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: zyshcmd_wrapper
+Version: 1.0-1
+Depends: libc, libzcfg_fe_rdm_struct, libzcfg_msg, zcfg, libzyutil, libjson, libpthread, zysh, liboutput_redirect
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: yafc
+Version: 1.1.1-2
+Depends: libc, libncurses, libreadline
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: samba
+Version: 3.6.25-10
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: blkid
+Version: 2.21.2-1
+Depends: libc, libblkid
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+
+Package: econet-sdk-utils-igmpproxy
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libcompileoption
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-utils-evcomz
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, librt, econet-sdk-libs-libadam
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-libs-libecnt-lib-dbg
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: zqmictl
+Version: 1.0-1
+Depends: libc, zcmd
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: base-files-econet
+Version: 1-unknown
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Conffiles:
+ /usr/etc/hosts 0eea71665fb6890c06421fd13aa3f849
+ /usr/etc/inittab ca7464efd06c2522cc308daee15bb4bc
+ /usr/etc/group 4a116d818b2f49e14939d581ec786de1
+ /usr/etc/passwd abb47fcc3b2855370e70d88d5b6ccf63
+ /usr/etc/profile 2f3104cfa1955bfc9f9083d98630951b
+ /usr/etc/shells 791bdb4d7d2b8c7ebc874f502145c87f
+Installed-Time: 1656485793
+
+Package: econet-sdk-utils-hw-nat
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libcompileoption, econet-sdk-libs-libapi-lib-utility, econet-sdk-libs-libapi-lib-ppe
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kmod-nls-base
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: zysh
+Version: 2.0-7
+Depends: libc, zcmd, libedit, libncurses, libzcfg_dbg, liboutput_redirect, libzcfg_fe_dal, libzcfg_dbg
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: econet-sdk-utils-cfg-manager
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp, econet-sdk-libs-libtcapi, libpthread, econet-sdk-libs-libcompileoption, libmxml, econet-sdk-libs-libmtkswitch
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: econet-sdk-libs-libtcapi
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+Auto-Installed: yes
+
+Package: libpopt
+Version: 1.16-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: wwan
+Version: 1.2-1
+Depends: libc, zcmd
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485797
+
+Package: kmod-GobiNet
+Version: 3.18.21+1.0.0-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: wireless-tools
+Version: 29-5
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: kmod-TMS_Module
+Version: 3.18.21+6.86-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: kmod-usb-net-cdc-ether
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-usb-net
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: hostpolling
+Version: 2.0-1
+Depends: libc, zcmd, libsqlite3, netprobe
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485796
+
+Package: zebra
+Version: 0.93a
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: kmod-pppol2tp
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ppp, kmod-pppox, kmod-l2tp
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: libopenssl
+Version: 1.1.1n-5
+Depends: libc, libpthread
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: libedit
+Version: 20080712-2.11
+Depends: libc, libncurses
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-scsi-core
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: libzcfg_fe_rdm_string
+Version: 2.0-1
+Depends: libc, libzcfg_msg, libzcfg_fe_rdm_access, libjson
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+Auto-Installed: yes
+
+Package: ppp-mod-pppoa
+Version: 2.4.3-7
+Depends: libc, libjson, libzcfg_msg, linux-atm, kmod-pppoa
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: updatedd
+Version: 2.6-1
+Depends: libc, libresolv
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485795
+
+Package: libffmpeg-full
+Version: 0.8.12-1
+Depends: libc, libpthread, zlib
+Provides: libffmpeg
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485793
+Auto-Installed: yes
+
+Package: ppp-mod-pppoe
+Version: 2.4.3-7
+Depends: libc, libjson, libzcfg_msg, kmod-pppoe
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-sched-core
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+
+Package: kmod-ipt-nat
+Version: 3.18.21-1
+Depends: kernel (= 3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-ipt-core, kmod-ipt-conntrack
+Provides:
+Status: install user installed
+Architecture: en75xx
+Installed-Time: 1656485794
+

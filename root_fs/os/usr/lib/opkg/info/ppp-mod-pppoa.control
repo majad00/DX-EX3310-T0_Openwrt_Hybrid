@@ -1,0 +1,11 @@
+Package: ppp-mod-pppoa
+Version: 2.4.3-7
+Depends: libc, libjson, libzcfg_msg, linux-atm, kmod-pppoa
+Source: package/network/services/ppp
+SourceFile: ppp-2.4.3.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: net
+Maintainer: Jo-Philipp Wich <xm@subsignal.org>
+Architecture: en75xx
+Installed-Size: 10722
+Description:  This package contains a PPPoA (PPP over ATM) plugin for ppp.

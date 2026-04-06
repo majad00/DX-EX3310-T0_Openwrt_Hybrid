@@ -1,0 +1,10 @@
+Package: clinkc
+Version: 2.4-1
+Depends: libc, expat, libopenssl, libuuid, libzyutil
+Source: package/libs/clinkc
+SourceFile: clinkc-2.4.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: libs
+Architecture: en75xx
+Installed-Size: 90971
+Description:  CyberLink for C is a development package for UPnP??developers

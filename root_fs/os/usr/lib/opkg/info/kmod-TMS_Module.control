@@ -1,0 +1,10 @@
+Package: kmod-TMS_Module
+Version: 3.18.21+6.86-1
+Depends: kernel (=3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Source: package/private/tms_module/ncomm
+SourceFile: TMS_Module-6.86.tar.gz
+SourceURL: @ZyXEL_SITE/private/NComm/
+Section: kernel
+Architecture: en75xx
+Installed-Size: 130543
+Description:  This package contains TMS Module 

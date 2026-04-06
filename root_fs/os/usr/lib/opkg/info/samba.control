@@ -1,0 +1,13 @@
+Package: samba
+Version: 3.6.25-10
+Depends: libc
+Source: package/samba
+SourceFile: samba-3.6.25.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: net
+Architecture: en75xx
+Installed-Size: 3688852
+Description:  The Samba software suite is a collection of programs that implements the
+ SMB protocol for unix systems, allowing you to serve files and printers to
+ Windows, NT, OS/2 and DOS clients. This protocol is sometimes also referred
+ to as the LanManager or Netbios protocol.

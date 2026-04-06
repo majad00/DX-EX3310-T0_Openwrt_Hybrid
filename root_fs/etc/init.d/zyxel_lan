@@ -1,0 +1,87 @@
+#!/bin/sh /etc/rc.common
+START=99
+
+start() {
+     echo -n "Setup Network ... [" > /dev/console
+    for i in $(seq 1 5); do
+        echo -n " > " > /dev/console
+        sleep 1
+    done
+    echo "] 100%" > /dev/console
+	echo "=== Mounting ===" > /dev/console
+    mount -o bind /dev /tmp/zyxel_root/dev 2>/dev/null
+    mount -o bind /proc /tmp/zyxel_root/proc 2>/dev/null
+    mount -o bind /sys /tmp/zyxel_root/sys 2>/dev/null
+
+    echo "=== Loading Base Drivers ===" > /dev/console
+    insmod /lib/modules/3.18.21/fe_core.ko 2>/dev/null
+    insmod /lib/modules/3.18.21/qdma_lan.ko 2>/dev/null
+    insmod /lib/modules/3.18.21/eth.ko 2>/dev/null
+    insmod /lib/modules/3.18.21/eth_ephy.ko 2>/dev/null
+
+    MAJOR_LAN=$(awk '$2=="qdma_lan" {print $1}' /proc/devices)
+    mknod /tmp/zyxel_root/dev/qdma_lan c $MAJOR_LAN 0 2>/dev/null
+    chroot /tmp/zyxel_root /userfs/bin/qdmamgr_lan set rxratelimit config Enable packet 2>/dev/null
+    chroot /tmp/zyxel_root /userfs/bin/qdmamgr_lan set rxratelimit value 0 6000 2>/dev/null
+    chroot /tmp/zyxel_root /userfs/bin/qdmamgr_lan set rxratelimit value 1 1000000 2>/dev/null
+
+    echo "=== Powering Up Switch ===" > /dev/console
+    chroot /tmp/zyxel_root /userfs/bin/ethphxcmd p4txrxmacctl enable 2>/dev/null
+    chroot /tmp/zyxel_root /userfs/bin/ethphxcmd eth0 lanchip enable 2>/dev/null
+    
+    # Enable Hardware Tagging
+    chroot /tmp/zyxel_root /bin/sh -c "echo 1 > /proc/tc3162/stag_to_vtag" 2>/dev/null
+
+    # Bring up the main pipeline
+    ifconfig eth0 up 2>/dev/null
+
+    echo "=== Creating Software VLANs ===" > /dev/console
+ 
+    vconfig add eth0 1 2>/dev/null
+    vconfig add eth0 2 2>/dev/null
+    vconfig add eth0 3 2>/dev/null
+    vconfig add eth0 4 2>/dev/null
+    
+    ifconfig eth0.1 up 2>/dev/null
+    ifconfig eth0.2 up 2>/dev/null
+    ifconfig eth0.3 up 2>/dev/null
+    ifconfig eth0.4 up 2>/dev/null
+
+    echo "=== LINKING HARDWARE ===" > /dev/console
+    # This single command fixes the TX drop issue!
+    chroot /tmp/zyxel_root /userfs/bin/ethphxcmd eth0 vlanpt enable
+
+    # Restart Network and attach Wi-Fi
+    /etc/init.d/network restart
+	
+	sleep 5
+
+	for radio in ra0 rai0 rai5; do
+        ifconfig $radio up 2>/dev/null
+        brctl addif br-lan $radio 2>/dev/null
+    done
+	sleep 5
+	echo -n "Setup Wifi Networks ... " > /dev/console
+    for i in $(seq 1 5); do
+        echo -n " > " > /dev/console
+        sleep 1
+    done
+	SSID_2G=$(uci -q get wireless.@wifi-iface[0].ssid)
+	SSID_5G=$(uci -q get wireless.@wifi-iface[1].ssid)
+
+	KEY_2G=$(uci -q get wireless.@wifi-iface[0].key)
+	KEY_5G=$(uci -q get wireless.@wifi-iface[1].key)
+
+	/os/usr/sbin/iwpriv ra0 set AuthMode=WPA2PSK
+	/os/usr/sbin/iwpriv rai0 set EncrypType=AES
+	/os/usr/sbin/iwpriv ra0 set SSID="$SSID_2G"
+	/os/usr/sbin/iwpriv ra0 set WPAPSK="$KEY_2G"
+	/os/usr/sbin/iwpriv rai0 set SSID="$SSID_5G"
+	/os/usr/sbin/iwpriv rai0 set WPAPSK="$KEY_5G"
+	echo -n " > " > /dev/console
+    for i in $(seq 1 5); do
+        echo -n " > " > /dev/console
+        sleep 1
+    done
+	echo -n " Ready! " > /dev/console
+}

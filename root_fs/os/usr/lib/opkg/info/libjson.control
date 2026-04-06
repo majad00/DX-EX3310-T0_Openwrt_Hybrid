@@ -1,0 +1,13 @@
+Package: libjson
+Version: 0.13.1-1
+Depends: libc
+Source: package/libs/libjson-c
+SourceFile: json-c-0.13.1.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: MIT
+LicenseFiles: COPYING
+Section: libs
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: en75xx
+Installed-Size: 24415
+Description:  This package contains a library for javascript object notation backends.

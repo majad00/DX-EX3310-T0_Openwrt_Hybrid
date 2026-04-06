@@ -1,0 +1,13 @@
+Package: expat
+Version: 1.95.8-1
+Depends: libc
+Source: package/libs/expat
+SourceFile: expat-1.95.8.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: MIT
+LicenseFiles: COPYING
+Section: libs
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: en75xx
+Installed-Size: 53188
+Description:  Expat is an XML parser library written in C. It is a stream-oriented parser in which an application registers handlers for things the parser might find in the XML document (like start tags).

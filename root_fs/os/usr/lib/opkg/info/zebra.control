@@ -1,0 +1,10 @@
+Package: zebra
+Version: 0.93a
+Depends: libc
+Source: package/network/services/zebra
+SourceFile: zebra-0.93a.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: net
+Architecture: en75xx
+Installed-Size: 159594
+Description:  RIP daemon

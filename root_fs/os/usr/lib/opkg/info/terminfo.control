@@ -1,0 +1,12 @@
+Package: terminfo
+Version: 5.7-5
+Depends: libc
+Source: package/libs/ncurses
+SourceFile: ncurses-5.7.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: FREE
+LicenseFiles: README
+Section: libs
+Architecture: en75xx
+Installed-Size: 5549
+Description:  Terminal Info Database (ncurses)

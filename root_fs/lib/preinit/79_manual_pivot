@@ -1,0 +1,56 @@
+#!/bin/sh
+
+do_yaffs_bind() {
+    local mtd_dev="/dev/mtdblock11"
+    local mount_point="/overlay"
+
+    echo "PREINIT: Mounting YAFFS2 on $mtd_dev using Bind Mount Strategy..." > /dev/console
+
+    # 1. Mount YAFFS2
+    mkdir -p $mount_point
+    umount $mount_point 2>/dev/null
+    mount -t yaffs2 $mtd_dev $mount_point
+    
+    # 2. Format if unreadable or corrupted
+    if [ $? -ne 0 ]; then
+        echo "PREINIT: Formatting mtd11 (misc)..." > /dev/console
+        mtd erase misc
+        mount -t yaffs2 $mtd_dev $mount_point
+        
+        if [ $? -ne 0 ]; then
+            echo "FATAL: Could not mount YAFFS2 after erase." > /dev/console
+            return 1
+        fi
+    fi
+
+    # 3. First boot - copy existing content to mtd11
+    # We use .initialized flag to ensure this heavy copy only happens ONCE
+    if [ ! -f "$mount_point/.initialized" ]; then
+        echo "PREINIT: First boot - copying system files to $mtd_dev..." > /dev/console
+        
+        # Copy essential directories to the YAFFS2 partition
+        for dir in etc usr lib bin sbin root www; do
+            mkdir -p $mount_point/$dir
+            if [ -d "/$dir" ]; then
+                cp -a /$dir/* $mount_point/$dir/ 2>/dev/null
+            fi
+        done
+        
+        touch $mount_point/.initialized
+        echo "PREINIT: Copy complete." > /dev/console
+    fi
+    
+    # 4. Bind mount each directory to make it writable
+    # Order matters: system directories first, etc last
+    for dir in usr lib bin sbin root www etc; do
+        if [ -d "$mount_point/$dir" ] && [ -d "/$dir" ]; then
+            mount --bind $mount_point/$dir /$dir
+            echo "PREINIT: Bound $mount_point/$dir to /$dir" > /dev/console
+        fi
+    done
+    
+    echo "PREINIT: Multiple bind mounts complete. Mod for EX3301 created by majad qureshi!" > /dev/console
+}
+
+# Hook this directly into the mount_root phase
+boot_hook_add preinit_mount_root do_yaffs_bind

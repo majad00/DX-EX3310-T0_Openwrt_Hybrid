@@ -1,0 +1,12 @@
+Package: libpcap
+Version: 1.1.1-2
+Depends: libc
+Source: package/libs/libpcap
+SourceFile: libpcap-1.1.1.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: libs
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: en75xx
+Installed-Size: 84348
+Description:  This package contains a system-independent library for user-level network packet
+ capture.

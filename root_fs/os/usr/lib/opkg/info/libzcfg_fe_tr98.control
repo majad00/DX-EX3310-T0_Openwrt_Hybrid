@@ -1,0 +1,9 @@
+Package: libzcfg_fe_tr98
+Version: 2.0-1
+Depends: libc, libsqlite3
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_public/public-zyxel/libzcfg_fe_tr98
+SourceFile: libzcfg_fe_tr98-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 209403
+Description:  ZyXEL Configuration Management Frontend TR-098 Data Model Access Library

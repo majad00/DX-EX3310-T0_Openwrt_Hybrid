@@ -1,0 +1,15 @@
+Package: dhcp6s
+Version: 20080615
+Depends: libc, libzcfg_msg, libjson, libzcmd_tool, libzcfg_fe_rdm_access, libzcfg_fe_rdm_struct
+Source: package/dhcpv6
+SourceFile: wide-dhcpv6-20080615.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: ipv6
+Maintainer: Andrew Byrne <openwrt@andy.id.au>
+Architecture: en75xx
+Installed-Size: 68836
+Description:  WIDE-DHCPv6 is an open-source implementation of Dynamic Host Configuration Protocol
+ for IPv6 (DHCPv6) originally developed by the KAME project. The implementation
+ mainly conforms to the following standards: RFC3315,3319,3633,3646,4075,4272,etc.
+ 
+ This package installs the server component.

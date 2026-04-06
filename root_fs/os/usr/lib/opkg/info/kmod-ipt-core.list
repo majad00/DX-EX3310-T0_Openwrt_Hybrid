@@ -1,0 +1,2 @@
+/etc/modules.d/40-ipt-core
+/lib/modules/3.18.21/xt_comment.ko

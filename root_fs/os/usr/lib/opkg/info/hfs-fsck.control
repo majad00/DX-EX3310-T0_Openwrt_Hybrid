@@ -1,0 +1,11 @@
+Package: hfs-fsck
+Version: 332.25-1
+Depends: libc
+Source: package/hfsprogs
+SourceFile: diskdev_cmds-332.25.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/utils
+Section: utils
+Architecture: en75xx
+Installed-Size: 91495
+Description:  Utilities to create and check HFS and HFS+ filesystems.
+ (fsck.hfs and fsck.hfsplus for checking integrity of HFS/HFS+ volumes)

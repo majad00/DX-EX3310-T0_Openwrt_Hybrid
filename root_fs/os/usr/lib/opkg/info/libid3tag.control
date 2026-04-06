@@ -1,0 +1,13 @@
+Package: libid3tag
+Version: 0.15.1b-3
+Depends: libc, zlib
+Source: package/libs/libid3tag
+SourceFile: libid3tag-0.15.1b.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: GPLv2
+LicenseFiles: COPYING
+Section: libs
+Architecture: en75xx
+Installed-Size: 25886
+Description:  libid3tag is a library for reading and (eventually) writing ID3 tags, both 
+ ID3v1 and the various versions of ID3v2.

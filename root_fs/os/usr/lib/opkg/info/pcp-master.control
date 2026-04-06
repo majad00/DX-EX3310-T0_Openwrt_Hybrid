@@ -1,0 +1,12 @@
+Package: pcp-master
+Version: 1
+Depends: libc, libjson, libzyutil, libzcfg_msg, libzcfg_fe_rdm_access, libzcfg_fe_rdm_string, libzcfg_fe_schema, libzcfg_fe_rdm_struct
+Source: package/network/services/pcp-master
+SourceFile: pcp-master.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/network/services
+License: GPLv2
+LicenseFiles: COPYING
+Section: net
+Architecture: en75xx
+Installed-Size: 24493
+Description:  pcp-master is a PCP client library

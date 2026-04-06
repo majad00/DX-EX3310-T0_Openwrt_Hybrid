@@ -1,0 +1,33 @@
+config wifi-device 'radio0'
+    option type 'mac80211'
+    option channel '1'
+    option hwmode '11g'
+    option path 'platform/1e140000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0'
+  
+    option ifname 'ra0'
+    option disabled '0'
+
+config wifi-iface
+    option device 'radio0'
+    option network 'lan'
+    option mode 'ap'
+    option ssid 'Zyxel_Matrex_24G'
+    option encryption 'psk2'
+    option key '12345678'
+
+config wifi-device 'radio1'
+    option type 'mac80211'
+    option channel '36'
+    option hwmode '11a'
+    option path 'platform/1e140000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0'
+    option ifname 'rai0'
+    option disabled '0'
+
+config wifi-iface
+    option device 'radio1'
+    option network 'lan'
+    option mode 'ap'
+    option ssid 'Zyxel_Matrix_5G'
+    option encryption 'psk2'
+    option key '12345678'
+

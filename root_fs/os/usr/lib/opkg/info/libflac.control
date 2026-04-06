@@ -1,0 +1,10 @@
+Package: libflac
+Version: 1.2.1-1
+Depends: libc
+Source: package/libs/flac
+SourceFile: flac-1.2.1.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: libs
+Architecture: en75xx
+Installed-Size: 88967
+Description:  Free Lossless Audio Codec library

@@ -1,0 +1,3 @@
+/sbin/usb-getbridgename.sh
+/sbin/zhotplugd
+/sbin/usb-hotplug.sh

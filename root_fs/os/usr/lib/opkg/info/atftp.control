@@ -1,0 +1,11 @@
+Package: atftp
+Version: 0.7.1-5
+Depends: libc, libreadline, libncurses
+Source: package/atftp
+SourceFile: atftp-0.7.1.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+License: GPL-2.0
+Section: net
+Architecture: en75xx
+Installed-Size: 23603
+Description:  TFTP client

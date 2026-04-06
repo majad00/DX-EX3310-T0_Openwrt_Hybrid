@@ -1,0 +1,14 @@
+Package: iperf
+Version: 2.0.11-1
+Depends: libc, uclibcxx, libpthread, librt
+Source: package/network/utils/iperf
+SourceFile: iperf-2.0.11.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/utils
+License: BSD-3-Clause
+Section: net
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: en75xx
+Installed-Size: 47600
+Description:  Iperf is a modern alternative for measuring TCP and UDP bandwidth
+ performance, allowing the tuning of various parameters and
+ characteristics.

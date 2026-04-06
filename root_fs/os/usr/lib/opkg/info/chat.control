@@ -1,0 +1,12 @@
+Package: chat
+Version: 2.4.3-7
+Depends: libc, libjson, libzcfg_msg
+Source: package/network/services/ppp
+SourceFile: ppp-2.4.3.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: net
+Maintainer: Jo-Philipp Wich <xm@subsignal.org>
+Architecture: en75xx
+Installed-Size: 11606
+Description:  This package contains an utility to establish conversation with other PPP servers
+ (via a modem).

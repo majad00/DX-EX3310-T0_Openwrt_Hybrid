@@ -1,0 +1,9 @@
+Package: zhttpd
+Version: 2.0-1
+Depends: libc, libpthread, clinkc, expat, openssl-util, libuuid, libzcfg_fe_dal, libzywwan, libzyuitimer
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zhttpd
+SourceFile: zhttpd-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 99946
+Description:  Zyxel HTTP Server

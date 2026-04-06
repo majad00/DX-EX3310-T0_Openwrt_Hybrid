@@ -1,0 +1,9 @@
+Package: kmod-sched
+Version: 3.18.21-1
+Depends: kernel (=3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1), kmod-sched-core
+Source: package/kernel
+License: GPLv2
+Section: kernel
+Architecture: en75xx
+Installed-Size: 62827
+Description:  Extra kernel schedulers modules for IP traffic

@@ -1,0 +1,12 @@
+Package: libubus
+Version: 2015-05-25
+Depends: libc, libubox
+Source: package/ubus
+SourceFile: ubus-2015-05-25-f361bfa5fcb2daadf3b160583ce665024f8d108e.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/misc
+License: LGPLv2.1
+Section: luci2
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: en75xx
+Installed-Size: 8761
+Description:  OpenWrt RPC client library

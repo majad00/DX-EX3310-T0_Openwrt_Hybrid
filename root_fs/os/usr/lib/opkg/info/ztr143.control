@@ -1,0 +1,10 @@
+Package: ztr143
+Version: 1.0-1
+Depends: libc, libpthread, libzcfg_fe_rdm_access, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_string, libzyutil, libcrypto, libopenssl, libzcmd_tool
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/ztr143
+SourceFile: ztr143-1.0.tar.gz
+SourceURL: @ZyXEL_SITE/private/ZyXEL
+Section: net
+Architecture: en75xx
+Installed-Size: 53364
+Description:  ZyXEL TR-143 app

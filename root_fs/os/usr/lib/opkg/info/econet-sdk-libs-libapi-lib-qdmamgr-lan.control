@@ -1,0 +1,10 @@
+Package: econet-sdk-libs-libapi-lib-qdmamgr-lan
+Version: 7.3.245.300-1
+Depends: libc, libmxml, libubox, libubus, libssp
+Source: /home/ralphchien2/V550ABVY3.1b1/econet_old/econet/sdk
+SourceFile: econet-sdk-7.3.245.300.tar.bz2
+SourceURL: @ZyXEL_SITE/private/Trendchip/sdk
+Section: kernel
+Architecture: en75xx
+Installed-Size: 3142
+Description:  Econet SDK library 'libapi_lib_qdmamgr_lan'

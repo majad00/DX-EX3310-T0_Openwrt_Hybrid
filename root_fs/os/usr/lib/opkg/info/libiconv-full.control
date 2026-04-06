@@ -1,0 +1,11 @@
+Package: libiconv-full
+Version: 1.11.1-1
+Depends: libc
+Source: package/libs/libiconv-full
+SourceFile: libiconv-1.11.1.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: libs
+Maintainer: Jo-Philipp Wich <jow@openwrt.org>
+Architecture: en75xx
+Installed-Size: 12400
+Description:  Character set conversion library

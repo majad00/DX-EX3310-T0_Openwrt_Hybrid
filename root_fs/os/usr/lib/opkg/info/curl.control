@@ -1,0 +1,13 @@
+Package: curl
+Version: 7.72.0-2
+Depends: libc, libcurl
+Source: package/network/utils/curl
+SourceFile: curl-7.72.0.tar.xz
+SourceURL: @ZyXEL_SITE/opensource/network/utils
+License: MIT
+LicenseFiles: COPYING
+Section: net
+Maintainer: Imre Kaloz <kaloz@openwrt.org>
+Architecture: en75xx
+Installed-Size: 60478
+Description:  A client-side URL transfer utility

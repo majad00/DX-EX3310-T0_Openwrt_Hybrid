@@ -1,0 +1,13 @@
+Package: libnetfilter-cttimeout
+Version: 1.0.0-1
+Depends: libc, libmnl
+Source: package/libs/libnetfilter-cttimeout
+SourceFile: libnetfilter_cttimeout-1.0.0.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: GPL-2.0+
+Section: libs
+Architecture: en75xx
+Installed-Size: 3961
+Description:  libnetfilter_cttimeout is a userspace library providing a programming
+ interface (API) to the in-kernel connection tracking timeout handling.
+ This library is currently used by conntrack-tools.

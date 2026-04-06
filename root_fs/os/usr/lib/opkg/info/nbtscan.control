@@ -1,0 +1,13 @@
+Package: nbtscan
+Version: 1.5.1
+Depends: libc, libresolv
+Source: package/network/utils/nbtscan
+SourceFile: nbtscan-1.5.1.tgz
+SourceURL: @ZyXEL_SITE/opensource/network/utils
+Section: net
+Architecture: en75xx
+Installed-Size: 14323
+Description:  NBTscan is a program for scanning IP networks for NetBIOS name information.
+ It sends NetBIOS status query to each address in supplied range and lists
+ received information in human readable form. For each responded host it lists
+ IP address, NetBIOS computer name, logged-in user name and MAC address.

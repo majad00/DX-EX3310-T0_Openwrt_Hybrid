@@ -1,0 +1,10 @@
+Package: zy1905
+Version: 3.0-1
+Depends: libc, zyMAPLog, libzcfg_fe_rdm_struct, libzcfg_fe_rdm_access, libzcfg_msg, libzyutil, libcrypto, libjson, libzlog, libzos, libzcmd_tool, libopenssl
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zy1905
+SourceFile: zy1905-3.0.tar.gz
+SourceURL: @ZyXEL_SITE/private/ZyXEL
+Section: net
+Architecture: en75xx
+Installed-Size: 129459
+Description:  zy1905

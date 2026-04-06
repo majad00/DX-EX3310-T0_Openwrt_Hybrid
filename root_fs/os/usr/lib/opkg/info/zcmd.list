@@ -1,0 +1,9 @@
+/etc/rc3.d/S490mount_zymisc
+/bin/chk_do_power_save.sh
+/etc/rc3.d/S46disable_lan
+/etc/init.d/zcmd.sh
+/bin/zcmd
+/etc/rc3.d/S50zcmd
+/etc/init.d/disable_lan.sh
+/etc/init.d/mount_zymisc.sh
+/etc/Downloadlifemote.sh

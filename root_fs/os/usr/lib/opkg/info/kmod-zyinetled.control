@@ -1,0 +1,9 @@
+Package: kmod-zyinetled
+Version: 3.18.21+1.0.0-1
+Depends: kernel (=3.18.21-1-5f5ceb3250c4102e6dde8561b7f7a4a1)
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zyinetled
+Section: kernel
+Architecture: en75xx
+Installed-Size: 9783
+Description:  Control all WAN connection Internet LED display.
+ When WAN network interface(by ifconfig check) has TX packets, Internet LED blinks.

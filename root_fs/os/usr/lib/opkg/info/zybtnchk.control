@@ -1,0 +1,8 @@
+Package: zybtnchk
+Version: 1.0.0-1
+Depends: libc
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zybtnchk
+Section: utils
+Architecture: en75xx
+Installed-Size: 9522
+Description:  ZyXEL tool for check button state.

@@ -1,0 +1,13 @@
+Package: libnetfilter-cthelper
+Version: 1.0.0-1
+Depends: libc, libmnl
+Source: package/libs/libnetfilter-cthelper
+SourceFile: libnetfilter_cthelper-1.0.0.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/libs
+License: GPL-2.0+
+Section: libs
+Architecture: en75xx
+Installed-Size: 3717
+Description:  libnetfilter_cthelper is a userspace library providing a programming
+ interface (API) to the in-kernel connection tracking helpers. 
+ This library is currently used by conntrack-tools.

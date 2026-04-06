@@ -1,0 +1,9 @@
+Package: ztr69
+Version: 2.0-1
+Depends: libc, libpthread, clinkc, expat, openssl-util, libuuid
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/ztr69
+SourceFile: ztr69-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 162016
+Description:  ZyXEL TR-069 Daemon

@@ -1,0 +1,10 @@
+Package: ZyIMS
+Version: 0.7.1-1
+Depends: libc, iptk_8_2_2, libsrtp, libjson, expat, zcfg, libzyuitimer
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/ZyIMS
+SourceFile: ZyIMS-0.7.1.tar.gz
+SourceURL: @ZyXEL_SITE/private/ZyXEL
+Section: VoIP
+Architecture: en75xx
+Installed-Size: 779811
+Description:  ZyXEL VoIP daemon

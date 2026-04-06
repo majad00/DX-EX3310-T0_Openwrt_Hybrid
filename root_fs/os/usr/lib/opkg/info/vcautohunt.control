@@ -1,0 +1,9 @@
+Package: vcautohunt
+Version: 2.0-1
+Depends: libc, zcmd, libzyuitimer
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/vcautohunt
+SourceFile: vcautohunt-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 14940
+Description:  ZyXEL atm vc auto-hunt daemon

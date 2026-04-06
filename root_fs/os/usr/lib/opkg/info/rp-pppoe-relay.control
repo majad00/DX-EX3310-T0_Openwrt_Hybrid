@@ -1,0 +1,13 @@
+Package: rp-pppoe-relay
+Version: 3.12-1
+Depends: libc, ppp
+Source: package/network/utils/rp-ppp
+SourceFile: rp-pppoe-3.12.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/utils
+Section: net
+Architecture: en75xx
+Installed-Size: 12042
+Description:  Dubbed RP-PPPoE, this open-source product is ideal for Linux users with
+ a DSL "modem" whose Internet service provider uses PPPoE.
+ .
+ This package contains pppoe-relay.

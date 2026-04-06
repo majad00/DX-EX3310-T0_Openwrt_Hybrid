@@ -1,0 +1,19 @@
+# ZyXEL IEEE 1905.1 Version:
+
+# AppVersion
+AppVersion=2.0
+
+# L2DeviveCtrl
+L2DeviveCtrl=701
+
+# WiFiAutoCfg
+WiFiAutoCfg=1001
+
+# WiFiOnOff
+WiFiOnOff=1101
+
+# FwUpgrade
+FwUpgrade=1501
+
+# LEDOnOff
+LEDOnOff=0

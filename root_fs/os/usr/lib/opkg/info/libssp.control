@@ -1,0 +1,10 @@
+Package: libssp
+Version: 4.6.3-1
+Source: package/toolchain
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: en75xx
+Installed-Size: 2667
+Description:  GCC support library

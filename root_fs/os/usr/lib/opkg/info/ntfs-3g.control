@@ -1,0 +1,14 @@
+Package: ntfs-3g
+Version: 2013.1.13-1
+Depends: libc, libpthread
+Source: package/network/services/ntfs-3g
+SourceFile: ntfs-3g-2013.1.13.tgz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: utils
+Architecture: en75xx
+Installed-Size: 203345
+Description:  Ntfs-3g is a NTFS driver, which can create, remove, rename,
+ move files, directories, hard links, and streams. It can read
+ and write files, including streams and sparse files. It can
+ handle special files like symbolic links, devices, and FIFOs.
+ Moreover it can also read transparently compressed files.

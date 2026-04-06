@@ -1,0 +1,4 @@
+/usr/sbin/logrotate
+/etc/crontab
+/var/logrotate.d/voip_logrotate.conf
+/var/logrotate.d/sys_logrotate.conf

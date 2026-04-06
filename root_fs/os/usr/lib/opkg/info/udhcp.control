@@ -1,0 +1,12 @@
+Package: udhcp
+Version: 0.9.8-1
+Depends: libc
+Source: package/network/services/udhcp
+SourceFile: udhcp-0.9.8.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+License: GPLv2
+LicenseFiles: COPYING
+Section: net
+Architecture: en75xx
+Installed-Size: 17177
+Description:  An embedded DHCP client and server

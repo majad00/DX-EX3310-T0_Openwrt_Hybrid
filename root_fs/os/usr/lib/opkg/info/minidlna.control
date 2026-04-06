@@ -1,0 +1,11 @@
+Package: minidlna
+Version: 1.2.1-1
+Depends: libc, libpthread, libexif, libjpeg, libsqlite3, libffmpeg, libid3tag, libflac, libvorbis, libuuid, libiconv-full, libintl-full
+Source: package/multimedia/minidlna
+SourceFile: minidlna_1.2.1.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services
+Section: multimedia
+Architecture: en75xx
+Installed-Size: 129441
+Description:  MiniDLNA (aka ReadyDLNA) is server software with the aim of
+ being fully compliant with DLNA/UPnP-AV clients.

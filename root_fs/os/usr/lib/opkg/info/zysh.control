@@ -1,0 +1,10 @@
+Package: zysh
+Version: 2.0-7
+Depends: libc, zcmd, libedit, libncurses, libzcfg_dbg, liboutput_redirect, libzcfg_fe_dal, libzcfg_dbg
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zysh
+SourceFile: zysh-2.0.tar.gz
+SourceURL: @ZyXEL_SITE/private/ZyXEL
+Section: net
+Architecture: en75xx
+Installed-Size: 93152
+Description:  ZyXEL Shell and Command Line Interface

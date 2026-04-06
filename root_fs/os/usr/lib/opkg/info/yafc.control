@@ -1,0 +1,10 @@
+Package: yafc
+Version: 1.1.1-2
+Depends: libc, libncurses, libreadline
+Source: package/network/services/yafc
+SourceFile: yafc-1.1.1.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: net
+Architecture: en75xx
+Installed-Size: 104639
+Description:  Yafc is yet another ftp client.

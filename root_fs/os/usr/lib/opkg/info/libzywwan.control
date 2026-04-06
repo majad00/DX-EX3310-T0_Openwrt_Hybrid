@@ -1,0 +1,9 @@
+Package: libzywwan
+Version: 2.0-1
+Depends: libc, zcfg, zcmd
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/libzywwan
+SourceFile: libzywwan-2.0.tar.gz
+Section: usb
+Architecture: en75xx
+Installed-Size: 3158
+Description:  ZyXEL Wireless Wan Library

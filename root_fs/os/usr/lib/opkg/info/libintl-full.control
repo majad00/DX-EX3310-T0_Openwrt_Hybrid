@@ -1,0 +1,10 @@
+Package: libintl-full
+Version: 0.16.1-1
+Depends: libc
+Source: package/libs/gettext-full
+SourceFile: gettext-0.16.1.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/libs
+Section: libs
+Architecture: en75xx
+Installed-Size: 15654
+Description:  GNU Internationalization library

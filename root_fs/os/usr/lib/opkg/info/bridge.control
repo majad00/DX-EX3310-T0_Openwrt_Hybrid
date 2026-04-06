@@ -1,0 +1,11 @@
+Package: bridge
+Version: 1.0.6-1
+Depends: libc
+Source: package/network/services/bridge-utils
+SourceFile: bridge-utils-1.0.6.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/utils
+Section: net
+Architecture: en75xx
+Installed-Size: 11855
+Description:  Manage ethernet bridging: a way to connect networks together to 
+ form a larger network.

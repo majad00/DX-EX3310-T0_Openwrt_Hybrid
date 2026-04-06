@@ -1,0 +1,9 @@
+Package: zcmd
+Version: 3.0-1
+Depends: libc, zcfg, libpthread, libzyutil, libzcfg_dbg, libzcfg_msg, libzos, libzlog, libzcmd_tool, libssp, libopenssl, zyee, libzyuitimer
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zcmd
+SourceFile: zcmd-3.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 168719
+Description:  ZyXEL Configuration Management Daemon

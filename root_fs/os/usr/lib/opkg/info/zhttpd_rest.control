@@ -1,0 +1,8 @@
+Package: zhttpd_rest
+Version: 2.0-1
+Depends: libc, libpthread, clinkc, expat, openssl-util, libzos, libzlog, libzyutil, libuuid, libzcfg_fe_dal, libzywwan, libdmalloc, libsqlite3, netprobe
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/zhttpd_rest
+Section: net
+Architecture: en75xx
+Installed-Size: 51569
+Description:  Zyxel RESTful API HTTPs Server

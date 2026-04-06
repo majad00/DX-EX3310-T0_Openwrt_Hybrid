@@ -1,0 +1,36 @@
+#!/bin/sh 
+
+export PATH=/home/bin:/home/scripts:/opt/bin:/bin:/sbin:/usr/bin:/usr/sbin
+export LD_LIBRARY_PATH=/lib/public:/lib/private:/usr/lib:/lib:/usr/lib/ebtables:/usr/lib/iptables
+
+start() {
+	#local lan_ip_segment=$(ifconfig br0 | grep 'inet addr' | awk '{print $2}' | sed 's/^.*addr://g' | cut -d '.' -f 1-2)
+	#netprobe -t 8 -c /tmp -d 5 -s /tmp/p0f.sock -u $lan_ip_segment &
+	#/usr/bin/p0f -s /tmp/p0f.sock -i br0 -f /usr/bin/p0f.fp "(not src net 192.168.1.0 mask 255.255.255.0 or not dst net 192.168.1.0 mask 255.255.255.0) and (port 80 or ((tcp[tcpflags] & tcp-syn) == 1))" &
+	rm /tmp/app_sock
+	netprobe -t 8 -d 5 -b br0 &
+}
+
+stop() {
+	netprobe_pid=$(ps | grep "netprobe -t" | grep -v grep | awk '{print $1}')
+	kill -9 $netprobe_pid
+	rm /tmp/app_sock
+}
+
+case "$1" in
+	start)
+		start
+		exit 0
+		;;
+		
+	stop)
+		stop
+		exit 0
+		;;	
+
+	*)
+		echo "$0: unrecognized option $1"
+		exit 1
+		;;
+
+esac

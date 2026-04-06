@@ -1,0 +1,9 @@
+Package: vlanautohunt
+Version: 2.0-1
+Depends: libc, zcmd
+Source: /home/ralphchien2/V550ABVY3.1b1/zyxel_private/zyxel/vlanautohunt
+SourceFile: vlanautohunt-2.0.tar.gz
+Section: net
+Architecture: en75xx
+Installed-Size: 13784
+Description:  ZyXEL vlan auto-hunt daemon

@@ -1,0 +1,10 @@
+Package: libip4tc
+Version: 1.4.10
+Depends: libc
+Source: package/network/utils/iptables
+SourceFile: iptables-1.4.10.tar.bz2
+SourceURL: @ZyXEL_SITE/opensource/network/utils
+Section: libs
+Architecture: en75xx
+Installed-Size: 138
+Description:  IPv4 firewall - shared libiptc library

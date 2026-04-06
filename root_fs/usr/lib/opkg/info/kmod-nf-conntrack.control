@@ -1,0 +1,10 @@
+Package: kmod-nf-conntrack
+Version: 3.18.23-1
+Depends: kernel (=3.18.23-1-8d2cc3fd67a886b76c887f10293fcbf5)
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Status: unknown hold not-installed
+Architecture: ar71xx
+Installed-Size: 37776
+Description:  Netfilter connection tracking

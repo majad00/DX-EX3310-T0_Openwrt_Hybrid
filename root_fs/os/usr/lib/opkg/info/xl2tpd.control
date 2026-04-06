@@ -1,0 +1,15 @@
+Package: xl2tpd
+Version: 1.3.14-1
+Depends: libc, ppp-mod-pppol2tp, resolveip, libzcfg_msg, libjson
+Source: package/network/services/xl2tpd
+SourceFile: xl2tpd-1.3.14.tar.gz
+SourceURL: @ZyXEL_SITE/opensource/network/services/
+License: GPL-2.0
+LicenseFiles: LICENSE
+Section: net
+Maintainer: Yousong Zhou <yszhou4tech@gmail.com>
+Architecture: en75xx
+Installed-Size: 52620
+Description:  l2tpd is the open source implementation of the L2TP tunneling protocol (RFC2661).
+ It does implement both LAC and LNS role in a L2TP networking architecture. The
+ main goal of this protocol is to tunnel PPP frame trough an IP network.
