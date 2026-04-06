@@ -1,4 +1,4 @@
-# Zyxel-Matrix for DX-3301 and EX3301 Routers
+# Zyxel-Matrix for MediaTek/Airoha EN751627 based chips ( tested on DX-3301 and EX3301 Routers) 
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/yourusername/zyxel-matrix-wsr30)](https://github.com/majad00/zyxel-matrix/releases/tag/v4.0.0)
