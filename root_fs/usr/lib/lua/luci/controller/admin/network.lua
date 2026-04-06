@@ -61,7 +61,7 @@ function index()
 			page = entry({"admin", "network", "wireless_shutdown"}, call("wifi_shutdown"), nil)
 			page.leaf = true
 
-			page = entry({"admin", "network", "wireless"}, arcombine(template("admin_network/wifi_overview"), cbi("admin_network/wifi")), _("Wifi"), 15)
+		--	page = entry({"admin", "network", "wireless"}, arcombine(template("admin_network/wifi_overview"), cbi("admin_network/wifi")), _("Wifi"), 15)
 			page.leaf = true
 		end
 
@@ -106,16 +106,16 @@ function index()
 			page = entry({"admin", "network", "dhcplease_status"}, call("lease_status"), nil)
 			page.leaf = true
 
-			page = node("admin", "network", "hosts")
-			page.target = cbi("admin_network/hosts")
-			page.title  = _("Hostnames")
-			page.order  = 40
+--			page = node("admin", "network", "hosts")
+--			page.target = cbi("admin_network/hosts")
+--			page.title  = _("Hostnames")
+--			page.order  = 40
 		end
 
-		page  = node("admin", "network", "routes")
-		page.target = cbi("admin_network/routes")
-		page.title  = _("Static Routes")
-		page.order  = 50
+--		page  = node("admin", "network", "routes")
+--		page.target = cbi("admin_network/routes")
+--		page.title  = _("Static Routes")
+--		page.order  = 50
 
 		page = node("admin", "network", "diagnostics")
 		page.target = template("admin_network/diagnostics")
