@@ -1,20 +1,20 @@
 #!/bin/sh /etc/rc.common
 START=99
 
-#written by majad qureshi
+# Written as part of EX-3310 port
 start() {
     echo -n "Setup Network ... [" > /dev/console
     for i in $(seq 1 5); do
         echo -n " > " > /dev/console
         sleep 1
     done
-    echo "] 100%" > /dev/console
-    
+    echo " 100% ]" > /dev/console
+
     echo "=== Mounting ===" > /dev/console
     mount -o bind /dev /tmp/zyxel_root/dev 2>/dev/null
     mount -o bind /proc /tmp/zyxel_root/proc 2>/dev/null
     mount -o bind /sys /tmp/zyxel_root/sys 2>/dev/null
-	mkdir -p /tmp/hosts/dhcp
+    mkdir -p /tmp/hosts/dhcp
     echo "=== Loading Base Drivers ===" > /dev/console
     insmod /lib/modules/3.18.21/fe_core.ko 2>/dev/null
     insmod /lib/modules/3.18.21/qdma_lan.ko 2>/dev/null
@@ -27,11 +27,13 @@ start() {
     chroot /tmp/zyxel_root /userfs/bin/qdmamgr_lan set rxratelimit config Enable packet 2>/dev/null
     chroot /tmp/zyxel_root /userfs/bin/qdmamgr_lan set rxratelimit value 0 6000 2>/dev/null
     chroot /tmp/zyxel_root /userfs/bin/qdmamgr_lan set rxratelimit value 1 1000000 2>/dev/null
+    chroot /tmp/zyxel_root /usr/bin/tce forceEEE 12 recover 2>/dev/null
+    chroot /tmp/zyxel_root /usr/bin/tce forcemode 12 an 1000 full 2>/dev/null
 
     echo "=== Powering Up Switch ===" > /dev/console
     chroot /tmp/zyxel_root /userfs/bin/ethphxcmd p4txrxmacctl enable 2>/dev/null
     chroot /tmp/zyxel_root /userfs/bin/ethphxcmd eth0 lanchip enable 2>/dev/null
-    
+
 
     chroot /tmp/zyxel_root /bin/sh -c "echo 1 > /proc/tc3162/stag_to_vtag" 2>/dev/null
 
@@ -42,83 +44,96 @@ start() {
     vconfig add eth0 2 2>/dev/null
     vconfig add eth0 3 2>/dev/null
     vconfig add eth0 4 2>/dev/null
-    
+
     ifconfig eth0.1 up 2>/dev/null
     ifconfig eth0.2 up 2>/dev/null
     ifconfig eth0.3 up 2>/dev/null
     ifconfig eth0.4 up 2>/dev/null
+    ifconfig nas10 up 2>/dev/null
 
     chroot /tmp/zyxel_root /userfs/bin/ethphxcmd eth0 vlanpt enable
-    
-    /etc/init.d/firewall stop 2>/dev/null
-    /etc/init.d/dnsmasq stop 2>/dev/null
-    rmmod nf_conntrack_ipv6 2>/dev/null
-    rmmod nf_conntrack_ipv4 2>/dev/null
-    
+
+    #/etc/init.d/firewall stop 2>/dev/null
+    #/etc/init.d/dnsmasq stop 2>/dev/null
+    #rmmod nf_conntrack_ipv6 2>/dev/null
+    #rmmod nf_conntrack_ipv4 2>/dev/null
+
    # chroot /tmp/zyxel_root /bin/zcfg_be &
    # sleep 3
    # chroot /tmp/zyxel_root /etc/init.d/zcmd.sh start &
-    
-	/etc/init.d/dnsmasq restart
-    sleep 5
 
-    chroot /tmp/zyxel_root /usr/bin/tce forceEEE 12 recover 2>/dev/null
-    chroot /tmp/zyxel_root /usr/bin/tce forcemode 12 an 1000 full 2>/dev/null
-    ifconfig nas10 up 2>/dev/null
+   /etc/init.d/dnsmasq stop
+
+   sleep 5
 
 
-
-    for radio in ra0 rai0 rai5; do
-        ifconfig $radio up 2>/dev/null
-        brctl addif br-lan $radio 2>/dev/null
-    done
-    
-    sleep 5
-    
     echo -n "Setup Wifi Networks ... " > /dev/console
     for i in $(seq 1 5); do
         echo -n " > " > /dev/console
         sleep 1
     done
-    
+
+    for i in 0 1 2 3; do
+        brctl delif br0 ra$i 2>/dev/null
+        ifconfig ra$i up 2>/dev/null
+        #brctl addif br-lan ra$i 2>/dev/null
+    done
+
+    for i in 0 1 2 3 4 5; do
+        brctl delif br0 rai$i 2>/dev/null
+        ifconfig rai$i up 2>/dev/null
+        #brctl addif br-lan rai$i 2>/dev/null
+    done
+
     SSID_2G=$(uci -q get wireless.@wifi-iface[0].ssid)
     KEY_2G=$(uci -q get wireless.@wifi-iface[0].key)
 
     SSID_5G=$(uci -q get wireless.@wifi-iface[1].ssid)
     KEY_5G=$(uci -q get wireless.@wifi-iface[1].key)
- 
+
 
    #chroot /tmp/zyxel_root/ usr/sbin/iwpriv ra0 set EncrypType="AES"
      #chroot /tmp/zyxel_root /usr/sbin/iwpriv rai0 set AuthMode="$ENC_5G"
     #chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set AuthMode="WPAPSKWPA2PSK"
     chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set WPAPSK="$KEY_2G"
  #   chroot /tmp/zyxel_root /usr/sbin/iwpriv rai0 set WPAPSK="$KEY_5G"
-	#last
-	chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set SSID="$SSID_2G"
-#	chroot /tmp/zyxel_root /usr/sbin/iwpriv rai0 set SSID="$SSID_5G"
+        #last
+    chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set SSID="$SSID_2G"
+#       chroot /tmp/zyxel_root /usr/sbin/iwpriv rai0 set SSID="$SSID_5G"
 
-      /usr/sbin/wifi_watcher &
-	/usr/bin/_watcher &
-    touch /overlay/.reset
-  
-   /etc/init.d/network restart
-   /etc/init.d/firewall restart
-   /etc/init.d/dnsmasq restart
-	echo -n " > " > /dev/console
-		for i in $(seq 1 5); do
-			echo -n " > " > /dev/console
-			sleep 1
-	done
-	echo -n " Ready! " > /dev/console
-	LAN_NET=$(/os/usr/sbin/ip -o -f inet addr show br-lan | awk '{print $4}')
-	echo 1 > /proc/sys/net/ipv4/ip_forward
-	if [ -n "$LAN_NET" ]; then
-		chroot /tmp/zyxel_root /usr/sbin/iptables -t nat -A POSTROUTING -s $LAN_NET -o nas10 -j MASQUERADE
-	fi
-	chroot /tmp/zyxel_root /usr/sbin/iptables -t nat -A POSTROUTING -o nas10 -j MASQUERADE
-	chroot /tmp/zyxel_root /usr/sbin/iptables -P INPUT ACCEPT
-	chroot /tmp/zyxel_root /usr/sbin/iptables -I INPUT -p udp --dport 53 -j ACCEPT
-	chroot /tmp/zyxel_root /usr/sbin/iptables -t mangle -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
-	chroot /tmp/zyxel_root /usr/sbin/iptables -P FORWARD ACCEPT
-	
+   #wrappers dont uncomment they are for backup it can make chaoes
+	#/usr/bin/zyxel_wifi_sync & moved to hook
+	# /usr/bin/t_watch.sh & moved to startup
+	#/usr/sbin/wifi_watcher & dont need
+	/usr/bin/zyxel_button_handler &
+   #/etc/init.d/network restart
+   #/etc/init.d/firewall restart
+
+        echo -n " > " > /dev/console
+                for i in $(seq 1 5); do
+                        echo -n " > " > /dev/console
+                        sleep 1
+        done
+        echo -n " > > > " > /dev/console
+        LAN_NET=$(/os/usr/sbin/ip -o -f inet addr show br-lan | awk '{print $4}')
+        echo 1 > /proc/sys/net/ipv4/ip_forward 2>/dev/null
+		echo 1 > /proc/tc3162/hwnat_off 2>/dev/null
+		echo 1 > /proc/tc3162/sw_rps 2>/dev/null
+		echo 1 > /proc/tc3162/sw_rps_2g 2>/dev/null
+		echo 0 > /proc/tc3162/igmp_hwnat 2>/dev/null
+		echo 1 > /proc/tc3162/rps_enable 2>/dev/null
+       if [ -n "$LAN_NET" ]; then
+                #chroot /tmp/zyxel_root /usr/sbin/iptables -t nat -A POSTROUTING -s $LAN_NET -o nas10 -j MASQUERADE
+				/etc/init.d/network restart
+				echo -n " > > System Ready! "
+       fi
+        chroot /tmp/zyxel_root /usr/sbin/iptables -t nat -A POSTROUTING -o nas10 -j MASQUERADE
+        chroot /tmp/zyxel_root /usr/sbin/iptables -P INPUT ACCEPT
+        chroot /tmp/zyxel_root /usr/sbin/iptables -I INPUT -p udp --dport 53 -j ACCEPT
+        chroot /tmp/zyxel_root /usr/sbin/iptables -t mangle -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+        chroot /tmp/zyxel_root /usr/sbin/iptables -P FORWARD ACCEPT
+        sleep 3
+        echo "nameserver 8.8.8.8" > /etc/resolv.conf
+		/usr/sbin/dnsmasq -u root -S 8.8.8.8 -S 8.8.4.4
+		
 }

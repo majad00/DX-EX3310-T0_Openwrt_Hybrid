@@ -1,0 +1,19 @@
+config led 'power'
+        option name 'Power LED'
+        option trigger 'default-on'
+
+config led 'internet'
+        option name 'Internet LED'
+        option trigger 'netdev'
+
+config led 'wifi2g'
+        option name '2.4 GHz Wi-Fi LED'
+        option trigger 'netdev'
+
+config led 'wifi5g'
+        option name '5 GHz Wi-Fi LED'
+        option trigger 'netdev'
+
+config led 'usb'
+        option name 'USB Storage LED'
+        option trigger 'usbdev'

@@ -55,3 +55,8 @@ config tinyproxy
 
 config 6relayd
 	option init 6relayd
+
+config set
+    option name wireless
+    list add /usr/sbin/zyxel_wifi_sync
+

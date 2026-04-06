@@ -1,23 +1,19 @@
 #!/bin/sh
-# === Real-Time LuCI to Hardware Watcher ===
+# written by majad as part of wrapper
 
 CONFIG="/etc/config/wireless"
 SYNC_SCRIPT="/usr/sbin/zyxel_wifi_sync"
 
-# Get the initial state of the file
-LAST_HASH=$(md5sum $CONFIG | awk '{print $1}')
+# Get the exact timestamp of when the file was last modified
+LAST_MOD=$(stat -c %Y "$CONFIG" 2>/dev/null)
 
 while true; do
-    # Check the file state every 1 second
-    CURRENT_HASH=$(md5sum $CONFIG | awk '{print $1}')
-    
-    # If the file changed (because you clicked Save in LuCI)
-    if [ "$LAST_HASH" != "$CURRENT_HASH" ]; then
-        # Run the sync script instantly
+    CURRENT_MOD=$(stat -c %Y "$CONFIG" 2>/dev/null)
+
+    if [ "$LAST_MOD" != "$CURRENT_MOD" ]; then
         $SYNC_SCRIPT > /dev/null 2>&1
-        # Update the known state
-        LAST_HASH=$CURRENT_HASH
+        LAST_MOD=$CURRENT_MOD
     fi
     
-    sleep 1
+    sleep 5
 done

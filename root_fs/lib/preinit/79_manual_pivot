@@ -1,4 +1,5 @@
 #!/bin/sh
+#Written by Majad qureshi as part of XX-3310 Port
 
 do_yaffs_bind() {
     local mtd_dev="/dev/mtdblock11"
@@ -43,9 +44,10 @@ do_yaffs_bind() {
         umount $mount_point
         mtd erase misc
         mount -t yaffs2 $mtd_dev $mount_point
+
     fi
     if [ ! -f "$mount_point/.initialized" ]; then
-        echo " First boot - Please wait setting $mtd_dev ... " > /dev/console
+        echo " First boot - Please wait $mtd_dev ... " > /dev/console
         
  
         for dir in etc usr lib bin sbin root www; do
@@ -56,11 +58,12 @@ do_yaffs_bind() {
         done
         
         touch $mount_point/.initialized
-        touch $mount_point/.reset  
+        #touch $mount_point/.reset  
         echo "$current_hash" > "$mount_point/.sh_hash"
         echo " Copy complete." > /dev/console
     fi
-    
+    mount -t yaffs2 /dev/mtdblock9 /data
+	
     for dir in usr lib bin sbin root www etc; do
         if [ -d "$mount_point/$dir" ] && [ -d "/$dir" ]; then
             mount --bind $mount_point/$dir /$dir
@@ -68,7 +71,7 @@ do_yaffs_bind() {
         fi
     done
     
-    echo " Multiple bind mounts complete. Mod for EX3301 created by majad qureshi!" > /dev/console
+    echo " Multiple bind mounts complete. Booting to Zyxel Matrix ... !" > /dev/console
 }
 
 
