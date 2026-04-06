@@ -1,0 +1,11 @@
+#!/bin/sh /etc/rc.common
+START=99
+STOP=01
+
+start() {
+    exit 0
+}
+
+stop() {
+    /sbin/save_matrix
+}

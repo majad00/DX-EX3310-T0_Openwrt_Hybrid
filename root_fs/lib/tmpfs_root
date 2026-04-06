@@ -1,0 +1,49 @@
+#!/bin/sh
+# Written by Majad qureshi as part of XX-3310 Port
+
+do_matrix_overlay() {
+    echo " Matrix: Initiating Hybrid Boot Sequence..." > /dev/console
+    mount -t yaffs2 /dev/mtdblock11 /mnt 2>/dev/null
+    if [ $? -ne 0 ]; then
+        echo " Matrix: Formatting ..." > /dev/console
+        mtd erase misc
+        mount -t yaffs2 /dev/mtdblock11 /mnt
+    fi
+
+    local current_hash=$(md5sum /bin/sh | cut -d' ' -f1)
+    local do_wipe=0
+
+    if [ -f "/mnt/.sh_hash" ]; then
+        local saved_hash=$(cat "/mnt/.sh_hash")
+        if [ "$current_hash" != "$saved_hash" ]; then
+            echo " Matrix: New OS detected! Triggering wipe..." > /dev/console
+            do_wipe=1
+        fi
+    else
+        do_wipe=1
+    fi
+    if [ ! -f "/mnt/.reset" ]; then
+        echo " Matrix: Factory Reset triggered!" > /dev/console
+        do_wipe=1
+    fi
+
+    if [ "$do_wipe" -eq 1 ]; then
+        echo " Matrix: Clearing user data..." > /dev/console
+        rm -rf /mnt/saved_upper
+        echo "$current_hash" > "/mnt/.sh_hash"
+        touch "/mnt/.reset"
+    fi
+    mount -t tmpfs -o size=60M tmpfs /matrix
+    mkdir -p /matrix/upper /matrix/work
+	
+    if [ -d "/mnt/saved_upper" ]; then
+        echo " Matrix: Restoring configurations..." > /dev/console
+        cp -a /mnt/saved_upper/* /matrix/upper/ 2>/dev/null
+    else
+        mkdir -p /mnt/saved_upper
+    fi
+    mount -t overlay overlay -o lowerdir=/,upperdir=/matrix/upper,workdir=/matrix/work /
+    echo " Ecosystem is Online!" > /dev/console
+}
+
+boot_hook_add preinit_mount_root do_matrix_overlay

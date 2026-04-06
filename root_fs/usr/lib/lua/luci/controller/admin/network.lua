@@ -63,22 +63,6 @@ function index()
 
 			page = entry({"admin", "network", "wireless"}, arcombine(template("admin_network/wifi_overview"), cbi("admin_network/wifi")), _("Wifi"), 15)
 			page.leaf = true
-			page.subindex = true
-
-			if page.inreq then
-				local wdev
-				local net = require "luci.model.network".init(uci)
-				for _, wdev in ipairs(net:get_wifidevs()) do
-					local wnet
-					for _, wnet in ipairs(wdev:get_wifinets()) do
-						entry(
-							{"admin", "network", "wireless", wnet:id()},
-							alias("admin", "network", "wireless"),
-							wdev:name() .. ": " .. wnet:shortname()
-						)
-					end
-				end
-			end
 		end
 
 

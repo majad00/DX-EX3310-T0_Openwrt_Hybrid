@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2011 OpenWrt.org
+# Modified for xx3310-t0 support
 #
 
 . /lib/functions/system.sh

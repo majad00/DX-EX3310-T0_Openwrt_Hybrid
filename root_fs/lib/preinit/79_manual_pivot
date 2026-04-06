@@ -5,7 +5,7 @@ do_yaffs_bind() {
     local mtd_dev="/dev/mtdblock11"
     local mount_point="/overlay"
 
-    echo " Mounting YAFFS2 on $mtd_dev ..." > /dev/console
+    echo " Mounting on $mtd_dev ..." > /dev/console
 
     mkdir -p $mount_point
     umount $mount_point 2>/dev/null

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+#offline  to test pivots mount
+#echo "sync data ..." > /dev/console
+
+#cp -a -u /overlay_ram/upper/* /mnt/yaffs2/saved_upper/ 2>/dev/null
+#logger -t Matrix "RAM overlay successfully synced to Flash."
+#echo "synced!" > /dev/console

@@ -53,15 +53,6 @@ start() {
 
     chroot /tmp/zyxel_root /userfs/bin/ethphxcmd eth0 vlanpt enable
 
-    #/etc/init.d/firewall stop 2>/dev/null
-    #/etc/init.d/dnsmasq stop 2>/dev/null
-    #rmmod nf_conntrack_ipv6 2>/dev/null
-    #rmmod nf_conntrack_ipv4 2>/dev/null
-
-   # chroot /tmp/zyxel_root /bin/zcfg_be &
-   # sleep 3
-   # chroot /tmp/zyxel_root /etc/init.d/zcmd.sh start &
-
    /etc/init.d/dnsmasq stop
 
    sleep 5
@@ -92,15 +83,15 @@ start() {
     KEY_5G=$(uci -q get wireless.@wifi-iface[1].key)
 
 
-   chroot /tmp/zyxel_root/ usr/sbin/iwpriv ra0 set EncrypType=AES
-   chroot /tmp/zyxel_root /usr/sbin/iwpriv rai5 set AuthMode=WPA2PSK
-    chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set AuthMode=WPA2PSK
-   chroot /tmp/zyxel_root /usr/sbin/iwpriv rai5 set WPAPSK=AES
-	chroot /tmp/zyxel_root /usr/sbin/iwpriv rai5 set WPAPSK="$KEY_5G"
-	chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set WPAPSK="$KEY_2G"
+   #chroot /tmp/zyxel_root/ usr/sbin/iwpriv ra0 set EncrypType=AES
+   #chroot /tmp/zyxel_root /usr/sbin/iwpriv rai5 set AuthMode=WPA2PSK
+    #chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set AuthMode=WPA2PSK
+   #chroot /tmp/zyxel_root /usr/sbin/iwpriv rai5 set WPAPSK=AES
+	#chroot /tmp/zyxel_root /usr/sbin/iwpriv rai5 set WPAPSK="$KEY_5G"
+	#chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set WPAPSK="$KEY_2G"
 	 #last
-    chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set SSID="$SSID_2G"
-    chroot /tmp/zyxel_root /usr/sbin/iwpriv rai5 set SSID="$SSID_5G"
+    #chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set SSID="$SSID_2G"
+    #chroot /tmp/zyxel_root /usr/sbin/iwpriv rai5 set SSID="$SSID_5G"
 
    #wrappers dont uncomment they are for backup it can make chaoes
 	#/usr/bin/zyxel_wifi_sync & moved to hook
