@@ -21,15 +21,15 @@ start() {
     
     mkdir -p $ZYXEL_ROOT
     mount -t tmpfs tmpfs $ZYXEL_ROOT
-    mkdir -p $ZYXEL_ROOT/bin $ZYXEL_ROOT/sbin $ZYXEL_ROOT/usr $ZYXEL_ROOT/lib $ZYXEL_ROOT/userfs $ZYXEL_ROOT/proc $ZYXEL_ROOT/sys $ZYXEL_ROOT/dev $ZYXEL_ROOT/tmp $ZYXEL_ROOT/etc $ZYXEL_ROOT/var $ZYXEL_ROOT/data
+    mkdir -p $ZYXEL_ROOT/bin $ZYXEL_ROOT/sbin $ZYXEL_ROOT/usr $ZYXEL_ROOT/lib $ZYXEL_ROOT/lib/modules $ZYXEL_ROOT/userfs $ZYXEL_ROOT/proc $ZYXEL_ROOT/sys $ZYXEL_ROOT/dev $ZYXEL_ROOT/tmp $ZYXEL_ROOT/etc $ZYXEL_ROOT/var $ZYXEL_ROOT/data
 
-    # Bind the Heavy Read-Only Folders
     mount -o bind /os/bin $ZYXEL_ROOT/bin
     mount -o bind /os/sbin $ZYXEL_ROOT/sbin
     mount -o bind /os/usr $ZYXEL_ROOT/usr
     mount -o bind /os/lib $ZYXEL_ROOT/lib
     mount -o bind /os/userfs $ZYXEL_ROOT/userfs
     mount -o bind /os/data $ZYXEL_ROOT/data
+	mount -o bind /lib/modules $ZYXEL_ROOT/lib/modules
 
     # Give the Jail a writable /etc overlay so we can inject MAC addresses
     mkdir -p /tmp/z_etc_upper /tmp/z_etc_work
@@ -69,7 +69,6 @@ start() {
     brctl addbr br0 2>/dev/null
     ifconfig br0 up 2>/dev/null
 
-    # Let Zyxel work
     chroot $ZYXEL_ROOT /bin/sh -c "export PATH=/home/bin:/home/scripts:/opt/bin:/bin:/sbin:/usr/bin:/usr/sbin:/userfs/bin; export LD_LIBRARY_PATH=/lib/public:/lib/private:/lib/gpl:/usr/lib:/lib:/lib64/gpl:/lib64; /etc/init.d/rcS start"
 
     echo -n "Matrix Initialization: [" > /dev/console
@@ -80,21 +79,19 @@ start() {
     echo "] 100% Complete!" > /dev/console
     ifconfig br0 down 2>/dev/null
 
-    # Pluck 2.4G radios
-    for i in 0 1 2 3; do
-        brctl delif br0 ra$i 2>/dev/null
-        ifconfig ra$i up 2>/dev/null
-        brctl addif br-lan ra$i 2>/dev/null
-    done
-    
-    # Pluck 5G radios
-    for i in 0 1 2 3 4 5; do
-        brctl delif br0 rai$i 2>/dev/null
-        ifconfig rai$i up 2>/dev/null
-        brctl addif br-lan rai$i 2>/dev/null
-    done
+#    for i in 0 1 2 3; do
+#        brctl delif br0 ra$i 2>/dev/null
+#        ifconfig ra$i up 2>/dev/null
+#        brctl addif br-lan ra$i 2>/dev/null
+#    done
+#
+#    for i in 0 1 2 3 4 5; do
+#        brctl delif br0 rai$i 2>/dev/null
+#        ifconfig rai$i up 2>/dev/null
+#        brctl addif br-lan rai$i 2>/dev/null
+#    done
 
-    # Destroy the dummy bridge so it doesn't cause routing loops
+    # FIx Destroy the dummy bridge so it doesn't cause routing loops
     brctl delbr br0 2>/dev/null
 
     echo "Matrix OK!" > /dev/console

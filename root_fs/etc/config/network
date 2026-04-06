@@ -6,19 +6,18 @@ config interface 'loopback'
 
 config globals 'globals'
         option ula_prefix 'fd1a:e66c:1164::/48'
-
-# -----  INTERNET CONNECTION (LAN Port 1) -----
+		
 config interface 'wan'
-        option ifname 'eth0.1'
+        option device 'nas10'
+        option ifname 'nas10'
         option proto 'dhcp'
-        option peerdns '0'
-        list dns '8.8.8.8'
-        list dns '1.1.1.1'
-
-# -----  LOCAL NETWORK (LAN Ports 2, 3, 4 + Wi-Fi) -----
+        option auto '1'
+        option force_link '1'
+        option peerdns '1'
+		
 config interface 'lan'
         option type 'bridge'
-        option ifname 'eth0.2 eth0.3 eth0.4'
+        option ifname 'eth0.1 eth0.2 eth0.3 eth0.4 ra0 rai5'
         option proto 'static'
-        option ipaddr '192.168.1.1'
+        option ipaddr '192.168.2.1'
         option netmask '255.255.255.0'

@@ -4,16 +4,14 @@ do_yaffs_bind() {
     local mtd_dev="/dev/mtdblock11"
     local mount_point="/overlay"
 
-    echo "PREINIT: Mounting YAFFS2 on $mtd_dev using Bind Mount Strategy..." > /dev/console
+    echo " Mounting YAFFS2 on $mtd_dev ..." > /dev/console
 
-    # 1. Mount YAFFS2
     mkdir -p $mount_point
     umount $mount_point 2>/dev/null
     mount -t yaffs2 $mtd_dev $mount_point
     
-    # 2. Format if unreadable or corrupted
     if [ $? -ne 0 ]; then
-        echo "PREINIT: Formatting mtd11 (misc)..." > /dev/console
+        echo " Formatting ..." > /dev/console
         mtd erase misc
         mount -t yaffs2 $mtd_dev $mount_point
         
@@ -23,12 +21,33 @@ do_yaffs_bind() {
         fi
     fi
 
-    # 3. First boot - copy existing content to mtd11
-    # We use .initialized flag to ensure this heavy copy only happens ONCE
+    local current_hash=$(md5sum /bin/sh | cut -d' ' -f1)
+    local do_format=0
+
+    if [ -f "$mount_point/.sh_hash" ]; then
+        local saved_hash=$(cat "$mount_point/.sh_hash")
+        if [ "$current_hash" != "$saved_hash" ]; then
+            echo "New OS detected..." > /dev/console
+            do_format=1
+        fi
+    fi
+
+    if [ ! -f "$mount_point/.reset" ]; then
+        echo " reset triggered." > /dev/console
+        do_format=1
+    fi
+
+
+    if [ "$do_format" -eq 1 ]; then
+        echo "Formatting overlay..." > /dev/console
+        umount $mount_point
+        mtd erase misc
+        mount -t yaffs2 $mtd_dev $mount_point
+    fi
     if [ ! -f "$mount_point/.initialized" ]; then
-        echo "PREINIT: First boot - copying system files to $mtd_dev..." > /dev/console
+        echo " First boot - Please wait setting $mtd_dev ... " > /dev/console
         
-        # Copy essential directories to the YAFFS2 partition
+ 
         for dir in etc usr lib bin sbin root www; do
             mkdir -p $mount_point/$dir
             if [ -d "/$dir" ]; then
@@ -37,20 +56,20 @@ do_yaffs_bind() {
         done
         
         touch $mount_point/.initialized
-        echo "PREINIT: Copy complete." > /dev/console
+        touch $mount_point/.reset  
+        echo "$current_hash" > "$mount_point/.sh_hash"
+        echo " Copy complete." > /dev/console
     fi
     
-    # 4. Bind mount each directory to make it writable
-    # Order matters: system directories first, etc last
     for dir in usr lib bin sbin root www etc; do
         if [ -d "$mount_point/$dir" ] && [ -d "/$dir" ]; then
             mount --bind $mount_point/$dir /$dir
-            echo "PREINIT: Bound $mount_point/$dir to /$dir" > /dev/console
+            echo " Bound $mount_point/$dir to /$dir" > /dev/console
         fi
     done
     
-    echo "PREINIT: Multiple bind mounts complete. Mod for EX3301 created by majad qureshi!" > /dev/console
+    echo " Multiple bind mounts complete. Mod for EX3301 created by majad qureshi!" > /dev/console
 }
 
-# Hook this directly into the mount_root phase
+
 boot_hook_add preinit_mount_root do_yaffs_bind

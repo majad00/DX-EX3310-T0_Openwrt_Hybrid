@@ -1,0 +1,21 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+
+start() {
+    /usr/sbin/zyxel_wifi_sync
+}
+
+stop() {
+    ifconfig ra0 down
+    ifconfig rai0 down
+}
+
+# When LuCI clicks Save & Apply, it triggers restart/reload
+restart() {
+    /usr/sbin/zyxel_wifi_sync
+}
+
+reload() {
+    /usr/sbin/zyxel_wifi_sync
+}

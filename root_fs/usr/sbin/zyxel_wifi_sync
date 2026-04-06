@@ -1,0 +1,56 @@
+#!/bin/sh
+# === Final Zyxel Hardware Sync ===
+
+CHROOT_PATH="/tmp/zyxel_root"
+IWPRIV="/usr/sbin/iwpriv"
+
+
+R0_DIS=$(uci -q get wireless.@wifi-iface[0].disabled || echo "0")
+R0_SSID=$(uci -q get wireless.@wifi-iface[0].ssid || echo "Zyxel_Matrix_2G")
+R0_KEY=$(uci -q get wireless.@wifi-iface[0].key || echo "12345678")
+R0_CHAN=$(uci -q get wireless.radio0.channel || echo "auto")
+
+if [ "$R0_DIS" = "1" ]; then
+    ifconfig ra0 down 2>/dev/null
+    chroot $CHROOT_PATH $IWPRIV ra0 set RadioOn=0 > /dev/null 2>&1
+else
+    ifconfig ra0 up 2>/dev/null
+    chroot $CHROOT_PATH $IWPRIV ra0 set RadioOn=1 > /dev/null 2>&1
+    
+    if [ "$R0_CHAN" != "auto" ] && [ "$R0_CHAN" != "0" ]; then
+        chroot $CHROOT_PATH $IWPRIV ra0 set AutoChannelSel=0 > /dev/null 2>&1
+        chroot $CHROOT_PATH $IWPRIV ra0 set Channel="$R0_CHAN" > /dev/null 2>&1
+    else
+        chroot $CHROOT_PATH $IWPRIV ra0 set AutoChannelSel=2 > /dev/null 2>&1
+    fi
+
+    chroot $CHROOT_PATH $IWPRIV ra0 set AuthMode=WPA2PSK > /dev/null 2>&1
+    chroot $CHROOT_PATH $IWPRIV ra0 set EncrypType=AES > /dev/null 2>&1
+    [ -n "$R0_KEY" ] && chroot $CHROOT_PATH $IWPRIV ra0 set WPAPSK="$R0_KEY" > /dev/null 2>&1
+    chroot $CHROOT_PATH $IWPRIV ra0 set SSID="$R0_SSID" > /dev/null 2>&1
+fi
+
+R1_DIS=$(uci -q get wireless.@wifi-iface[1].disabled || echo "0")
+R1_SSID=$(uci -q get wireless.@wifi-iface[1].ssid || echo "Zyxel_Matrix_5G")
+R1_KEY=$(uci -q get wireless.@wifi-iface[1].key || echo "12345678")
+R1_CHAN=$(uci -q get wireless.radio1.channel || echo "auto")
+
+if [ "$R1_DIS" = "1" ]; then
+    ifconfig rai0 down 2>/dev/null
+    chroot $CHROOT_PATH $IWPRIV rai0 set RadioOn=0 > /dev/null 2>&1
+else
+    ifconfig rai0 up 2>/dev/null
+    chroot $CHROOT_PATH $IWPRIV rai0 set RadioOn=1 > /dev/null 2>&1
+    
+    if [ "$R1_CHAN" != "auto" ] && [ "$R1_CHAN" != "0" ]; then
+        chroot $CHROOT_PATH $IWPRIV rai0 set AutoChannelSel=0 > /dev/null 2>&1
+        chroot $CHROOT_PATH $IWPRIV rai0 set Channel="$R1_CHAN" > /dev/null 2>&1
+    else
+        chroot $CHROOT_PATH $IWPRIV rai0 set AutoChannelSel=2 > /dev/null 2>&1
+    fi
+
+    chroot $CHROOT_PATH $IWPRIV rai0 set AuthMode=WPA2PSK > /dev/null 2>&1
+    chroot $CHROOT_PATH $IWPRIV rai0 set EncrypType=AES > /dev/null 2>&1
+    [ -n "$R1_KEY" ] && chroot $CHROOT_PATH $IWPRIV rai0 set WPAPSK="$R1_KEY" > /dev/null 2>&1
+    chroot $CHROOT_PATH $IWPRIV rai0 set SSID="$R1_SSID" > /dev/null 2>&1
+fi
