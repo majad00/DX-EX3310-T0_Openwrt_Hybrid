@@ -7,16 +7,8 @@ start() {
 }
 
 stop() {
-    ifconfig ra0 down
-	ifconfig ra1 down
-	ifconfig ra2 down
-	ifconfig ra3 down
-    ifconfig rai0 down
-	ifconfig rai1 down
-	ifconfig rai2 down
-	ifconfig rai3 down
-	ifconfig rai4 down
-	ifconfig rai5 down	
+    	ifconfig ra0 down
+    	ifconfig rai0 down
 }
 
 # When LuCI clicks Save & Apply, it triggers restart/reload

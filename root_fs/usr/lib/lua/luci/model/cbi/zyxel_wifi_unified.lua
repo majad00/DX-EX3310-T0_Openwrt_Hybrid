@@ -7,10 +7,12 @@ m.uci:foreach("wireless", "wifi-iface", function(sec)
     local ifn = sec.ifname or ""
     if sec.device == "radio0" and (ifn == "ra0" or ifn == "") then
         iface2g = sec[".name"]
-    elseif sec.device == "radio1" and (ifn == "rai5" or ifn == "") then
+    -- CHANGED: Look for rai0 instead of rai5
+    elseif sec.device == "radio1" and (ifn == "rai0" or ifn == "") then
         iface5g = sec[".name"]
     end
 end)
+
 if not iface2g then iface2g = "@wifi-iface[0]" end
 if not iface5g then iface5g = "@wifi-iface[1]" end
 

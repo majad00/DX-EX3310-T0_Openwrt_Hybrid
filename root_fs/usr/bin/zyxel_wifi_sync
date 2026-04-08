@@ -3,6 +3,7 @@
 CHROOT_PATH="/tmp/zyxel_root"
 IWPRIV="/usr/sbin/iwpriv"
 
+# Written for EX3301 port
 sync_iface_settings() {
     local config="$1"
     local device ifname disabled key encryption hidden macaddr maxassoc channel htmode txpower main_ifname
@@ -31,8 +32,9 @@ sync_iface_settings() {
 
     local is_main=0
     [ "$ifname" = "$main_ifname" ] && is_main=1
-    if [ -z "$main_ifname" ]; then
-        [ "$ifname" = "ra0" -o "$ifname" = "rai0" -o "$ifname" = "rai5" ] && is_main=1
+    
+     if [ -z "$main_ifname" ]; then
+        [ "$ifname" = "ra0" -o "$ifname" = "rai0" ] && is_main=1
     fi
 
     ifconfig $ifname down 2>/dev/null
@@ -108,13 +110,15 @@ sync_iface_ssid() {
         *) return ;;
     esac
 
-
     if [ "$disabled" != "1" ] && [ -n "$ssid" ]; then
         chroot $CHROOT_PATH $IWPRIV $ifname set SSID="$ssid" > /dev/null 2>&1
     fi
 }
 
 config_load wireless
+
 config_foreach sync_iface_settings wifi-iface
+
 sleep 1
+
 config_foreach sync_iface_ssid wifi-iface

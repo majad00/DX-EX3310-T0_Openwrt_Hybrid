@@ -1,10 +1,11 @@
-m = Map("wireless", "5 GHz Wi-Fi (rai5)", "Main 5 GHz configuration.")
+m = Map("wireless", "5 GHz Wi-Fi (rai0)", "Main 5 GHz configuration.")
 s = m:section(NamedSection, "radio1", "wifi-device", "")
 
 local iface = nil
 m.uci:foreach("wireless", "wifi-iface", function(sec)
     local ifn = sec.ifname or ""
-    if sec.device == "radio1" and (ifn == "rai5" or ifn == "") then
+    -- CHANGED: Look for rai0 instead of rai5
+    if sec.device == "radio1" and (ifn == "rai0" or ifn == "") then
         iface = sec[".name"]
         return false
     end

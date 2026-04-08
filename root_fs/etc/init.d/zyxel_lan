@@ -1,5 +1,5 @@
 #!/bin/sh /etc/rc.common
-START=99
+START=92
 
 # Written as part of EX-3310 port
 start() {
@@ -88,10 +88,19 @@ start() {
         #brctl addif br-lan rai$i 2>/dev/null
     done
 	echo "V15" > /tmp/sysinfo/model ; mkdir /tmp/sysinfo ; echo "EX-3310-T0" > /tmp/sysinfo/board_name
-    SSID_2G=$(uci -q get wireless.@wifi-iface[0].ssid)
-    KEY_2G=$(uci -q get wireless.@wifi-iface[0].key)
-    SSID_5G=$(uci -q get wireless.@wifi-iface[1].ssid)
-    KEY_5G=$(uci -q get wireless.@wifi-iface[1].key)
+
+    SSID_2G=$(uci -q get wireless.main2g.ssid)
+    KEY_2G=$(uci -q get wireless.main2g.key)
+    SSID_5G=$(uci -q get wireless.main5g.ssid)
+    KEY_5G=$(uci -q get wireless.main5g.key)
+    chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set AuthMode=WPA2PSK
+    chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set EncrypType=AES
+    chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set WPAPSK="$KEY_2G"
+    chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set SSID="$SSID_2G"
+    chroot /tmp/zyxel_root /usr/sbin/iwpriv rai0 set AuthMode=WPA2PSK
+    chroot /tmp/zyxel_root /usr/sbin/iwpriv rai0 set EncrypType=AES
+    chroot /tmp/zyxel_root /usr/sbin/iwpriv rai0 set WPAPSK="$KEY_5G"
+    chroot /tmp/zyxel_root /usr/sbin/iwpriv rai0 set SSID="$SSID_5G"
 
 	for i in $(seq 1 1); do
 		echo "17 38 2 0 1" > /proc/tc3162/led_def
@@ -100,10 +109,8 @@ start() {
 	done
       mkdir -p /tmp/sysinfo ; echo "Zyxel-Matrix V-15" >> /tmp/sysinfo/model
    #wrappers dont uncomment they are for backup it can make chaoes
-	#/usr/bin/zyxel_wifi_sync & moved to hook
 	# /usr/bin/t_watch.sh & moved to startup
 	#/usr/sbin/wifi_watcher & dont need
-	#/usr/bin/zyxel_wifi_sync
 	#/usr/bin/zyxel_button_handler &
    #/etc/init.d/network restart
    #/etc/init.d/firewall restart
@@ -151,6 +158,7 @@ start() {
 		echo "34 4 2 0 0" > /proc/tc3162/led_def 
 		done
 	     echo -n "Done > > [" > /dev/console
+		 	touch /overlay/.reset
 		for i in $(seq 1 10); do
         echo -n " > " > /dev/console
         sleep 1
