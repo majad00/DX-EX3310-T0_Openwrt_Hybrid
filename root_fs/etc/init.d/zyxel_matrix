@@ -84,10 +84,94 @@ start() {
     echo "] 100% Complete!" > /dev/console
     ifconfig br0 down 2>/dev/null
 
-    # FIx Destroy the dummy bridge so it doesn't cause routing loops
+    # FIx Destroy the dummy bridge
     brctl delbr br0 2>/dev/null
 	touch /overlay/.reset
-    echo "Matrix Ready!" > /dev/console
+    echo -n "Setup Network ... [" > /dev/console
+    for i in $(seq 1 5); do
+        echo -n " > " > /dev/console
+        sleep 1
+    done
+	/etc/init.d/network stop
+	/etc/init.d/zyxel_wifi stop
+    echo " 100% ]" > /dev/console
+
+    echo "=== Mounting ===" > /dev/console
+    mount -o bind /dev /tmp/zyxel_root/dev 2>/dev/null
+    mount -o bind /proc /tmp/zyxel_root/proc 2>/dev/null
+    mount -o bind /sys /tmp/zyxel_root/sys 2>/dev/null
+    mkdir -p /tmp/hosts/dhcp
+  
+	echo "V15" > /tmp/sysinfo/model ; mkdir /tmp/sysinfo ; echo "EX-3310-T0" > /tmp/sysinfo/board_name
+    SSID_2G=$(uci -q get wireless.@wifi-iface[0].ssid)
+    KEY_2G=$(uci -q get wireless.@wifi-iface[0].key)
+    SSID_5G=$(uci -q get wireless.@wifi-iface[1].ssid)
+    KEY_5G=$(uci -q get wireless.@wifi-iface[1].key)
+
+	for i in $(seq 1 1); do
+		echo "17 38 2 0 1" > /proc/tc3162/led_def
+		sleep 1
+		echo "17 38 2 0 0" > /proc/tc3162/led_def
+	done
+      mkdir -p /tmp/sysinfo ; echo "Zyxel-Matrix V-15" >> /tmp/sysinfo/model
+	#maping wifi  2 and 5 ghz on two cpus
+	echo 2 > /proc/irq/21/smp_affinity   
+	echo 4 > /proc/irq/20/smp_affinity   
+	#binding wifi
+	echo 0 0 0 0 > /proc/tc3162/sw_rps 2>/dev/null
+	echo 0 0 1 0 > /proc/tc3162/sw_rps_2g 2>/dev/null
+	#tuning
+	echo 1 > /proc/tc3162/igmp_hwnat 2>/dev/null
+	echo 1 1 1 0 > /proc/tc3162/sw_rps 2>/dev/null
+	echo 1 1 1 0 > /proc/tc3162/sw_rps_2g 2>/dev/null
+
+        echo -n " > " > /dev/console
+                for i in $(seq 1 5); do
+                        echo -n " > " > /dev/console
+                        sleep 1
+        done
+        echo -n " > > > " > /dev/console
+		echo -n " > > System Ready! " 
+        LAN_NET=$(/os/usr/sbin/ip -o -f inet addr show br-lan | awk '{print $4}')
+        echo 1 > /proc/sys/net/ipv4/ip_forward 2>/dev/null
+		echo 1 > /proc/tc3162/hwnat_off 2>/dev/null
+		echo 1 > /proc/tc3162/sw_rps 2>/dev/null
+		echo 1 > /proc/tc3162/sw_rps_2g 2>/dev/null
+		echo 0 > /proc/tc3162/igmp_hwnat 2>/dev/null
+		echo 1 > /proc/tc3162/rps_enable 2>/dev/null
+       if [ -n "$LAN_NET" ]; then
+                #chroot /tmp/zyxel_root /usr/sbin/iptables -t nat -A POSTROUTING -s $LAN_NET -o nas10 -j MASQUERADE
+				/etc/init.d/network stop				
+       fi
+		echo "80 8 1 0 0" > /proc/tc3162/led_def ;		echo "82 6 1 0 1" > /proc/tc3162/led_def
+        chroot /tmp/zyxel_root /usr/sbin/iptables -t nat -A POSTROUTING -o nas10 -j MASQUERADE
+        chroot /tmp/zyxel_root /usr/sbin/iptables -P INPUT ACCEPT
+        chroot /tmp/zyxel_root /usr/sbin/iptables -I INPUT -p udp --dport 53 -j ACCEPT
+        chroot /tmp/zyxel_root /usr/sbin/iptables -t mangle -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+        chroot /tmp/zyxel_root /usr/sbin/iptables -P FORWARD ACCEPT
+        echo "nameserver 8.8.8.8" > /etc/resolv.conf
+		/usr/sbin/dnsmasq -u root -S 8.8.8.8 -S 8.8.4.4
+		echo 0 > /proc/tc3162/led_pwr_red ; sleep 10 ;		echo 1 > /proc/tc3162/led_pwr_red
+			#uncomment to remove HW driver,  if wifi speed is slow
+			#rmmod hw_nat.ko
+		echo -n " > " > /dev/console
+                for i in $(seq 1 3); do
+                        echo -n " > " > /dev/console
+                        sleep 1
+        done
+		echo " 100% ] ...  Restarting Network" > /dev/console
+		/etc/init.d/network start	
+		/etc/init.d/zyxel_wifi start
+		for i in $(seq 1 1); do
+		echo "34 4 2 0 1" > /proc/tc3162/led_def 
+		sleep 1
+		echo "34 4 2 0 0" > /proc/tc3162/led_def 
+		done
+		for i in $(seq 1 15); do
+        echo -n " > " > /dev/console
+        sleep 1
+		done
+		echo " 100%  Ready! - Press any key to login ...]" > /dev/console
 }
 
 stop() {

@@ -103,7 +103,7 @@ start() {
 	#/usr/bin/zyxel_wifi_sync & moved to hook
 	# /usr/bin/t_watch.sh & moved to startup
 	#/usr/sbin/wifi_watcher & dont need
-	/usr/bin/zyxel_wifi_sync
+	#/usr/bin/zyxel_wifi_sync
 	#/usr/bin/zyxel_button_handler &
    #/etc/init.d/network restart
    #/etc/init.d/firewall restart
@@ -144,6 +144,7 @@ start() {
         done
 		echo " 100% ] ...  Restarting Network" > /dev/console
 		/etc/init.d/network start	
+		/etc/init.d/zyxel_wifi restart
 		for i in $(seq 1 1); do
 		echo "34 4 2 0 1" > /proc/tc3162/led_def 
 		sleep 1

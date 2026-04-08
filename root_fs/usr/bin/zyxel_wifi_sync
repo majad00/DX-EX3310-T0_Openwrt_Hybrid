@@ -3,23 +3,19 @@
 CHROOT_PATH="/tmp/zyxel_root"
 IWPRIV="/usr/sbin/iwpriv"
 
-# written by majad qureshi as part of wrapper
-# modified to dynamically support all Mediatek ra*/rai* interfaces
-sync_iface() {
+sync_iface_settings() {
     local config="$1"
-    local device ifname disabled ssid key encryption hidden macaddr maxassoc channel htmode txpower main_ifname
+    local device ifname disabled key encryption hidden macaddr maxassoc channel htmode txpower main_ifname
 
     config_get device "$config" device
     config_get ifname "$config" ifname
-
-    # FIX 1: Dynamically grab the default interface name 
     config_get main_ifname "$device" ifname
+    
     if [ -z "$ifname" ]; then
         ifname="$main_ifname"
     fi
 
     config_get disabled "$config" disabled "0"
-    config_get ssid "$config" ssid
     config_get key "$config" key
     config_get encryption "$config" encryption "none"
     config_get hidden "$config" hidden "0"
@@ -28,17 +24,13 @@ sync_iface() {
 
     [ -z "$ifname" ] && return
     
-    # FIX 2: Use wildcards 
     case "$ifname" in
         ra*|rai*) ;;
         *) return ;;
     esac
 
-    # FIX 3: Dynamically identify the main radio interface instead of hardcoding 'ra0' and 'rai5'
     local is_main=0
     [ "$ifname" = "$main_ifname" ] && is_main=1
-    
-    # Fallback just in case 
     if [ -z "$main_ifname" ]; then
         [ "$ifname" = "ra0" -o "$ifname" = "rai0" -o "$ifname" = "rai5" ] && is_main=1
     fi
@@ -57,7 +49,6 @@ sync_iface() {
             config_get htmode "$device" htmode "0"
             config_get txpower "$device" txpower "100"
 
-     
             chroot $CHROOT_PATH $IWPRIV $ifname set BssidNum=8 > /dev/null 2>&1
 
             if [ "$channel" != "auto" ]; then
@@ -92,10 +83,38 @@ sync_iface() {
             chroot $CHROOT_PATH $IWPRIV $ifname set EncrypType=AES > /dev/null 2>&1
             [ -n "$key" ] && chroot $CHROOT_PATH $IWPRIV $ifname set WPAPSK="$key" > /dev/null 2>&1
         fi
+    fi
+}
 
+sync_iface_ssid() {
+    local config="$1"
+    local device ifname disabled ssid main_ifname
+
+    config_get device "$config" device
+    config_get ifname "$config" ifname
+    config_get main_ifname "$device" ifname
+    
+    if [ -z "$ifname" ]; then
+        ifname="$main_ifname"
+    fi
+
+    config_get disabled "$config" disabled "0"
+    config_get ssid "$config" ssid
+
+    [ -z "$ifname" ] && return
+    
+    case "$ifname" in
+        ra*|rai*) ;;
+        *) return ;;
+    esac
+
+
+    if [ "$disabled" != "1" ] && [ -n "$ssid" ]; then
         chroot $CHROOT_PATH $IWPRIV $ifname set SSID="$ssid" > /dev/null 2>&1
     fi
 }
 
 config_load wireless
-config_foreach sync_iface wifi-iface
+config_foreach sync_iface_settings wifi-iface
+sleep 1
+config_foreach sync_iface_ssid wifi-iface
