@@ -21,7 +21,7 @@ A Functional Openwrt for DX3301-T0 and EX-3301-T0, Zyxel Matrix is developed usi
 ## 📥 Quick Download
 
 👉 **[Download Latest Release](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases/download/Openwrt/Openwrt_Zyxel_EX3310-T0-v-17.zip)**
-	Current version : v-16 sha256:9757ebceb4f00c64db7aab82ed901b608e18428f89b4261af819b02307d7151e
+	Current version : v-17 sha256:cd874d72fc88b604d6cd77956f6f888d8b2ddc6981a5762701b5b7824cc3739c
 The download includes:
 - `openwrt-15.5-zyxel-matrix-v-17-squashfs-sysupgrade.bin` - Zyxel-Matrix for DX3301-T0 and EX3301-T0
 - `zyxel-3.3-squashfs-rollback.bin` - Roll Back to Zyxal factory firmware
