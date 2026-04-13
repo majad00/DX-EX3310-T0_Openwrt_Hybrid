@@ -1,24 +1,26 @@
 # Openwrt for MediaTek/Airoha EN751627 based chips ( tested on DX-3301 and EX3301 Routers) 
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](LICENSE)
-[![Release](https://img.shields.io/github/v/release/yourusername/zyxel-matrix-wsr30)](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases)
-[![Downloads](https://img.shields.io/github/downloads/yourusername/zyxel-matrix-wsr30/total)](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases/download/openwrt/Openwrt_Zyxel_EX3310-T0-v-16.zip)
+[![Release](https://img.shields.io/github/v/release/majad00/zyxel-matrix-wsr30)](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases)
+[![Downloads](https://img.shields.io/github/downloads/majad00/zyxel-matrix-wsr30/total)](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases/tag/Openwrt)
 
 A Functional Openwrt for DX3301-T0 and EX-3301-T0, Zyxel Matrix is developed using Imagebuilder, Openwrt 15.5 source code. 
 👉 You have the flexibility to revert to original router status at any time by using Rollback firmware. Also, updating to the latest Zyxel firmware is possible through LUCI interface in Zyxel-Matrix.
+
+#Version V-17 includes support for Wi-Fi backhaul. You can activate this feature by from Network > Mesh Backhaul.
 
 ## ✨ Features  Full functional Openwrt 
 - **Easy Installation** - No UART or disassembly required! Install from Web interface
 - **Full Luci Interface** - Manage your router through any browser
 - **Advanced Radio Control** - Control over all available Radios
-- **SSH Access** - for lowe level tasks
 - **Root access** - Zyxel-Matrix OS with full previliges (No Password or 1234)
 - **pre compiled** - cross-compiled binary ready to install
 - **Roll Back** - Openwrt Sysupgrade can flash OEM firmware to router
+- **Wi-Fi Backhaul** - You dont need WAN port for upstream router you can use fast Wi-Fi backhaul
 
 ## 📥 Quick Download
 
-👉 **[Download Latest Release](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases/download/openwrt/Openwrt_Zyxel_EX3310-T0-v-16.zip)**
+👉 **[Download Latest Release](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases/download/Openwrt/Openwrt_Zyxel_EX3310-T0-v-17.zip)**
 	Current version : v-16 sha256:9757ebceb4f00c64db7aab82ed901b608e18428f89b4261af819b02307d7151e
 The download includes:
 - `openwrt-15.5-zyxel-matrix-v-15-squashfs-sysupgrade.bin` - Zyxel-Matrix for DX3301-T0 and EX3301-T0

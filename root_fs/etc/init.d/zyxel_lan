@@ -97,8 +97,53 @@ start() {
              echo -n "Done > > [" > /dev/console
                         touch /overlay/.reset
                 for i in $(seq 1 20); do
-        echo -n " > " > /dev/console
-        sleep 1
-                done
+				echo -n " > " > /dev/console
+				sleep 1
+				done
+							
+			killall wapp 2>/dev/null
+			killall mapd 2>/dev/null
+			killall zyMAPSteer 2>/dev/null
+
+			
+			brctl addbr br-mesh 2>/dev/null
+			ifconfig br-mesh up
+			brctl delif br-lan nas10 2>/dev/null
+			brctl delif br-lan apcli0 2>/dev/null
+			ifconfig nas10 0.0.0.0
+			brctl addif br-mesh nas10
+
+			
+			ifconfig apcli0 down
+			ifconfig apcli0 up
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv apcli0 set ApCliEnable=0
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set AutoChannelSel=0
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set Channel=1
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set HtBw=0
+
+
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set SiteSurvey=1
+			sleep 5
+
+	
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv apcli0 set ApCliAuthMode=WPA2PSK
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv apcli0 set ApCliEncrypType=AES
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv apcli0 set ApCliSsid=""
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv apcli0 set ApCliWPAPSK=""
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv apcli0 set ApCliBssid=""
+
+
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv apcli0 set ApCliEnable=1
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set RadioOn=0
+			sleep 3
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set RadioOn=1
+
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set AutoChannelSel=0
+			chroot /tmp/zyxel_root /usr/sbin/iwpriv ra0 set Channel=1
+
+			sleep 5
+				usr/bin/wifi-backhaul.sh &
+				
+				
                 echo " 100%  Ready! - Press any key to login ...]" > /dev/console
 }

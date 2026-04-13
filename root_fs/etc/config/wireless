@@ -14,11 +14,6 @@ config wifi-device 'radio1'
         option hwmode '11a'
 
 
-# ==========================================
-# MAIN INTERFACES
-# (CRITICAL: These MUST stay at the top so the Startup Script reads [0] and [1])
-# ==========================================
-
 # uci index: @wifi-iface[0]
 config wifi-iface 'main2g'
         option device 'radio0'
@@ -40,4 +35,12 @@ config wifi-iface 'main5g'
         option key '12345678'
         option network 'lan'
         option disabled '0'
+
+
+config wifi-mesh 'mesh'
+	option enabled '0'
+	option ssid 'AP'	
+	option bssid '11:22:33:44:55:66'
+	option password '12345678'
+	option channel '1'
 
