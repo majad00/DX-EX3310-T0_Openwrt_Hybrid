@@ -8,6 +8,8 @@ A Functional Openwrt for DX3301-T0 and EX-3301-T0, Zyxel Matrix is community bui
 👉 You can revert to OEM firmware status at any time by doing a Rollback, or update latest Zyxel firmware through LUCI interface.
 
 ### Version V-17 includes support for Wi-Fi backhaul. You can activate this feature from Network > Mesh Backhaul.
+⚠️ **Important**: Please use either WAN or Wi-Fi backhaul. Using both together may slow performance.
+
 
 ## ✨ Features  Full functional Openwrt 
 - **Easy Installation** - No UART or disassembly required! Install from Web interface
@@ -39,7 +41,7 @@ The download includes:
 6. **Configure**: http://192.168.1.1 (root/no passwrod )
 
 > ⚠️ **IMPORTANT**: Change password after first boot!, on successfull boot the network LED starts blinking
-> ⚠️ **Optional**: After flashing Zyxel-Matrix, please reset to make sure previous Zyxel settings removed
+
 
 ## 🚀 Flashing using UART (safe for testing )
 1. **Connect** Using TX, RX and GND, rename the firmware to RAS.bin (optional)
