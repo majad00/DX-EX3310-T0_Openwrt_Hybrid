@@ -1,13 +1,13 @@
-# Openwrt for MediaTek/Airoha EN751627 based chips ( tested on DX-3301 and EX3301 Routers) 
+# Openwrt for MediaTek/Airoha EN751627 based chips ( v-17 tested on EX3301 Router) 
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/majad00/zyxel-matrix-wsr30)](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases)
 [![Downloads](https://img.shields.io/github/downloads/majad00/zyxel-matrix-wsr30/total)](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases/tag/Openwrt)
 
 A Functional Openwrt for DX3301-T0 and EX-3301-T0, Zyxel Matrix is developed using Imagebuilder, Openwrt 15.5 source code. 
-👉 You have the flexibility to revert to original router status at any time by using Rollback firmware. Also, updating to the latest Zyxel firmware is possible through LUCI interface in Zyxel-Matrix.
+👉 You can revert to OEM firmware status at any time by doing a Rollback, or update latest Zyxel firmware through LUCI interface.
 
-#Version V-17 includes support for Wi-Fi backhaul. You can activate this feature by from Network > Mesh Backhaul.
+### Version V-17 includes support for Wi-Fi backhaul. You can activate this feature from Network > Mesh Backhaul.
 
 ## ✨ Features  Full functional Openwrt 
 - **Easy Installation** - No UART or disassembly required! Install from Web interface
@@ -23,7 +23,7 @@ A Functional Openwrt for DX3301-T0 and EX-3301-T0, Zyxel Matrix is developed usi
 👉 **[Download Latest Release](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases/download/Openwrt/Openwrt_Zyxel_EX3310-T0-v-17.zip)**
 	Current version : v-16 sha256:9757ebceb4f00c64db7aab82ed901b608e18428f89b4261af819b02307d7151e
 The download includes:
-- `openwrt-15.5-zyxel-matrix-v-15-squashfs-sysupgrade.bin` - Zyxel-Matrix for DX3301-T0 and EX3301-T0
+- `openwrt-15.5-zyxel-matrix-v-17-squashfs-sysupgrade.bin` - Zyxel-Matrix for DX3301-T0 and EX3301-T0
 - `zyxel-3.3-squashfs-rollback.bin` - Roll Back to Zyxal factory firmware
 - `README.txt` - Complete instructions
 - `CHANGELOG.txt` - Version history
