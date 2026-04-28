@@ -5,10 +5,11 @@
 [![Release](https://img.shields.io/github/v/release/majad00/zyxel-matrix-wsr30)](https://github.com/majad00/Openwrt_Zyxel_EX3310-T0/releases)
 [![Downloads](https://img.shields.io/github/downloads/majad00/zyxel-matrix-wsr30/total)](https://github.com/majad00/Openwrt_Zyxel-EX3301-T0/releases/tag/Openwrt)
 
-Openwrt 15.05 for DX3301-T0, a community build firmware , developed using Imagebuilder and Openwrt 15.5 source code. 
-Use Openwrt or Revert to OEM firmware by using a Rollback, or installing latest Zyxel firmware.
+OpenWrt for Zyxel EX3301-T0 is a community-built version developed using ImageBuilder and the OpenWrt 15.05 source code. After flashing it through the OEM firmware upgrade, you can start using this OpenWrt build immediately. If needed, you can revert to the OEM firmware by using a rollback firmware or by installing the latest Zyxel firmware.
 
-### Version V-17 includes support for Wi-Fi backhaul. You can activate this feature from Network > Mesh Backhaul.
+### Version V-17 is stable release which includes support for Wi-Fi backhaul.
+( Activate from Network > Mesh Backhaul dropdown menu in LUCI)
+
 ⚠️ **Important**: Please use either WAN or Wi-Fi backhaul. Using both together may slow performance.
 
 
