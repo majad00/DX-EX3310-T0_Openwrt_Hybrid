@@ -1,5 +1,4 @@
-# Zyxel-Matrix Hybrid OS for EX3301-T0 / DX3310-T0
-
+# Openwrt 14.5mcommunity build for EX3301-T0
 ## 📦 Large Files Download
 
 Due to GitHub size limitations, large files are hosted externally. The following source files are required for building:
@@ -32,15 +31,7 @@ Due to GitHub size limitations, large files are hosted externally. The following
 
 1. Download the required source files listed above
 2. Place them in the `source/` directory, make changes
-3. Use the provided tool (coming soon) to create custom firmware by modifying the rootfs part
-   The tool will also signe the firmware , ready to flash.
-
-### Coming Soon
-
-- Build tools and scripts
-- SDK files
-- Cross-compilation environment setup
-- Custom rootfs creation guide
+3. Use the provided tool see readme in /DOC  to create custom firmware by modifying the rootfs part 
 
 ## 📁 Directory Structure
 DX-EX3310-T0_Openwrt_Hybrid/
@@ -67,7 +58,7 @@ DX-EX3310-T0_Openwrt_Hybrid/
 
 ## ⚠️ License
 
-This project is licensed under the GNU General Public License v2.0. Proprietary components remain the property of their respective owners and are not shared. The firmware leaves all property utilities on the router under the custody of the original owner.
+This project is licensed under the GNU General Public License v2.0. Proprietary components remain the property of their respective owners and are not shared. The firmware leaves all property utilities on the router under the OEM hardware.
 
 ---
 
