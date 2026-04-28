@@ -2,7 +2,7 @@
 ZYXEL-MATRIX DX-EX3301-T0 FIRMWARE CHANGELOG
 ================================================
 
-Version: 1.8.0 March 2026 (V-16)
+Version: 2.0.0 April 2026 (V-17)
 Author: Qureshi Majad
 Router: ZyXEL EX3301-T0 AX1800 Dual-band -WiFi6
 
@@ -10,15 +10,17 @@ Router: ZyXEL EX3301-T0 AX1800 Dual-band -WiFi6
 
 RELEASE NOTES
 -------------
-Initial stable release of Zyxel-Matrix firmware for EX3301-T0 router.
-This pre-release focuses on stability and essential features with a 
-fully functional Openwrt on EX-3301-T0 router.
+This stable release of Openwrt for EX3301-T0 router include Backhaul Mesh connectivity.
+Focusing on stability and essential features with a fully functional Openwrt on EX-3301-T0 router.
 
 
 --------------------------------------------------------------------
 
 VERSION HISTORY
 ---------------
+2.5.0 April 2026) Stable V-17
+   •Backhaul Mesh support added
+
 1.8.0 April 2026) Stable V-16
    • Vlan conectivity improved
    • Stable Wireless mode
@@ -35,6 +37,7 @@ VERSION HISTORY
 
 BUG FIXES
 ---------
+Back haul support is added, no need physical WAN connection for upstream outers.
 SSH known issue is fixed
 5g and 2g guest wifi removed til lissue is solved
 --------------------------------------------------------------------
@@ -99,4 +102,4 @@ Modifications and additions are provided under GPL v2.
 
 --------------------------------------------------------------------
 For latest updates and information, visit:
-[Your website/GitHub repository URL]
+[https://github.com/majad00/Openwrt_Zyxel-EX3301-T0/releases/tag/Openwrt]
